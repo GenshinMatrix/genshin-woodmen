@@ -125,7 +125,7 @@ namespace GenshinWoodmen.Core
                 catch (Exception e)
                 {
                     Logger.Exception(e);
-                    NoticeService.AddNotice(Pack.Name, "Failed", e.Message);
+                    NoticeService.AddNotice(Mui("Tips"), "Failed", e.Message);
                 }
             }
         }

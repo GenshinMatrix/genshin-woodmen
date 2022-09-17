@@ -106,29 +106,37 @@ namespace GenshinWoodmen.Core
                 {
                     if (!SpinWait.SpinUntil(() => SearchRunning().Result, 15000))
                     {
-                        NoticeService.AddNotice(Pack.Url, "Failed", "Failed to kill Genshin Impact.");
+                        NoticeService.AddNotice(Mui("Tips"), "Failed", "Failed to kill Genshin Impact.");
                         return IntPtr.Zero;
                     }
                 }
             }
             catch (Exception e)
             {
-                NoticeService.AddNotice(Pack.Name, "Failed", e.Message);
+                NoticeService.AddNotice(Mui("Tips"), "Failed", e.Message);
             }
 
             if (string.IsNullOrEmpty(GenshinRegedit.InstallPath))
             {
-                NoticeService.AddNotice(Pack.Url, "Failed", "Genshin Impact not installed.");
+                NoticeService.AddNotice(Mui("Tips"), "Failed", "Genshin Impact not installed.");
             }
             else
             {
                 if (delayMs != null)
                     await JiggingProcessor.Delay((int)delayMs);
+
+                string fileName = Path.Combine(GenshinRegedit.InstallPath, "Genshin Impact Game", "YuanShen.exe");
+
+                if (!File.Exists(fileName))
+                {
+                    fileName = Path.Combine(GenshinRegedit.InstallPath, "Genshin Impact Game", "GenshinImpact.exe");
+                }
+
                 Process? p = Process.Start(new ProcessStartInfo()
                 {
                     UseShellExecute = true,
                     FileName = Path.Combine(GenshinRegedit.InstallPath, "Genshin Impact Game", "YuanShen.exe"),
-                    Arguments = string.Empty,
+                    Arguments = "-screen-fullscreen 0 -screen-width 1440 -screen-height 900",
                     WorkingDirectory = Environment.CurrentDirectory,
                     Verb = "runas",
                 });
