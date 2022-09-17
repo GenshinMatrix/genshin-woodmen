@@ -8,16 +8,34 @@
         xmlns:main="clr-namespace:GenshinWoodmen"
         xmlns:local="clr-namespace:GenshinWoodmen.Views"
         Name="Self"
-        ShowInTaskbar="False" Topmost="True" ResizeMode="NoResize"
+        ShowInTaskbar="False" Topmost="True" ResizeMode="NoResize" Opacity="0" d:Opacity="1"
         Icon="../Resources/favcion.ico" InputMethod.IsInputMethodEnabled="False"
         mc:Ignorable="d" WindowStyle="None" AllowsTransparency="True" Background="Transparent"
         WindowStartupLocation="Manual" Title="Genshin Woodmen" Height="50" Width="240"
         Left="{Binding Left,Converter={StaticResource AddConverter},ConverterParameter=-240}"
         Top="{Binding Top,Converter={StaticResource AddConverter},ConverterParameter=-50}"
         RenderOptions.BitmapScalingMode="Fant">
+    <ContentControl.Resources>
+        <ResourceDictionary>
+            <SineEase x:Key="FadeInEase" EasingMode="EaseOut"/>
+        </ResourceDictionary>
+    </ContentControl.Resources>
     <i:Interaction.Behaviors>
         <local:UIElementDragMoveBehavior/>
     </i:Interaction.Behaviors>
+    <Window.Style>
+        <Style TargetType="{x:Type Window}">
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Window.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.4" BeginTime="0:0:0.0" EasingFunction="{StaticResource FadeInEase}"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Style>
     <Window.ContextMenu>
         <ContextMenu Padding="0,5" MinWidth="140">
             <MenuItem Header="{DynamicResource WoodGuide}" Command="{Binding UsageImageCommand}">
@@ -80,7 +98,7 @@
                         </StackPanel>
                     </Button.Content>
                     <Button.ContextMenu>
-                        <ContextMenu Padding="0,5" MinWidth="140">
+                        <ContextMenu Padding="0,5" MinWidth="140" MaxWidth="999">
                             <MenuItem>
                                 <MenuItem.ToolTip>
                                     <TextBlock>
@@ -102,33 +120,53 @@
                                         <StackPanel Grid.Column="1" HorizontalAlignment="Left">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Text="&#xea3b;" FontSize="6" FontFamily="{StaticResource SegoeFluent}" VerticalAlignment="Center"/>
-                                                <TextBlock Text="x3" Margin="5,0,0,0" Width="40"/>
-                                                <TextBlock Text="{Binding ForecastX3}" Margin="0,0,0,0"/>
-                                                <TextBlock Text="{DynamicResource UnitMinPer2000Items}" Margin="2,0,0,0"/>
+                                                <TextBlock Text="x3" Margin="5,0,0,0" Width="30"/>
+                                                <TextBlock Text="&#xe916;" FontFamily="{StaticResource SegoeFluent}"/>
+                                                <TextBlock Text="{Binding ForecastX3}" Margin="2,0,0,0"/>
+                                                <TextBlock Text="{DynamicResource UnitMin}" Margin="2,0,0,0"/>
+                                                <TextBlock Text="&#xeadf;" FontFamily="{StaticResource SegoeFluent}" Margin="10,0,0,0"/>
+                                                <TextBlock Text="{Binding ForecastX3Count}" Margin="2,0,0,0"/>
+                                                <TextBlock Text="{DynamicResource Count}" Margin="2,0,0,0"/>
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal"  HorizontalAlignment="Left">
                                                 <TextBlock Text="&#xea3b;" FontSize="6" FontFamily="{StaticResource SegoeFluent}" VerticalAlignment="Center"/>
-                                                <TextBlock Text="x6" Margin="5,0,0,0" Width="40"/>
-                                                <TextBlock Text="{Binding ForecastX6}" Margin="0,0,0,0"/>
-                                                <TextBlock Text="{DynamicResource UnitMinPer2000Items}" Margin="2,0,0,0"/>
+                                                <TextBlock Text="x6" Margin="5,0,0,0" Width="30"/>
+                                                <TextBlock Text="&#xe916;" FontFamily="{StaticResource SegoeFluent}"/>
+                                                <TextBlock Text="{Binding ForecastX6}" Margin="2,0,0,0"/>
+                                                <TextBlock Text="{DynamicResource UnitMin}" Margin="2,0,0,0"/>
+                                                <TextBlock Text="&#xeadf;" FontFamily="{StaticResource SegoeFluent}" Margin="10,0,0,0"/>
+                                                <TextBlock Text="{Binding ForecastX6Count}" Margin="2,0,0,0"/>
+                                                <TextBlock Text="{DynamicResource Count}" Margin="2,0,0,0"/>
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Text="&#xea3b;" FontSize="6" FontFamily="{StaticResource SegoeFluent}" VerticalAlignment="Center"/>
-                                                <TextBlock Text="x9" Margin="5,0,0,0" Width="40"/>
-                                                <TextBlock Text="{Binding ForecastX9}" Margin="0,0,0,0"/>
-                                                <TextBlock Text="{DynamicResource UnitMinPer2000Items}" Margin="2,0,0,0"/>
+                                                <TextBlock Text="x9" Margin="5,0,0,0" Width="30"/>
+                                                <TextBlock Text="&#xe916;" FontFamily="{StaticResource SegoeFluent}"/>
+                                                <TextBlock Text="{Binding ForecastX9}" Margin="2,0,0,0"/>
+                                                <TextBlock Text="{DynamicResource UnitMin}" Margin="2,0,0,0"/>
+                                                <TextBlock Text="&#xeadf;" FontFamily="{StaticResource SegoeFluent}" Margin="10,0,0,0"/>
+                                                <TextBlock Text="{Binding ForecastX9Count}" Margin="2,0,0,0"/>
+                                                <TextBlock Text="{DynamicResource Count}" Margin="2,0,0,0"/>
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Text="&#xea3b;" FontSize="6" FontFamily="{StaticResource SegoeFluent}" VerticalAlignment="Center"/>
-                                                <TextBlock Text="x12" Margin="5,0,0,0" Width="40"/>
-                                                <TextBlock Text="{Binding ForecastX12}" Margin="0,0,0,0"/>
-                                                <TextBlock Text="{DynamicResource UnitMinPer2000Items}" Margin="2,0,0,0"/>
+                                                <TextBlock Text="x12" Margin="5,0,0,0" Width="30"/>
+                                                <TextBlock Text="&#xe916;" FontFamily="{StaticResource SegoeFluent}"/>
+                                                <TextBlock Text="{Binding ForecastX12}" Margin="2,0,0,0"/>
+                                                <TextBlock Text="{DynamicResource UnitMin}" Margin="2,0,0,0"/>
+                                                <TextBlock Text="&#xeadf;" FontFamily="{StaticResource SegoeFluent}" Margin="10,0,0,0"/>
+                                                <TextBlock Text="{Binding ForecastX12Count}" Margin="2,0,0,0"/>
+                                                <TextBlock Text="{DynamicResource Count}" Margin="2,0,0,0"/>
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Text="&#xea3b;" FontSize="6" FontFamily="{StaticResource SegoeFluent}" VerticalAlignment="Center"/>
-                                                <TextBlock Text="x15" Margin="5,0,0,0" Width="40"/>
-                                                <TextBlock Text="{Binding ForecastX15}" Margin="0,0,0,0"/>
-                                                <TextBlock Text="{DynamicResource UnitMinPer2000Items}" Margin="2,0,0,0"/>
+                                                <TextBlock Text="x15" Margin="5,0,0,0" Width="30"/>
+                                                <TextBlock Text="&#xe916;" FontFamily="{StaticResource SegoeFluent}"/>
+                                                <TextBlock Text="{Binding ForecastX15}" Margin="2,0,0,0"/>
+                                                <TextBlock Text="{DynamicResource UnitMin}" Margin="2,0,0,0"/>
+                                                <TextBlock Text="&#xeadf;" FontFamily="{StaticResource SegoeFluent}" Margin="10,0,0,0"/>
+                                                <TextBlock Text="{Binding ForecastX15Count}" Margin="2,0,0,0"/>
+                                                <TextBlock Text="{DynamicResource Count}" Margin="2,0,0,0"/>
                                             </StackPanel>
                                         </StackPanel>
                                     </Grid>
@@ -147,7 +185,7 @@
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="{DynamicResource ShutdownTimer}" VerticalAlignment="Center"/>
                                         <ui:ToggleSwitch IsOn="{Binding PowerOffAuto,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" OnContent="{DynamicResource ON}" OffContent="{DynamicResource OFF}" Margin="10,0,0,0" MaxWidth="80" InputMethod.IsInputMethodEnabled="False"/>
-                                        <ui:NumberBox Text="{Binding PowerOffAutoMinute,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding PowerOffAuto,Converter={StaticResource ReverseConverter}}" Minimum="0" Maximum="9999" InputMethod.IsInputMethodEnabled="False"/>
+                                        <ui:NumberBox Text="{Binding PowerOffAutoMinute,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding PowerOffAuto,Converter={StaticResource ReverseConverter}}" Margin="10,0,0,0" Minimum="0" Maximum="9999" InputMethod.IsInputMethodEnabled="False"/>
                                         <TextBlock Text="{DynamicResource MinAfterPowerOff}" Margin="5,0,0,0" VerticalAlignment="Center"/>
                                     </StackPanel>
                                 </MenuItem.Header>

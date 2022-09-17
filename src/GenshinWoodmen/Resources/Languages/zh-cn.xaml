@@ -17,7 +17,7 @@
     <s:String x:Key="VisitWebsite">访问网站</s:String>
     <s:String x:Key="TimePredictionDetail">按照「王树瑞佑」小道具一次覆盖范围能获取最大木头数量计算，实际时间会稍大于该值数分钟。每日每种木材的获取上限为2000个。</s:String>
     <s:String x:Key="TimePrediction">用时预测</s:String>
-    <s:String x:Key="UnitMinPer2000Items">分钟/2000木</s:String>
+    <s:String x:Key="UnitMin">分钟</s:String>
     <s:String x:Key="ShutdownTimerDetail">设定倒计时自动关机。</s:String>
     <s:String x:Key="ShutdownTimer">倒计时关机</s:String>
     <s:String x:Key="ON">开</s:String>

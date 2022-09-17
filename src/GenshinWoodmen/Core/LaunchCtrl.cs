@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -98,7 +99,7 @@ namespace GenshinWoodmen.Core
             });
         }
 
-        public static async Task<IntPtr> Launch(int? delayMs = null, RelaunchMethod relaunchMethod = RelaunchMethod.Logout)
+        public static async Task<IntPtr> Launch(int? delayMs = null, RelaunchMethod relaunchMethod = RelaunchMethod.Logout, LaunchParameter launchParameter = null!)
         {
             try
             {
@@ -122,21 +123,23 @@ namespace GenshinWoodmen.Core
             }
             else
             {
+                const string GameFolderName = "Genshin Impact Game";
+
                 if (delayMs != null)
                     await JiggingProcessor.Delay((int)delayMs);
 
-                string fileName = Path.Combine(GenshinRegedit.InstallPath, "Genshin Impact Game", "YuanShen.exe");
+                string fileName = Path.Combine(GenshinRegedit.InstallPath, GameFolderName, "YuanShen.exe");
 
                 if (!File.Exists(fileName))
                 {
-                    fileName = Path.Combine(GenshinRegedit.InstallPath, "Genshin Impact Game", "GenshinImpact.exe");
+                    fileName = Path.Combine(GenshinRegedit.InstallPath, GameFolderName, "GenshinImpact.exe");
                 }
 
                 Process? p = Process.Start(new ProcessStartInfo()
                 {
                     UseShellExecute = true,
-                    FileName = Path.Combine(GenshinRegedit.InstallPath, "Genshin Impact Game", "YuanShen.exe"),
-                    Arguments = "-screen-fullscreen 0 -screen-width 1440 -screen-height 900",
+                    FileName = Path.Combine(GenshinRegedit.InstallPath, GameFolderName, fileName),
+                    Arguments = (launchParameter ?? new()).ToString(),
                     WorkingDirectory = Environment.CurrentDirectory,
                     Verb = "runas",
                 });
@@ -145,7 +148,33 @@ namespace GenshinWoodmen.Core
             return IntPtr.Zero;
         }
 
-        public enum RelaunchMethod
+        internal class LaunchParameter
+        {
+            public bool? IsFullScreen { get; set; } = false;
+            public int? ScreenWidth { get; set; } = 1440;
+            public int? ScreenHeight { get; set; } = 900;
+
+            public override string ToString()
+            {
+                StringBuilder sb = new();
+
+                if (IsFullScreen != null)
+                {
+                    sb.Append("-screen-fullscreen").Append(" ").Append(IsFullScreen.Value ? 1 : 0);
+                }
+                if (ScreenWidth != null)
+                {
+                    sb.Append("-screen-width").Append(" ").Append(ScreenWidth);
+                }
+                if (ScreenHeight != null)
+                {
+                    sb.Append("-screen-height").Append(" ").Append(ScreenHeight);
+                }
+                return sb.ToString();
+            }
+        }
+
+        internal enum RelaunchMethod
         {
             Kill,
             Close,

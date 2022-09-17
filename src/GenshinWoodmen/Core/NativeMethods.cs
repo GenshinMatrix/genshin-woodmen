@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using System.Windows;
-using System.Windows.Forms;
 
 namespace GenshinWoodmen.Core
 {
@@ -89,16 +87,10 @@ namespace GenshinWoodmen.Core
             }
         }
 
-        [Obsolete]
-        public static void CursorCenterPos()
+        public static void CursorCenterPos(IntPtr hwnd, int offsetX = 0, int offsetY = 0)
         {
-            _ = SetCursorPos((int)(SystemParameters.WorkArea.Right / 2d), (int)(SystemParameters.WorkArea.Bottom / 2d));
-        }
-
-        public static void CursorCenterPos(IntPtr hwnd)
-        {
-            Screen screen = Screen.FromHandle(hwnd);
-            _ = SetCursorPos((int)(screen.WorkingArea.Right / 2d), (int)(screen.WorkingArea.Bottom / 2d));
+            RECT rect = GetWindowRECT(hwnd);
+            _ = SetCursorPos(rect.Left + (int)((rect.Right - rect.Left) / 2d) + offsetX, rect.Top + (int)((rect.Bottom - rect.Top) / 2d) + offsetY);
         }
 
         public static RECT GetWindowRECT(IntPtr hwnd)

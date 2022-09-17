@@ -28,6 +28,12 @@ namespace GenshinWoodmen.ViewModels
         public int ForecastX12 => ForecastX3 / 4;
         public int ForecastX15 => ForecastX3 / 5;
 
+        public int ForecastX3Count => (int)Math.Floor(2000d / 3d);
+        public int ForecastX6Count => (int)Math.Floor(2000d / 6d);
+        public int ForecastX9Count => (int)Math.Floor(2000d / 9d);
+        public int ForecastX12Count => (int)Math.Floor(2000d / 12d);
+        public int ForecastX15Count => (int)Math.Floor(2000d / 15d);
+
         protected int currentCount = 0;
         public int CurrentCount
         {
@@ -159,6 +165,7 @@ namespace GenshinWoodmen.ViewModels
         public MainViewModel(MainWindow source)
         {
             Source = source;
+
             WeakReferenceMessenger.Default.RegisterAll(this);
             GC.KeepAlive(new PeriodProcessor(() =>
             {

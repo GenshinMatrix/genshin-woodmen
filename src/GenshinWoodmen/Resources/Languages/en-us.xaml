@@ -17,7 +17,7 @@
     <s:String x:Key="VisitWebsite">Visit Website</s:String>
     <s:String x:Key="TimePredictionDetail">The actual time will be slightly greater than this value for several minutes, calculated according to the maximum amount of wood that can be obtained from the one-time coverage of the "The Boon of the Elder Tree" small prop. The maximum daily acquisition of each kind of wood is 2000.</s:String>
     <s:String x:Key="TimePrediction">Time Prediction</s:String>
-    <s:String x:Key="UnitMinPer2000Items">min/2000items</s:String>
+    <s:String x:Key="UnitMin">min</s:String>
     <s:String x:Key="ShutdownTimerDetail">Set the countdown to auto shutdown.</s:String>
     <s:String x:Key="ShutdownTimer">Timed Shutdown</s:String>
     <s:String x:Key="ON">ON</s:String>
@@ -26,7 +26,7 @@
     <s:String x:Key="CountDetail">It will automatically stop when the accumulated number is reached, but it will not automatically shut down or exit the game.</s:String>
     <s:String x:Key="LoopTimes">Loop Times</s:String>
     <s:String x:Key="ClearData">Clear Data</s:String>
-    <s:String x:Key="Count">Times</s:String>
+    <s:String x:Key="Count">times</s:String>
     <s:String x:Key="WoodGuideDetail">Provide recommended wood points.</s:String>
     <s:String x:Key="UsageDetail">Prompt for usage.</s:String>
     <s:String x:Key="ReloadConfigFileDetail">Reload the configuration file. If the configuration format is incorrect, it will be restored to the default value.</s:String>
