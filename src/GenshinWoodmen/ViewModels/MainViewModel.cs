@@ -13,7 +13,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using Keys = System.Windows.Forms.Keys;
 
 namespace GenshinWoodmen.ViewModels
 {
@@ -23,7 +22,7 @@ namespace GenshinWoodmen.ViewModels
         public double Left => SystemParameters.WorkArea.Right;
         public double Top => SystemParameters.WorkArea.Bottom;
 
-        public int ForecastX3 => (int)(((Settings.DelayLogin / 1000d) + (Settings.DelayLaunch / 1000d) + 10d) * 2000d / 60d);
+        public int ForecastX3 => (int)(((Settings.DelayLogin / 1000d) + (Settings.DelayLaunch / 1000d) + 7d) * (2000d / 3d) / 60d);
         public int ForecastX6 => ForecastX3 / 2;
         public int ForecastX9 => ForecastX3 / 3;
         public int ForecastX12 => ForecastX3 / 4;
@@ -107,6 +106,23 @@ namespace GenshinWoodmen.ViewModels
                 {
                     FileName = "cmd.exe",
                     Arguments = $"/c \"{SettingsManager.Path}\"",
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+                });
+            }
+            catch
+            {
+            }
+        });
+
+        public ICommand ConfigOpenWithCommand => new RelayCommand(async () =>
+        {
+            try
+            {
+                _ = Process.Start(new ProcessStartInfo()
+                {
+                    FileName = "openwith.exe",
+                    Arguments = $"\"{SettingsManager.Path}\"",
                     UseShellExecute = false,
                     CreateNoWindow = true,
                 });

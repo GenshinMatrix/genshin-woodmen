@@ -80,7 +80,7 @@ namespace GenshinWoodmen.Core
                         UserSimulator.Input.Keyboard.KeyPress(VirtualKeyCode.VK_Z);
                         TraceStatus("Pressed KeyZ");
                         Count();
-                        await Delay(2000);
+                        await Delay(200);
                         TraceStatus("Got Wood");
                     }
                     else
@@ -108,9 +108,9 @@ namespace GenshinWoodmen.Core
                         UserSimulator.Input.Keyboard.KeyPress(VirtualKeyCode.VK_Z);
                         TraceStatus("Pressed KeyZ");
                         Count();
-                        await Delay(2000);
+                        await Delay(200);
                         TraceStatus("Got Wood");
-                        await Delay(1000);
+                        await Delay(100);
                         TraceStatus("Logout");
                         await LaunchCtrl.Logout();
                         lastAutoLogout = true;

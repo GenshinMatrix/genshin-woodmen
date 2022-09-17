@@ -11,6 +11,11 @@
     <Platforms>x64</Platforms>
     <AssemblyName>genshin-woodmen</AssemblyName>
     <UseWindowsForms>True</UseWindowsForms>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
+    <FileVersion>1.1.0</FileVersion>
+    <Version>$(VersionPrefix)1.1.0</Version>
+    <Authors>ema</Authors>
+    <Company>Lemutec</Company>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -19,7 +24,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <NoWarn>1701;1702;1998</NoWarn>
+    <NoWarn>1701;1702;1998;0649</NoWarn>
     <DefineConstants>$(DefineConstants)TRACE;</DefineConstants>
   </PropertyGroup>
 

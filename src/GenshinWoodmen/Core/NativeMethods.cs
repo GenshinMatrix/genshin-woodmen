@@ -89,6 +89,7 @@ namespace GenshinWoodmen.Core
             }
         }
 
+        [Obsolete]
         public static void CursorCenterPos()
         {
             _ = SetCursorPos((int)(SystemParameters.WorkArea.Right / 2d), (int)(SystemParameters.WorkArea.Bottom / 2d));

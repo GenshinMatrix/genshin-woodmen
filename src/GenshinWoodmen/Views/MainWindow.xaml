@@ -214,6 +214,16 @@
                                     <TextBlock Text="&#xe8a0;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
                                 </MenuItem.Icon>
                             </MenuItem>
+                            <MenuItem Header="{DynamicResource OpenWithConfigFile}" Command="{Binding ConfigOpenWithCommand}">
+                                <MenuItem.ToolTip>
+                                    <TextBlock>
+                                        <Run Text="{DynamicResource OpenConfigFileDetail}"/>
+                                    </TextBlock>
+                                </MenuItem.ToolTip>
+                                <MenuItem.Icon>
+                                    <TextBlock Text="&#xe8a0;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
                         </ContextMenu>
                     </Button.ContextMenu>
                     <i:Interaction.Behaviors>
