@@ -1,0 +1,37 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+    <s:String x:Key="Genshin">原神</s:String>
+    <s:String x:Key="Woodmen">伐木姫</s:String>
+    <s:String x:Key="ButtonStart">启动</s:String>
+    <s:String x:Key="ButtonStop">停止</s:String>
+    <s:String x:Key="ButtonOK">好的</s:String>
+    <s:String x:Key="Usage">使用方法</s:String>
+    <s:String x:Key="UsageMessage" xml:space="preserve">【声明】&#10;本程序开源且不联网。如果无法正常自动模拟按键，请尝试将本程序添加至杀软白名单，或关闭杀软后使用。&#10;&#10;&#10;【操作步骤】&#10;1. 启动原神；&#10;2. 游戏设置里调整分辨率为1440x900；&#10;3. 手动走到伐木点，可点击菜单栏[伐木指南]参考伐木点；&#10;4. 装备好「王树瑞佑」Z键小道具，这是须弥3级声望赠送道具；&#10;5. 点击启动开始挂机，再次点击可停止（默认快捷键F11）；&#10;&#10;&#10;【小技巧】&#10;可以使用芭芭拉单人队，并且关闭游戏声音。芭芭拉平A不会位移，就算出现卡顿也不会移动导致错位，关闭声音稳定加载速度。&#10;&#10;&#10;【其他说明】&#10;每日每种木材的获取上限为2000个，建议使用自动关机或达到指定次数自动停止功能。可根据自己设备响应速度自己调整延时参数。</s:String>
+    <s:String x:Key="TopMost">顶层显示</s:String>
+    <s:String x:Key="Exit">退出</s:String>
+    <s:String x:Key="WoodGuide">伐木指南</s:String>
+    <s:String x:Key="OpenConfigFile">打开配置文件</s:String>
+    <s:String x:Key="ReloadConfigFile">重载配置文件</s:String>
+    <s:String x:Key="VisitWebsite">访问网站</s:String>
+    <s:String x:Key="TimePredictionDetail">按照「王树瑞佑」小道具一次覆盖范围能获取最大木头数量计算，实际时间会稍大于该值数分钟。每日每种木材的获取上限为2000个。</s:String>
+    <s:String x:Key="TimePrediction">用时预测</s:String>
+    <s:String x:Key="UnitMinPer2000Items">分钟/2000木</s:String>
+    <s:String x:Key="ShutdownTimerDetail">设定倒计时自动关机。</s:String>
+    <s:String x:Key="ShutdownTimer">倒计时关机</s:String>
+    <s:String x:Key="ON">开</s:String>
+    <s:String x:Key="OFF">关</s:String>
+    <s:String x:Key="MinAfterPowerOff">分钟后关机</s:String>
+    <s:String x:Key="CountDetail">达到累计数量后自动停止，但不会自动关机或退出游戏。</s:String>
+    <s:String x:Key="LoopTimes">循环次数</s:String>
+    <s:String x:Key="ClearData">清除数据</s:String>
+    <s:String x:Key="Count">次</s:String>
+    <s:String x:Key="WoodGuideDetail">提供伐木推荐点。</s:String>
+    <s:String x:Key="UsageDetail">提示使用方法。</s:String>
+    <s:String x:Key="ReloadConfigFileDetail">重新加载配置文件，若配置格式不正确则会恢复为默认值。</s:String>
+    <s:String x:Key="OpenConfigFileDetail">打开加载配置文件，修改后请手动重新加载。</s:String>
+    <s:String x:Key="PowerOffTips1">设备将在{0}分钟后自动关机</s:String>
+    <s:String x:Key="PowerOffTips2">打开设置菜单关闭自动关机开关可取消该动作。</s:String>
+    <s:String x:Key="Tips">提示</s:String>
+    <s:String x:Key="CountReachStop">伐木已完成{0}次循环。</s:String>
+</ResourceDictionary>

@@ -1,0 +1,37 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+    <s:String x:Key="Genshin">Genshin</s:String>
+    <s:String x:Key="Woodmen">Woodmen</s:String>
+    <s:String x:Key="ButtonStart">Start</s:String>
+    <s:String x:Key="ButtonStop">Stop</s:String>
+    <s:String x:Key="ButtonOK">OK</s:String>
+    <s:String x:Key="Usage">Usage</s:String>
+    <s:String x:Key="UsageMessage" xml:space="preserve">[Announcement]&#10;This program is open source and running without network. If you can't auto simulate the key, please try to add this program to the anti-virus software white list, or turn off anti-virus software firstly.&#10;&#10;[Steps]&#10;1. Startup Genshin Impact;&#10;2. Change game resolution to 1440x900;&#10;3. Goto the wood point, recommended from "Wood Guide".&#10;4. Ready your Key Z gadget, named "The Boon of the Elder Tree", got from Sumeru City Reputation Level 3;&#10;5. Click "Start", and you can click again to "Stop" (default shortcut key is F11);&#10;&#10;[Techniques]&#10;To use Barbara Solo party and mute. Barbara's normal attack will not move character's location, even if there is stuck. Mute can stabilize the loading speed.&#10;&#10;[Others]&#10;The max number of each kind of wood is 2000 per day. It's recommended to use the function of auto shutdown or auto stop when the specified number of times is reached. You can adjust the delay parameters according to the response speed of your own equipment.</s:String>
+    <s:String x:Key="TopMost">Top Most</s:String>
+    <s:String x:Key="Exit">Exit</s:String>
+    <s:String x:Key="WoodGuide">Wood Guide</s:String>
+    <s:String x:Key="OpenConfigFile">Open Config File</s:String>
+    <s:String x:Key="ReloadConfigFile">Reload Config File</s:String>
+    <s:String x:Key="VisitWebsite">Visit Website</s:String>
+    <s:String x:Key="TimePredictionDetail">The actual time will be slightly greater than this value for several minutes, calculated according to the maximum amount of wood that can be obtained from the one-time coverage of the "The Boon of the Elder Tree" small prop. The maximum daily acquisition of each kind of wood is 2000.</s:String>
+    <s:String x:Key="TimePrediction">Time Prediction</s:String>
+    <s:String x:Key="UnitMinPer2000Items">min/2000items</s:String>
+    <s:String x:Key="ShutdownTimerDetail">Set the countdown to auto shutdown.</s:String>
+    <s:String x:Key="ShutdownTimer">Timed Shutdown</s:String>
+    <s:String x:Key="ON">ON</s:String>
+    <s:String x:Key="OFF">OFF</s:String>
+    <s:String x:Key="MinAfterPowerOff">min</s:String>
+    <s:String x:Key="CountDetail">It will automatically stop when the accumulated number is reached, but it will not automatically shut down or exit the game.</s:String>
+    <s:String x:Key="LoopTimes">Loop Times</s:String>
+    <s:String x:Key="ClearData">Clear Data</s:String>
+    <s:String x:Key="Count">Times</s:String>
+    <s:String x:Key="WoodGuideDetail">Provide recommended wood points.</s:String>
+    <s:String x:Key="UsageDetail">Prompt for usage.</s:String>
+    <s:String x:Key="ReloadConfigFileDetail">Reload the configuration file. If the configuration format is incorrect, it will be restored to the default value.</s:String>
+    <s:String x:Key="OpenConfigFileDetail">Open the loading configuration file, and reload it manually after modification.</s:String>
+    <s:String x:Key="PowerOffTips1">The device will auto shutdown in {0} minutes.</s:String>
+    <s:String x:Key="PowerOffTips2">Open the setting menu and turn off the automatic shutdown switch to cancel the action.</s:String>
+    <s:String x:Key="Tips">Tips</s:String>
+    <s:String x:Key="CountReachStop">Loop has completed {0} cycles.</s:String>
+</ResourceDictionary>

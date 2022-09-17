@@ -1,0 +1,37 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+    <s:String x:Key="Genshin">原神</s:String>
+    <s:String x:Key="Woodmen">伐採君</s:String>
+    <s:String x:Key="ButtonStart">ｽﾀｰﾄ</s:String>
+    <s:String x:Key="ButtonStop">ｽﾄｯﾌﾟ</s:String>
+    <s:String x:Key="ButtonOK">OK</s:String>
+    <s:String x:Key="Usage">使い方</s:String>
+    <s:String x:Key="UsageMessage" xml:space="preserve">〔アナウンスメント〕&#10;本プログラムはオープンソース且つネットワークを使いません。もし正常にキーボードなどのシミュレーションが出来ない場合は、本プログラムをアンチウィルスソフトにホワイトリストに追加し、もしくはアンチウィルスソフトを終了後にお使いください。&#10;&#10;〔ステップ〕&#10;1. 原神を起動；&#10;2. ゲーム内の解像度設定を1440x900に変更；&#10;3. 手動的に伐採ポイントに移動、「伐採ガイド」にはお勧めポイントが描かれている；&#10;3. 「王樹の加護」Zキー便利アイテムを装備、このアイテムはスメールでの評判レベル３で獲得できる；&#10;5. 「スタート」をクリックして始まる、もう一度「ストップ」をクリックしたら停止する（デフォルトキーF11）。&#10;&#10;〔テクニック〕&#10;バーバラのソロパーティーを使うことと音声をミュートすること。スタックしてもバーバラの通常攻撃はキャラの位置を変えることはない、ミュートはよりスムーズなリロードが確保できる。&#10;&#10;〔その他の説明〕&#10;種類毎に木材の一日の獲得上限は2000アイテムまで、自動電源オフもしくはループ回数機能を使用することをお勧めする、またあなたのデバイス反応速度に応じて遅延パラメタを調整できる。</s:String>
+    <s:String x:Key="TopMost">最上位に表示</s:String>
+    <s:String x:Key="Exit">終了</s:String>
+    <s:String x:Key="WoodGuide">伐採ガイド</s:String>
+    <s:String x:Key="OpenConfigFile">配置ファイルをオープン</s:String>
+    <s:String x:Key="ReloadConfigFile">配置ファイルをリロード</s:String>
+    <s:String x:Key="VisitWebsite">ウェブサイトを開く</s:String>
+    <s:String x:Key="TimePredictionDetail">便利アイテム「王樹の加護」のカバー範囲に獲得できる木材の数を合わせて計算、実際的に使い時間は予測数値より数分遅れる。種類毎に木材の一日の獲得上限は2000アイテムまで。</s:String>
+    <s:String x:Key="TimePrediction">時間予測</s:String>
+    <s:String x:Key="UnitMinPer2000Items">分/2000ｱｲﾃﾑ</s:String>
+    <s:String x:Key="ShutdownTimerDetail">自動的に電源オフのカウントダウン設定。</s:String>
+    <s:String x:Key="ShutdownTimer">自動電源オフ</s:String>
+    <s:String x:Key="ON">オン</s:String>
+    <s:String x:Key="OFF">オフ</s:String>
+    <s:String x:Key="MinAfterPowerOff">分後に電源オフ</s:String>
+    <s:String x:Key="CountDetail">累計数に達すると自動的に停止しますが、自動的に電源を切ったりゲームを終了したりすることはない。</s:String>
+    <s:String x:Key="LoopTimes">ループ回数</s:String>
+    <s:String x:Key="ClearData">回数をクリア</s:String>
+    <s:String x:Key="Count">回</s:String>
+    <s:String x:Key="WoodGuideDetail">伐採のおすすめポイントを提供。</s:String>
+    <s:String x:Key="UsageDetail">使い方を表示。</s:String>
+    <s:String x:Key="ReloadConfigFileDetail">配置ファイルをリロード。もしフォーマットが正しくない場合はデフォルトに戻す。</s:String>
+    <s:String x:Key="OpenConfigFileDetail">配置ファイルをオープン。ファイル変更後は手動でリロードしてください。</s:String>
+    <s:String x:Key="PowerOffTips1">このデバイスは{0}分後に自動的にシャットダウンされます。</s:String>
+    <s:String x:Key="PowerOffTips2">設定メニューを開いて自動シャットダウンスイッチをオフにすると、この動作をキャンセルできます。</s:String>
+    <s:String x:Key="Tips">ヒント</s:String>
+    <s:String x:Key="CountReachStop">累計{0}回の伐採は完了しました。</s:String>
+</ResourceDictionary>

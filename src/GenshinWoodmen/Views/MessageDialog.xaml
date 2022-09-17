@@ -1,0 +1,14 @@
+﻿<ui:ContentDialog x:Class="GenshinWoodmen.MessageDialog"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:ui="http://schemas.modernwpf.com/2019"
+                  mc:Ignorable="d"
+                  Title="{Binding Title}"
+                  PrimaryButtonText="{DynamicResource ButtonOK}"
+                  DefaultButton="Primary">
+    <StackPanel Margin="0,10,0,0">
+        <TextBlock Text="{Binding Message}" FontSize="14" TextWrapping="Wrap"/>
+    </StackPanel>
+</ui:ContentDialog>
