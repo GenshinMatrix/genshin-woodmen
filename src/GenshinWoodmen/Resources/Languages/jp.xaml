@@ -35,4 +35,16 @@
     <s:String x:Key="PowerOffTips2">設定メニューを開いて自動シャットダウンスイッチをオフにすると、この動作をキャンセルできます。</s:String>
     <s:String x:Key="Tips">ヒント</s:String>
     <s:String x:Key="CountReachStop">累計{0}回の伐採は完了しました。</s:String>
+    <s:String x:Key="RestorePos">右下に戻る</s:String>
+    <s:String x:Key="Restart">リスタート</s:String>
+    <s:String x:Key="AutoMute">オートミュート</s:String>
+    <s:String x:Key="AutoMuteDetail">動作中の時に自動的にミュート、もしくは制御パネルにて手動的に制御。</s:String>
+    <s:String x:Key="AutoMuteOff">オフ</s:String>
+    <s:String x:Key="AutoMuteGame">ゲーム</s:String>
+    <s:String x:Key="AutoMuteSystem">システム</s:String>
+    <s:String x:Key="MuteGame">ゲーム</s:String>
+    <s:String x:Key="MuteSystem">システム</s:String>
+    <s:String x:Key="SingleControl">制御パネル</s:String>
+    <s:String x:Key="LaunchGame1440x900">ケーム起動 (1440x900)</s:String>
+    <s:String x:Key="Language">言語</s:String>
 </ResourceDictionary>

@@ -35,4 +35,16 @@
     <s:String x:Key="PowerOffTips2">打开设置菜单关闭自动关机开关可取消该动作。</s:String>
     <s:String x:Key="Tips">提示</s:String>
     <s:String x:Key="CountReachStop">伐木已完成{0}次循环。</s:String>
+    <s:String x:Key="RestorePos">恢复到右下角</s:String>
+    <s:String x:Key="Restart">重启</s:String>
+    <s:String x:Key="AutoMute">自动静音</s:String>
+    <s:String x:Key="AutoMuteDetail">工作中自动静音，或使用单独控制面板里手动快捷静音。</s:String>
+    <s:String x:Key="AutoMuteOff">关闭自动静音</s:String>
+    <s:String x:Key="AutoMuteGame">游戏自动静音</s:String>
+    <s:String x:Key="AutoMuteSystem">系统自动静音</s:String>
+    <s:String x:Key="MuteGame">游戏静音</s:String>
+    <s:String x:Key="MuteSystem">系统静音</s:String>
+    <s:String x:Key="SingleControl">单独控制</s:String>
+    <s:String x:Key="LaunchGame1440x900">启动游戏 (1440x900)</s:String>
+    <s:String x:Key="Language">语言</s:String>
 </ResourceDictionary>

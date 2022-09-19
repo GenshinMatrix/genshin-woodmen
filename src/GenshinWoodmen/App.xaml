@@ -9,7 +9,18 @@
              ShutdownMode="OnExplicitShutdown">
     <Application.Resources>
         <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ui:ThemeResources/>
+                <ui:XamlControlsResources/>
+                <ui:ResourceDictionaryEx/>
+                <ui:ColorPaletteResources/>
+                <ui:IntellisenseResources/>
+                <ResourceDictionary Source="/Resources/Languages/zh-cn.xaml"/>
+                <ResourceDictionary Source="/Resources/Languages/jp.xaml"/>
+                <ResourceDictionary Source="/Resources/Languages/en-us.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
             <FontFamily x:Key="SegoeFluent">/Resources/segoe-fluent-icons.ttf#Segoe Fluent Icons</FontFamily>
+            <v:LanguageToBoolConverter x:Key="LanguageToBoolConverter"/>
             <v:AddConverter x:Key="AddConverter"/>
             <v:ReverseConverter x:Key="ReverseConverter"/>
             <tb:TaskbarIcon x:Key="PART_Taskbar"
@@ -31,10 +42,43 @@
                                 <TextBlock Text="&#xf71c;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
                             </MenuItem.Icon>
                         </MenuItem>
-                        <Separator/>
                         <MenuItem Header="{DynamicResource VisitWebsite}" Command="{Binding GitHubCommand}">
                             <MenuItem.Icon>
                                 <TextBlock Text="&#xe774;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <Separator/>
+                        <MenuItem Header="{DynamicResource LaunchGame1440x900}" Command="{Binding LaunchGame1440x900Command}">
+                            <MenuItem.Icon>
+                                <TextBlock Text="&#xe7fc;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <Separator/>
+                        <MenuItem Header="{DynamicResource Language}">
+                            <MenuItem.Icon>
+                                <TextBlock Text="&#xf2b7;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
+                            </MenuItem.Icon>
+                            <MenuItem.Items>
+                                <MenuItem Header="简体中文" Command="{Binding LanguageZH}" IsCheckable="False" IsChecked="{Binding Language,Converter={StaticResource LanguageToBoolConverter},ConverterParameter=zh-cn}">
+                                    <MenuItem.Icon>
+                                        <TextBlock Text="&#xe88d;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="日本語" Command="{Binding LanguageJP}" IsCheckable="False" IsChecked="{Binding Language,Converter={StaticResource LanguageToBoolConverter},ConverterParameter=jp}">
+                                    <MenuItem.Icon>
+                                        <TextBlock Text="&#xe7de;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="English" Command="{Binding LanguageEN}" IsCheckable="False" IsChecked="{Binding Language,Converter={StaticResource LanguageToBoolConverter},ConverterParameter=en-us}">
+                                    <MenuItem.Icon>
+                                        <TextBlock Text="&#xf7b5;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </MenuItem.Items>
+                        </MenuItem>
+                        <MenuItem Header="{DynamicResource Restart}" Command="{Binding RestartCommand}">
+                            <MenuItem.Icon>
+                                <TextBlock Text="&#xe777;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem Header="{DynamicResource Exit}" Command="{Binding ExitCommand}">
@@ -45,16 +89,6 @@
                     </ContextMenu>
                 </tb:TaskbarIcon.ContextMenu>
             </tb:TaskbarIcon>
-            <ResourceDictionary.MergedDictionaries>
-                <ui:ThemeResources/>
-                <ui:XamlControlsResources/>
-                <ui:ResourceDictionaryEx/>
-                <ui:ColorPaletteResources/>
-                <ui:IntellisenseResources/>
-                <ResourceDictionary Source="/Resources/Languages/zh-cn.xaml"/>
-                <ResourceDictionary Source="/Resources/Languages/jp.xaml"/>
-                <ResourceDictionary Source="/Resources/Languages/en-us.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

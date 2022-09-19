@@ -23,16 +23,18 @@ namespace GenshinWoodmen.ViewModels
         public double Top => SystemParameters.WorkArea.Bottom;
 
         public int ForecastX3 => (int)(((Settings.DelayLogin / 1000d) + (Settings.DelayLaunch / 1000d) + 7d) * (2000d / 3d) / 60d);
-        public int ForecastX6 => ForecastX3 / 2;
-        public int ForecastX9 => ForecastX3 / 3;
-        public int ForecastX12 => ForecastX3 / 4;
-        public int ForecastX15 => ForecastX3 / 5;
+        public int ForecastX6 => (int)Math.Floor(ForecastX3 / 2d);
+        public int ForecastX9 => (int)Math.Floor(ForecastX3 / 3d);
+        public int ForecastX12 => (int)Math.Floor(ForecastX3 / 4d);
+        public int ForecastX15 => (int)Math.Floor(ForecastX3 / 5d);
+        public int ForecastX18 => (int)Math.Floor(ForecastX3 / 6d);
 
         public int ForecastX3Count => (int)Math.Floor(2000d / 3d);
         public int ForecastX6Count => (int)Math.Floor(2000d / 6d);
         public int ForecastX9Count => (int)Math.Floor(2000d / 9d);
         public int ForecastX12Count => (int)Math.Floor(2000d / 12d);
         public int ForecastX15Count => (int)Math.Floor(2000d / 15d);
+        public int ForecastX18Count => (int)Math.Floor(2000d / 18d);
 
         protected int currentCount = 0;
         public int CurrentCount
@@ -72,6 +74,19 @@ namespace GenshinWoodmen.ViewModels
 
         public DateTime? PowerOffDateTime { get; protected set; } = null!;
         public bool PowerOffNotified { get; protected set; } = false;
+
+        public AutoMuteSelection AutoMute
+        {
+            get => (AutoMuteSelection)Settings.AutoMute.Get();
+            set
+            {
+                if (value == AutoMuteSelection.AutoMuteNone) return;
+                AutoMuteSelection prev = AutoMute;
+                Broadcast(prev, value, nameof(AutoMute));
+                Settings.AutoMute.Set((int)value);
+                SettingsManager.Save();
+            }
+        }
 
         public ICommand StartCommand => new RelayCommand<Button>(async button =>
         {
@@ -158,9 +173,20 @@ namespace GenshinWoodmen.ViewModels
                 topMostIcon.Text = app.Topmost ? FluentSymbol.Unpin : FluentSymbol.Pin;
             }
         });
+        public ICommand RestorePosCommand => new RelayCommand<Window>(async app =>
+        {
+            app!.Left = Left - app.Width;
+            app!.Top = Top - app.Height;
+        });
+        public ICommand RestartCommand => NotifyIconViewModel.RestartCommand;
         public ICommand ExitCommand => NotifyIconViewModel.ExitCommand;
         public ICommand UsageCommand => NotifyIconViewModel.UsageCommand;
         public ICommand UsageImageCommand => NotifyIconViewModel.UsageImageCommand;
+
+        public ICommand MuteGameCommand  => new RelayCommand(async () => await MuteManager.MuteGameAsync(true));
+        public ICommand UnmuteGameCommand => new RelayCommand(async () => await MuteManager.MuteGameAsync(false));
+        public ICommand MuteSystemCommand => new RelayCommand(() => MuteManager.MuteSystem(true));
+        public ICommand UnmuteSystemCommand => new RelayCommand(() => MuteManager.MuteSystem(false));
 
         public MainViewModel(MainWindow source)
         {

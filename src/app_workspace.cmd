@@ -1,0 +1,17 @@
+cd /d %~dp0
+set "binpath_com=Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\"
+set "binpath_pro=Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\"
+set "binpath_ent=Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\"
+set "path=%path%;C:\%binpath_com%"
+set "path=%path%;D:\%binpath_com%"
+set "path=%path%;E:\%binpath_com%"
+set "path=%path%;F:\%binpath_com%"
+set "path=%path%;C:\%binpath_pro%"
+set "path=%path%;D:\%binpath_pro%"
+set "path=%path%;E:\%binpath_pro%"
+set "path=%path%;F:\%binpath_pro%"
+set "path=%path%;C:\%binpath_ent%"
+set "path=%path%;D:\%binpath_ent%"
+set "path=%path%;E:\%binpath_ent%"
+set "path=%path%;F:\%binpath_ent%"
+devenv.exe GenshinWoodmen.sln

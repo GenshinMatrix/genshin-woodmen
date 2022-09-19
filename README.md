@@ -1,5 +1,8 @@
 ・[English](README.md) ・[中文](README.zh.md) ・[日本語](README.jp.md)
 
+[![GitHub downloads](https://img.shields.io/github/downloads/emako/genshin-woodmen/total)](https://github.com/emako/genshin-woodmen/releases)
+[![GitHub downloads](https://img.shields.io/github/downloads/emako/genshin-woodmen/latest/total)](https://github.com/emako/genshin-woodmen/releases)
+
 # Genshin Woodmen
 
 This is an automatic tool to obtain woods in Genshin Impact using gadget named "The Boon of the Elder Tree", got from Sumeru City Reputation Level 3.

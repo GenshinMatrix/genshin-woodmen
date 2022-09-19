@@ -1,0 +1,6 @@
+<Project>
+	<PropertyGroup>
+		<MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+		<ShouldFixNuGetImportingBugForWpfProjects Condition=" '$(ShouldFixNuGetImportingBugForWpfProjects)' == '' ">True</ShouldFixNuGetImportingBugForWpfProjects>
+	</PropertyGroup>
+</Project>

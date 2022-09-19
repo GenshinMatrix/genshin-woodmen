@@ -1,4 +1,5 @@
 ﻿using GenshinWoodmen.Core;
+using GenshinWoodmen.Views;
 using System.Reflection;
 
 namespace GenshinWoodmen.Models
@@ -12,5 +13,6 @@ namespace GenshinWoodmen.Models
         public static SettingsDefinition<int> DelayLogin { get; } = new(nameof(DelayLogin), 18000);
         public static SettingsDefinition<string> ShortcutKey { get; } = new(nameof(ShortcutKey), "F11");
         public static SettingsDefinition<string> Language { get; } = new(nameof(Language), string.Empty);
+        public static SettingsDefinition<int> AutoMute { get; } = new(nameof(AutoMute), (int)AutoMuteSelection.AutoMuteOff);
     }
 }

@@ -1,0 +1,5 @@
+<Project>
+  <Target Name="CopyImage1File" BeforeTargets="AfterCompile">
+	<Copy SourceFiles="$(MSBuildThisFileDirectory)..\lib\netstandard2.0\vccli.exe" DestinationFolder="$(OutputPath)" SkipUnchangedFiles="True" />
+  </Target>
+</Project>

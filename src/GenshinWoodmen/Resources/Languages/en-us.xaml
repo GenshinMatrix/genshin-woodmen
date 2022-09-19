@@ -35,4 +35,16 @@
     <s:String x:Key="PowerOffTips2">Open the setting menu and turn off the automatic shutdown switch to cancel the action.</s:String>
     <s:String x:Key="Tips">Tips</s:String>
     <s:String x:Key="CountReachStop">Loop has completed {0} cycles.</s:String>
+    <s:String x:Key="RestorePos">Restore Position</s:String>
+    <s:String x:Key="Restart">Restart</s:String>
+    <s:String x:Key="AutoMute">Auto Mute</s:String>
+    <s:String x:Key="AutoMuteDetail">Auto mute during operation or manually control form Control Panel.</s:String>
+    <s:String x:Key="AutoMuteOff">Auto Mute Off</s:String>
+    <s:String x:Key="AutoMuteGame">Auto Mute Game</s:String>
+    <s:String x:Key="AutoMuteSystem">Auto Mute System</s:String>
+    <s:String x:Key="MuteGame">Mute Game</s:String>
+    <s:String x:Key="MuteSystem">Mute System</s:String>
+    <s:String x:Key="SingleControl">Control Panel</s:String>
+    <s:String x:Key="LaunchGame1440x900">Launch Game (1440x900)</s:String>
+    <s:String x:Key="Language">Language</s:String>
 </ResourceDictionary>

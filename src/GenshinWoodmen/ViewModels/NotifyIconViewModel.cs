@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using GenshinWoodmen.Core;
+using GenshinWoodmen.Models;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
@@ -23,6 +24,7 @@ namespace GenshinWoodmen.ViewModels
             }
         });
 
+        public static ICommand RestartCommand => new RelayCommand(() => App.RestartAsElevated());
         public static ICommand ExitCommand => new RelayCommand(() => Application.Current.Shutdown());
 
         public static ICommand UsageImageCommand => new RelayCommand(() => _ = UsageManager.ShowUsageImage());
@@ -38,5 +40,30 @@ namespace GenshinWoodmen.ViewModels
             {
             }
         });
+
+        public static ICommand LaunchGame1440x900Command => new RelayCommand<Window>(async app => _ = await LaunchCtrl.Launch());
+
+        public string Language
+        {
+            get => Settings.Language.Get();
+            set
+            {
+                if (string.IsNullOrEmpty(value)) return;
+                string prev = Language;
+                Settings.Language.Set(value);
+                Broadcast(prev, value, nameof(Language));
+                SettingsManager.Save();
+            }
+        }
+        public static ICommand LanguageZH => new RelayCommand<Window>(async app => SetLanguagePrivate("zh-cn"));
+        public static ICommand LanguageJP => new RelayCommand<Window>(async app => SetLanguagePrivate("jp"));
+        public static ICommand LanguageEN => new RelayCommand<Window>(async app => SetLanguagePrivate("en-us"));
+
+        private static void SetLanguagePrivate(string name)
+        {
+            SetLanguage(name);
+            Settings.Language.Set(name);
+            SettingsManager.Save();
+        }
     }
 }

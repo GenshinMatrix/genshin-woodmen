@@ -1,6 +1,5 @@
-App.cer
-App.msix
-App.msixbundle
-App_Setup.exe
-GenshinWoodmen*Setup*.exe
-GenshinWoodmen*.7z
+*.cer
+*.msix
+*.msixbundle
+*.exe
+*.7z

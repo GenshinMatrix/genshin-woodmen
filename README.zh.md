@@ -1,5 +1,8 @@
 ・[English](README.md) ・[中文](README.zh.md) ・[日本語](README.jp.md)
 
+[![GitHub downloads](https://img.shields.io/github/downloads/emako/genshin-woodmen/total)](https://github.com/emako/genshin-woodmen/releases)
+[![GitHub downloads](https://img.shields.io/github/downloads/emako/genshin-woodmen/latest/total)](https://github.com/emako/genshin-woodmen/releases)
+
 # 原神伐木姬
 
 > GenshinWoodmen

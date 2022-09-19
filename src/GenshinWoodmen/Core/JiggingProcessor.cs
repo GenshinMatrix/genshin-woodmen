@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
 using GenshinWoodmen.Models;
+using GenshinWoodmen.Views;
 using System;
-using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -51,6 +51,16 @@ namespace GenshinWoodmen.Core
         {
             bool lastAutoLogout = false;
 
+            switch ((AutoMuteSelection)Settings.AutoMute.Get())
+            {
+                case AutoMuteSelection.AutoMuteSystem:
+                    MuteManager.MuteSystem(true);
+                    break;
+                case AutoMuteSelection.AutoMuteGame:
+                    await MuteManager.MuteGameAsync(true);
+                    break;
+            }
+
             while (!IsCanceled)
             {
                 try
@@ -60,10 +70,11 @@ namespace GenshinWoodmen.Core
                     if (!await LaunchCtrl.IsRunning(async p => hwnd = p?.MainWindowHandle ?? IntPtr.Zero))
                     {
                         TraceStatus("Launching");
-                        hwnd = await LaunchCtrl.Launch();
+                        _ = await LaunchCtrl.Launch();
                         TraceStatus("Launch(1st) Chattering");
                         await Delay(Settings.DelayLaunchFirst.Get());
                         TraceStatus("Launch(1st) Chattered");
+                        await LaunchCtrl.IsRunning(async p => hwnd = p?.MainWindowHandle ?? IntPtr.Zero);
                         await Delay(1000);
                         TraceStatus("FocusWindow");
                         NativeMethods.Focus(hwnd);
@@ -72,6 +83,7 @@ namespace GenshinWoodmen.Core
                         TraceStatus("Click LeftMouse");
                         await Delay(100);
                         TraceStatus("Login(1st) Chattering");
+                        if ((AutoMuteSelection)Settings.AutoMute.Get() == AutoMuteSelection.AutoMuteGame) await MuteManager.MuteGameAsync(true);
                         await Delay(Settings.DelayLoginFirst.Get());
                         TraceStatus("Login(1st) Chattered");
                         TraceStatus("Focus Window");
@@ -127,6 +139,16 @@ namespace GenshinWoodmen.Core
                     Logger.Exception(e);
                     NoticeService.AddNotice(Mui("Tips"), "Failed", e.Message);
                 }
+            }
+
+            switch ((AutoMuteSelection)Settings.AutoMute.Get())
+            {
+                case AutoMuteSelection.AutoMuteSystem:
+                    MuteManager.MuteSystem(false);
+                    break;
+                case AutoMuteSelection.AutoMuteGame:
+                    await MuteManager.MuteGameAsync(false);
+                    break;
             }
         }
     }

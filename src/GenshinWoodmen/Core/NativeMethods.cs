@@ -26,6 +26,9 @@ namespace GenshinWoodmen.Core
         public const int EWX_POWEROFF = 0x00000008;
         public const int EWX_FORCEIFHUNG = 0x00000010;
 
+        public const int APPCOMMAND_VOLUME_MUTE = 0x80000;
+        public const int WM_APPCOMMAND = 0x319;
+
         [DllImport("User32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
@@ -34,6 +37,9 @@ namespace GenshinWoodmen.Core
 
         [DllImport("user32.dll")]
         public static extern bool IsIconic(IntPtr hWnd);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern bool BringWindowToTop(IntPtr hWnd);
 
         [DllImport("user32.dll")]
         public extern static bool SetCursorPos(int x, int y);
@@ -85,6 +91,7 @@ namespace GenshinWoodmen.Core
             {
                 continue;
             }
+            _ = BringWindowToTop(hwnd);
         }
 
         public static void CursorCenterPos(IntPtr hwnd, int offsetX = 0, int offsetY = 0)
