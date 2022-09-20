@@ -26,7 +26,6 @@ This is an automatic tool to obtain woods in Genshin Impact using gadget named "
 ## FAQs
 
 1. Only supported for Genshin Impact running in center of primary screen, and resolutions other than 1440x900 are not supported temporarily.
-2. UAC requested for sim keyboard or mouse, when you install this program by setup, you should run as admin manually.
 3. When the setup can't be installed. Please ensure that your system has installed the App Store. The setup depends on the store architecture (MSIX).
 4. Runtime environment is net6.0-windows10.0.18362.0.
 
