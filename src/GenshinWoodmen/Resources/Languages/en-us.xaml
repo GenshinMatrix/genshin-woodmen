@@ -48,4 +48,5 @@
     <s:String x:Key="LaunchGame1440x900">Launch Game (1440x900)</s:String>
     <s:String x:Key="Language">Language</s:String>
     <s:String x:Key="Brightness">Brightness</s:String>
+    <s:String x:Key="Cancel">Cancel</s:String>
 </ResourceDictionary>

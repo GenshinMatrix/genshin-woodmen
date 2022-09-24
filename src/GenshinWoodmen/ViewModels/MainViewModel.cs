@@ -16,7 +16,7 @@ using System.Windows.Media;
 
 namespace GenshinWoodmen.ViewModels
 {
-    public class MainViewModel : ObservableRecipient, IRecipient<CountMessage>, IRecipient<StatusMessage>
+    public class MainViewModel : ObservableRecipient, IRecipient<CountMessage>, IRecipient<StatusMessage>, IRecipient<CancelShutdownMessage>
     {
         public MainWindow Source { get; set; } = null!;
         public double Left => SystemParameters.WorkArea.Right;
@@ -242,11 +242,12 @@ namespace GenshinWoodmen.ViewModels
 
                     if (!PowerOffNotified && (PowerOffAutoMinute = (int)timeOffset.TotalMinutes) <= 3)
                     {
-                        NoticeService.AddNotice(Mui("Tips"), string.Format(Mui("PowerOffTips1"), Math.Round(timeOffset.TotalMinutes)), Mui("PowerOffTips2"), ToastDuration.Long);
+                        NoticeService.AddNoticeWithButton(Mui("Tips"), string.Format(Mui("PowerOffTips1"), Math.Round(timeOffset.TotalMinutes)), Mui("Cancel"), ("timetoshutdown", "cancel"), ToastDuration.Long);
                         PowerOffNotified = true;
                     }
                     if (timeOffset.TotalSeconds <= 0)
                     {
+                        NoticeService.ClearNotice();
                         NativeMethods.ShutdownPowerOff();
                     }
                 }
@@ -297,5 +298,10 @@ namespace GenshinWoodmen.ViewModels
 
         void IRecipient<CountMessage>.Receive(CountMessage message) => CurrentCount++;
         void IRecipient<StatusMessage>.Receive(StatusMessage message) => CurrentStatus = message.ToString();
+        void IRecipient<CancelShutdownMessage>.Receive(CancelShutdownMessage message)
+        {
+            PowerOffAuto = false;
+            NoticeService.ClearNotice();
+        }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using Microsoft.Toolkit.Uwp.Notifications;
+using System;
+using System.Windows;
 
 namespace GenshinWoodmen.Core
 {
@@ -16,7 +18,17 @@ namespace GenshinWoodmen.Core
                 .AddText(title)
                 .AddAttributionTextIf(!string.IsNullOrEmpty(detail), detail)
                 .SetToastDuration(duration)
-                .Show();
+                .ShowSafe();
+        }
+
+        public static void AddNoticeWithButton(string header, string title, string button, (string, string) arg, ToastDuration duration = ToastDuration.Short)
+        {
+            new ToastContentBuilder()
+                .AddHeader("AddNotice", header, "AddNotice")
+                .AddText(title)
+                .AddButton(new ToastButton().SetContent(button).AddArgument(arg.Item1, arg.Item2).SetBackgroundActivation())
+                .SetToastDuration(duration)
+                .ShowSafe();
         }
 
         public static void ClearNotice()
@@ -48,6 +60,17 @@ namespace GenshinWoodmen.Core
         public static ToastContentBuilder Stub(this ToastContentBuilder builder)
         {
             return builder;
+        }
+
+        public static void ShowSafe(this ToastContentBuilder builder)
+        {
+            try
+            {
+                Application.Current.Dispatcher.Invoke(builder.Show);
+            }
+            catch (Exception)
+            {
+            }
         }
     }
 }

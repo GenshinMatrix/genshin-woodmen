@@ -1,5 +1,7 @@
 ﻿using GenshinWoodmen.Core;
+using GenshinWoodmen.ViewModels;
 using Hardcodet.Wpf.TaskbarNotification;
+using Microsoft.Toolkit.Uwp.Notifications;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -22,6 +24,7 @@ namespace GenshinWoodmen
             Current = this;
             Current.DispatcherUnhandledException += (_, e) => e.Handled = true;
             AppDomain.CurrentDomain.UnhandledException += (s, e) => _ = e;
+            ToastNotificationManagerCompat.OnActivated += NotifyIconViewModel.OnNotificationActivated;
             NoticeService.ClearNotice();
             EnsureElevated();
             CheckSingleInstance();

@@ -1,7 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using GenshinWoodmen.Core;
 using GenshinWoodmen.Models;
+using Microsoft.Toolkit.Uwp.Notifications;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
@@ -64,6 +67,21 @@ namespace GenshinWoodmen.ViewModels
             SetLanguage(name);
             Settings.Language.Set(name);
             SettingsManager.Save();
+        }
+
+        public static void OnNotificationActivated(ToastNotificationActivatedEventArgsCompat e)
+        {
+            ToastArguments args = ToastArguments.Parse(e.Argument);
+
+            foreach (KeyValuePair<string, string> arg in args)
+            {
+                (string k, string v) = arg;
+
+                if (k == "timetoshutdown" && v == "cancel")
+                {
+                    WeakReferenceMessenger.Default.Send(new CancelShutdownMessage());
+                }
+            }
         }
     }
 }

@@ -48,4 +48,5 @@
     <s:String x:Key="LaunchGame1440x900">启动游戏 (1440x900)</s:String>
     <s:String x:Key="Language">语言</s:String>
     <s:String x:Key="Brightness">亮度</s:String>
+    <s:String x:Key="Cancel">取消</s:String>
 </ResourceDictionary>
