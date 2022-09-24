@@ -180,7 +180,7 @@ namespace GenshinWoodmen.ViewModels
             SetupLanguage();
         });
 
-        public ICommand ClearCountCommand => new RelayCommand(() => CurrentCount = 0);
+        public ICommand ClearCountCommand => new RelayCommand(() => MaxCount = CurrentCount = 0);
         public ICommand TopMostCommand => new RelayCommand<Window>(async app =>
         {
             app!.Topmost = !app.Topmost;
@@ -197,7 +197,8 @@ namespace GenshinWoodmen.ViewModels
         public ICommand RestartCommand => NotifyIconViewModel.RestartCommand;
         public ICommand ExitCommand => NotifyIconViewModel.ExitCommand;
         public ICommand UsageCommand => NotifyIconViewModel.UsageCommand;
-        public ICommand UsageImageCommand => NotifyIconViewModel.UsageImageCommand;
+        public ICommand UsageImageSingleCommand => NotifyIconViewModel.UsageImageSingleCommand;
+        public ICommand UsageImageMultiCommand => NotifyIconViewModel.UsageImageMultiCommand;
         public ICommand GitHubCommand => NotifyIconViewModel.GitHubCommand;
 
         public ICommand MuteGameCommand  => new RelayCommand(async () => await MuteManager.MuteGameAsync(true));

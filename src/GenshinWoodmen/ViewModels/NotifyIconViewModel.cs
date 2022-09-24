@@ -30,7 +30,8 @@ namespace GenshinWoodmen.ViewModels
         public static ICommand RestartCommand => new RelayCommand(() => App.RestartAsElevated());
         public static ICommand ExitCommand => new RelayCommand(() => Application.Current.Shutdown());
 
-        public static ICommand UsageImageCommand => new RelayCommand(() => _ = UsageManager.ShowUsageImage());
+        public static ICommand UsageImageSingleCommand => new RelayCommand(() => _ = UsageManager.ShowUsageImage(UsageImageType.Single));
+        public static ICommand UsageImageMultiCommand => new RelayCommand(() => _ = UsageManager.ShowUsageImage(UsageImageType.Multi));
         public static ICommand UsageCommand => new RelayCommand(() => _ = UsageManager.ShowUsage());
 
         public static ICommand GitHubCommand => new RelayCommand<Window>(async app =>

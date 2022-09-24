@@ -10,7 +10,7 @@ internal static class UsageManager
     public static string UsageImagePath { get; } = SpecialPathProvider.GetPath("usage.jpg");
     public static string UsageImagePathDirectory => new FileInfo(UsageImagePath).Directory!.FullName;
 
-    public static async Task ShowUsageImage()
+    public static async Task ShowUsageImage(UsageImageType type = UsageImageType.Normal)
     {
         try
         {
@@ -18,7 +18,12 @@ internal static class UsageManager
             {
                 try
                 {
-                    byte[] image = ResourceUtils.GetBytes("pack://application:,,,/genshin-woodmen;component/Resources/usage.jpg");
+                    byte[] image = ResourceUtils.GetBytes("pack://application:,,,/genshin-woodmen;component/Resources/usage" + type switch
+                    {
+                        UsageImageType.Single => "_single",
+                        UsageImageType.Multi => "_multi",
+                        UsageImageType.Normal or _ => string.Empty,
+                    } + ".jpg");
                     string md5 = ResourceUtils.GetMD5(image);
 
                     if (File.Exists(UsageImagePath))
@@ -67,4 +72,11 @@ internal static class UsageManager
         {
         }
     }
+}
+
+public enum UsageImageType
+{
+    Normal,
+    Single,
+    Multi,
 }
