@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Management;
 
 namespace GenshinWoodmen.Core
 {
@@ -29,6 +30,10 @@ namespace GenshinWoodmen.Core
         public const int APPCOMMAND_VOLUME_MUTE = 0x80000;
         public const int WM_APPCOMMAND = 0x319;
 
+        public const int MONITOR_DEFAULTTONULL = 0;
+        public const int MONITOR_DEFAULTTOPRIMARY = 1;
+        public const int MONITOR_DEFAULTTONEAREST = 2;
+
         [DllImport("User32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
@@ -43,6 +48,9 @@ namespace GenshinWoodmen.Core
 
         [DllImport("user32.dll")]
         public extern static bool SetCursorPos(int x, int y);
+
+        [DllImport("User32.dll")]
+        public static extern bool GetCursorPos(ref POINT lpPoint);
 
         [DllImport("user32.dll")]
         public static extern int GetWindowRect(IntPtr hWnd, ref RECT lpRect);
@@ -82,6 +90,27 @@ namespace GenshinWoodmen.Core
 
         [DllImport("user32.dll", SetLastError = true)]
         public static extern bool UnregisterHotKey(IntPtr hWnd, int id);
+
+        [DllImport("gdi32.dll")]
+        public static extern bool GetDeviceGammaRamp(IntPtr hDC, ref RAMP lpRamp);
+
+        [DllImport("gdi32.dll")]
+        public static extern bool SetDeviceGammaRamp(IntPtr hDC, ref RAMP lpRamp);
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetDC(IntPtr hWnd);
+
+        [DllImport("dxva2.dll")]
+        public static extern bool GetNumberOfPhysicalMonitorsFromHMONITOR(IntPtr hMonitor, ref uint pdwNumberOfPhysicalMonitors);
+ 
+        [DllImport("dxva2.dll")]
+        public static extern bool SetMonitorBrightness(IntPtr hMonitor, short brightness);
+ 
+        [DllImport("dxva2.dll")]
+        public static extern bool GetMonitorBrightness(IntPtr hMonitor, ref short pdwMinimumBrightness, ref short pdwCurrentBrightness, ref short pdwMaximumBrightness);
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr MonitorFromPoint(POINT pt, uint dwFlags);
 
         public static void Focus(IntPtr hwnd)
         {
@@ -137,6 +166,110 @@ namespace GenshinWoodmen.Core
         public static void ShutdownLogoff()
         {
             DoExitWin(EWX_FORCE | EWX_LOGOFF);
+        }
+
+        public static void SetDeviceGamma(int gamma)
+        {
+            if (gamma < 3) gamma = 3;
+            if (gamma > 44) gamma = 44;
+            RAMP ramp = new()
+            {
+                Red = new ushort[256],
+                Green = new ushort[256],
+                Blue = new ushort[256],
+            };
+            for (int i = 1; i < 256; i++)
+            {
+                ramp.Red[i] = ramp.Green[i] = ramp.Blue[i] = (ushort)Math.Min(ushort.MaxValue, Math.Max(ushort.MinValue, Math.Pow((i + 1d) / 256d, gamma * 0.1d) * ushort.MaxValue + 0.5d));
+            }
+            SetDeviceGammaRamp(GetDC(IntPtr.Zero), ref ramp);
+        }
+
+        public static int GetDeviceGamma()
+        {
+            RAMP ramp = new()
+            {
+                Red = new ushort[256],
+                Green = new ushort[256],
+                Blue = new ushort[256],
+            };
+            _ = GetDeviceGammaRamp(GetDC(IntPtr.Zero), ref ramp);
+            return default;
+        }
+
+        public static IntPtr GetCurrentMonitor()
+        {
+            POINT p = new(0, 0);
+            _ = GetCursorPos(ref p);
+            return MonitorFromPoint(p, MONITOR_DEFAULTTOPRIMARY);
+        }
+
+        [Obsolete]
+        public static void SetMonitorBrightness(short brightness)
+        {
+            IntPtr hMonitor = GetCurrentMonitor();
+            _ = SetMonitorBrightness(hMonitor, brightness);
+        }
+
+        [Obsolete]
+        public static short GetMonitorBrightness()
+        {
+            IntPtr hMonitor = GetCurrentMonitor();
+            short pdwMinimumBrightness = default;
+            short pdwCurrentBrightness = default;
+            short pdwMaximumBrightness = default;
+            _ = GetMonitorBrightness(hMonitor, ref pdwMinimumBrightness, ref pdwCurrentBrightness, ref pdwMaximumBrightness);
+            return pdwCurrentBrightness;
+        }
+
+        [Obsolete]
+        public static short GetMonitorMinimumBrightness()
+        {
+            IntPtr hMonitor = GetCurrentMonitor();
+            short pdwMinimumBrightness = default;
+            short pdwCurrentBrightness = default;
+            short pdwMaximumBrightness = default;
+            _ = GetMonitorBrightness(hMonitor, ref pdwMinimumBrightness, ref pdwCurrentBrightness, ref pdwMaximumBrightness);
+            return pdwMinimumBrightness;
+        }
+
+        [Obsolete]
+        public static short GetMonitorMaximumBrightness()
+        {
+            IntPtr hMonitor = GetCurrentMonitor();
+            short pdwMinimumBrightness = default;
+            short pdwCurrentBrightness = default;
+            short pdwMaximumBrightness = default;
+            _ = GetMonitorBrightness(hMonitor, ref pdwMinimumBrightness, ref pdwCurrentBrightness, ref pdwMaximumBrightness);
+            return pdwMaximumBrightness;
+        }
+
+        public static byte GetBrightness()
+        {
+            ManagementScope scope = new(@"root\WMI");
+            ObjectQuery query = new("SELECT * FROM WmiMonitorBrightness");
+            using ManagementObjectSearcher searcher = new(scope, query);
+            using ManagementObjectCollection objectCollection = searcher.Get();
+
+            foreach (ManagementObject mObj in objectCollection)
+            {
+                return byte.Parse(mObj["CurrentBrightness"].ToString()!);
+            }
+            return 0x00;
+        }
+
+        public static void SetBrightness(byte targetBrightness)
+        {
+            ManagementScope scope = new(@"root\WMI");
+            SelectQuery query = new("WmiMonitorBrightnessMethods");
+            using ManagementObjectSearcher searcher = new(scope, query);
+            using ManagementObjectCollection objectCollection = searcher.Get();
+
+            foreach (ManagementObject mObj in objectCollection)
+            {
+                mObj.InvokeMethod("WmiSetBrightness", new object[] { uint.MaxValue, targetBrightness });
+                break;
+            }
         }
     }
 
@@ -424,5 +557,30 @@ namespace GenshinWoodmen.Core
         Control = 2,
         Shift = 4,
         Win = 8
+    }
+
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public struct RAMP
+    {
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
+        public ushort[] Red;
+
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
+        public ushort[] Green;
+
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
+        public ushort[] Blue;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct POINT
+    {
+        public int x;
+        public int y;
+        public POINT(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+        }
     }
 }

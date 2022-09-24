@@ -88,6 +88,22 @@ namespace GenshinWoodmen.ViewModels
             }
         }
 
+        [Obsolete]
+        public short MonitorBrightness
+        {
+            get => NativeMethods.GetMonitorBrightness();
+            set => NativeMethods.SetMonitorBrightness(value);
+        }
+        [Obsolete] public short MonitorMinimumBrightness => NativeMethods.GetMonitorMinimumBrightness();
+        [Obsolete] public short MonitorMaximumBrightness => NativeMethods.GetMonitorMaximumBrightness();
+
+        protected byte brightness = NativeMethods.GetBrightness();
+        public byte Brightness
+        {
+            get => brightness;
+            set => SetProperty(ref brightness, value);
+        }
+
         public ICommand StartCommand => new RelayCommand<Button>(async button =>
         {
             TextBlock startIcon = (Window.GetWindow(button).FindName("TextBlockStartIcon") as TextBlock)!;
@@ -182,6 +198,7 @@ namespace GenshinWoodmen.ViewModels
         public ICommand ExitCommand => NotifyIconViewModel.ExitCommand;
         public ICommand UsageCommand => NotifyIconViewModel.UsageCommand;
         public ICommand UsageImageCommand => NotifyIconViewModel.UsageImageCommand;
+        public ICommand GitHubCommand => NotifyIconViewModel.GitHubCommand;
 
         public ICommand MuteGameCommand  => new RelayCommand(async () => await MuteManager.MuteGameAsync(true));
         public ICommand UnmuteGameCommand => new RelayCommand(async () => await MuteManager.MuteGameAsync(false));
@@ -191,6 +208,19 @@ namespace GenshinWoodmen.ViewModels
         public MainViewModel(MainWindow source)
         {
             Source = source;
+
+            Source.Loaded += (_, _) =>
+            {
+                Source.BrightnessSlider.IsVisibleChanged += (_, _) =>
+                {
+                    Brightness = NativeMethods.GetBrightness();
+                };
+                Source.BrightnessSlider.ValueChanged += (_, _) =>
+                {
+                    if (Source.BrightnessSlider.IsVisible)
+                        NativeMethods.SetBrightness(Brightness);
+                };
+            };
 
             WeakReferenceMessenger.Default.RegisterAll(this);
             GC.KeepAlive(new PeriodProcessor(() =>

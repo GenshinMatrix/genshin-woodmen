@@ -14,7 +14,7 @@
     <s:String x:Key="OpenConfigFile">配置ファイルを開く</s:String>
     <s:String x:Key="OpenWithConfigFile">配置ファイルを開く (方法を選択して開く)</s:String>
     <s:String x:Key="ReloadConfigFile">配置ファイルをリロード</s:String>
-    <s:String x:Key="VisitWebsite">ウェブサイトを開く</s:String>
+    <s:String x:Key="VisitWebsite">プログラム更新く</s:String>
     <s:String x:Key="TimePredictionDetail">便利アイテム「王樹の加護」のカバー範囲に獲得できる木材の数を合わせて計算、実際的に使い時間は予測数値より数分遅れる。種類毎に木材の一日の獲得上限は2000アイテムまで。</s:String>
     <s:String x:Key="TimePrediction">時間予測</s:String>
     <s:String x:Key="UnitMin">分</s:String>
@@ -47,4 +47,5 @@
     <s:String x:Key="SingleControl">制御パネル</s:String>
     <s:String x:Key="LaunchGame1440x900">ケーム起動 (1440x900)</s:String>
     <s:String x:Key="Language">言語</s:String>
+    <s:String x:Key="Brightness">明度</s:String>
 </ResourceDictionary>

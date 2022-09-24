@@ -14,7 +14,7 @@
     <s:String x:Key="OpenConfigFile">Open Config File</s:String>
     <s:String x:Key="OpenWithConfigFile">Open Config File (Open with)</s:String>
     <s:String x:Key="ReloadConfigFile">Reload Config File</s:String>
-    <s:String x:Key="VisitWebsite">Visit Website</s:String>
+    <s:String x:Key="VisitWebsite">Software Updates</s:String>
     <s:String x:Key="TimePredictionDetail">The actual time will be slightly greater than this value for several minutes, calculated according to the maximum amount of wood that can be obtained from the one-time coverage of the "The Boon of the Elder Tree" small prop. The maximum daily acquisition of each kind of wood is 2000.</s:String>
     <s:String x:Key="TimePrediction">Time Prediction</s:String>
     <s:String x:Key="UnitMin">min</s:String>
@@ -47,4 +47,5 @@
     <s:String x:Key="SingleControl">Control Panel</s:String>
     <s:String x:Key="LaunchGame1440x900">Launch Game (1440x900)</s:String>
     <s:String x:Key="Language">Language</s:String>
+    <s:String x:Key="Brightness">Brightness</s:String>
 </ResourceDictionary>

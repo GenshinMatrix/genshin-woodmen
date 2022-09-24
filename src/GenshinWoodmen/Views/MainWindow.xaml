@@ -59,6 +59,11 @@
                     <TextBlock Text="&#xf71c;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
                 </MenuItem.Icon>
             </MenuItem>
+            <MenuItem Header="{DynamicResource VisitWebsite}" Command="{Binding GitHubCommand}">
+                <MenuItem.Icon>
+                    <TextBlock Text="&#xe774;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
+                </MenuItem.Icon>
+            </MenuItem>
             <Separator/>
             <MenuItem Header="{DynamicResource TopMost}" Command="{Binding TopMostCommand}" CommandParameter="{x:Reference Self}">
                 <MenuItem.Icon>
@@ -261,6 +266,7 @@
                                     </StackPanel>
                                 </MenuItem.Header>
                             </MenuItem>
+                            <Separator/>
                             <MenuItem>
                                 <MenuItem.Icon>
                                     <TextBlock Text="&#xf4c3;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
@@ -300,6 +306,36 @@
                                     </StackPanel>
                                 </MenuItem.Header>
                             </MenuItem>
+                            <MenuItem Command="{Binding UsageImageCommand}">
+                                <MenuItem.ToolTip>
+                                    <TextBlock>
+                                        <Run Text="{DynamicResource WoodGuideDetail}"/>
+                                    </TextBlock>
+                                </MenuItem.ToolTip>
+                                <MenuItem.Icon>
+                                    <TextBlock Text="&#xe706;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
+                                </MenuItem.Icon>
+                                <MenuItem.Header>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Text="{DynamicResource Brightness}" VerticalAlignment="Center"/>
+                                        <Grid Grid.Column="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Slider x:Name="BrightnessSlider" Grid.Column="0" Margin="10,0,0,0" Value="{Binding Brightness}" Minimum="0" Maximum="100"/>
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="5,0,0,0">
+                                                <TextBlock Text="{Binding Brightness}"/>
+                                                <TextBlock Text="%"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Grid>
+                                </MenuItem.Header>
+                            </MenuItem>
                             <Separator/>
                             <MenuItem Header="{DynamicResource WoodGuide}" Command="{Binding UsageImageCommand}">
                                 <MenuItem.ToolTip>
@@ -319,6 +355,11 @@
                                 </MenuItem.ToolTip>
                                 <MenuItem.Icon>
                                     <TextBlock Text="&#xf71c;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="{DynamicResource VisitWebsite}" Command="{Binding GitHubCommand}">
+                                <MenuItem.Icon>
+                                    <TextBlock Text="&#xe774;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
                                 </MenuItem.Icon>
                             </MenuItem>
                             <Separator/>
