@@ -83,17 +83,17 @@ namespace GenshinWoodmen.Core
             {
                 IntPtr hwnd = p!.MainWindowHandle;
 
-                await JiggingProcessor.Delay(1000);
                 NativeMethods.Focus(hwnd);
                 NativeMethods.CursorCenterPos(hwnd);
                 UserSimulator.Input.Keyboard.KeyPress(VirtualKeyCode.ESCAPE);
-                await JiggingProcessor.Delay(1000);
+                await JiggingProcessor.Delay(950);
                 RECT rect = NativeMethods.GetWindowRECT(hwnd);
                 NativeMethods.SetCursorPos(rect.Left + 20, rect.Bottom - SystemInformation.CaptionHeight - 10);
                 await JiggingProcessor.Delay(100);
                 UserSimulator.Input.Mouse.LeftButtonClick(); // ExitButton
-                await JiggingProcessor.Delay(1000);
-                NativeMethods.SetCursorPos(rect.Left + (int)((rect.Right - rect.Left) / 2d) + 70, rect.Top + (int)((rect.Bottom - rect.Top) / 2d) + 170);
+                await JiggingProcessor.Delay(800);
+                (double cx, double cy) = ((rect.Right - rect.Left) / 2d, (rect.Bottom - rect.Top) / 2d);
+                NativeMethods.SetCursorPos(rect.Left + (int)(cx * 1.1d), rect.Top + (int)(cy * 1.4d));
                 await JiggingProcessor.Delay(100);
                 UserSimulator.Input.Mouse.LeftButtonClick(); // OKButton
             });

@@ -122,7 +122,7 @@ namespace GenshinWoodmen.Core
                         Count();
                         await Delay(200);
                         TraceStatus("Got Wood");
-                        await Delay(100);
+                        await Delay(800);
                         TraceStatus("Logout");
                         await LaunchCtrl.Logout();
                         lastAutoLogout = true;
