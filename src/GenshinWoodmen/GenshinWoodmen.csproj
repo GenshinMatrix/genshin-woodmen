@@ -11,9 +11,9 @@
     <Platforms>x64</Platforms>
     <AssemblyName>genshin-woodmen</AssemblyName>
     <UseWindowsForms>True</UseWindowsForms>
-    <AssemblyVersion>1.1.0</AssemblyVersion>
-    <FileVersion>1.1.0</FileVersion>
-    <Version>$(VersionPrefix)1.1.0</Version>
+    <AssemblyVersion>1.2.0</AssemblyVersion>
+    <FileVersion>1.2.0</FileVersion>
+    <Version>$(VersionPrefix)1.2.0</Version>
     <Authors>ema</Authors>
     <Company>Lemutec</Company>
     <RestoreSources>$(RestoreSources);..\packages\vccli.net\;https://api.nuget.org/v3/index.json</RestoreSources>

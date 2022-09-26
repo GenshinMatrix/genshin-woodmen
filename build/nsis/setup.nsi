@@ -1,5 +1,5 @@
-!define PRODUCT_NAME                     "App"
-!define PRODUCT_VERSION                  "1.0.0.0"
+!define PRODUCT_NAME                     "GenshinWoodmen"
+!define PRODUCT_VERSION                  "1.2.0.0"
 !define PRODUCT_PUBLISHER                "ema"
 !define PRODUCT_WEB_SITE                 "https://github.com/emako"
 !define PRODUCT_LEGAL                    "Licensed under MIT"
