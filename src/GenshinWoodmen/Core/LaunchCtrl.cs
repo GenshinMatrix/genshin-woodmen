@@ -150,9 +150,9 @@ namespace GenshinWoodmen.Core
 
         internal class LaunchParameter
         {
-            public bool? IsFullScreen { get; set; } = false;
-            public int? ScreenWidth { get; set; } = 1440;
-            public int? ScreenHeight { get; set; } = 900;
+            public bool? IsFullScreen { get; set; } = null;
+            public int? ScreenWidth { get; set; } = null;
+            public int? ScreenHeight { get; set; } = null;
 
             public override string ToString()
             {
@@ -160,15 +160,15 @@ namespace GenshinWoodmen.Core
 
                 if (IsFullScreen != null)
                 {
-                    sb.Append("-screen-fullscreen").Append(" ").Append(IsFullScreen.Value ? 1 : 0);
+                    sb.Append("-screen-fullscreen").Append(' ').Append(IsFullScreen.Value ? 1 : 0);
                 }
                 if (ScreenWidth != null)
                 {
-                    sb.Append("-screen-width").Append(" ").Append(ScreenWidth);
+                    sb.Append("-screen-width").Append(' ').Append(ScreenWidth);
                 }
                 if (ScreenHeight != null)
                 {
-                    sb.Append("-screen-height").Append(" ").Append(ScreenHeight);
+                    sb.Append("-screen-height").Append(' ').Append(ScreenHeight);
                 }
                 return sb.ToString();
             }

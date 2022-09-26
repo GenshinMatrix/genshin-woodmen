@@ -197,6 +197,7 @@ namespace GenshinWoodmen.ViewModels
         public ICommand RestartCommand => NotifyIconViewModel.RestartCommand;
         public ICommand ExitCommand => NotifyIconViewModel.ExitCommand;
         public ICommand UsageCommand => NotifyIconViewModel.UsageCommand;
+        public ICommand UsageImageCommand => NotifyIconViewModel.UsageImageCommand;
         public ICommand UsageImageSingleCommand => NotifyIconViewModel.UsageImageSingleCommand;
         public ICommand UsageImageMultiCommand => NotifyIconViewModel.UsageImageMultiCommand;
         public ICommand GitHubCommand => NotifyIconViewModel.GitHubCommand;

@@ -32,6 +32,7 @@
   <ItemGroup>
     <None Remove="Resources\favcion.png" />
     <None Remove="Resources\segoe-fluent-icons.ttf" />
+    <None Remove="Resources\usage.jpg" />
     <None Remove="Resources\usage_multi.jpg" />
     <None Remove="Resources\usage_single.jpg" />
   </ItemGroup>
@@ -40,6 +41,7 @@
     <Resource Include="Resources\favcion.ico" />
     <Resource Include="Resources\favcion.png" />
     <Resource Include="Resources\segoe-fluent-icons.ttf" />
+    <Resource Include="Resources\usage.jpg" />
     <Resource Include="Resources\usage_multi.jpg" />
     <Resource Include="Resources\usage_single.jpg" />
   </ItemGroup>

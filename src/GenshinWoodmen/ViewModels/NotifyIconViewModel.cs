@@ -30,6 +30,7 @@ namespace GenshinWoodmen.ViewModels
         public static ICommand RestartCommand => new RelayCommand(() => App.RestartAsElevated());
         public static ICommand ExitCommand => new RelayCommand(() => Application.Current.Shutdown());
 
+        public static ICommand UsageImageCommand => new RelayCommand(() => _ = UsageManager.ShowUsageImage(UsageImageType.Normal));
         public static ICommand UsageImageSingleCommand => new RelayCommand(() => _ = UsageManager.ShowUsageImage(UsageImageType.Single));
         public static ICommand UsageImageMultiCommand => new RelayCommand(() => _ = UsageManager.ShowUsageImage(UsageImageType.Multi));
         public static ICommand UsageCommand => new RelayCommand(() => _ = UsageManager.ShowUsage());
@@ -45,7 +46,7 @@ namespace GenshinWoodmen.ViewModels
             }
         });
 
-        public static ICommand LaunchGame1440x900Command => new RelayCommand<Window>(async app => _ = await LaunchCtrl.Launch());
+        public static ICommand LaunchGameCommand => new RelayCommand<Window>(async app => _ = await LaunchCtrl.Launch());
 
         public string Language
         {

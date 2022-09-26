@@ -31,18 +31,30 @@
                     <vm:NotifyIconViewModel/>
                 </tb:TaskbarIcon.DataContext>
                 <tb:TaskbarIcon.ContextMenu>
-                    <ContextMenu Padding="0,5" MinWidth="140">
-                        <MenuItem Header="{DynamicResource WoodGuide1}" Command="{Binding UsageImageSingleCommand}">
+                    <ContextMenu Padding="0,5" MinWidth="160">
+                        <MenuItem Command="{Binding UsageImageCommand}">
                             <MenuItem.Icon>
                                 <TextBlock Text="&#xe8b9;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
                             </MenuItem.Icon>
-                        </MenuItem>
-                        <MenuItem Header="{DynamicResource WoodGuide2}" Command="{Binding UsageImageMultiCommand}">
-                            <MenuItem.Icon>
-                                <TextBlock Text="&#xe8b9;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
-                            </MenuItem.Icon>
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="{DynamicResource WoodGuide}" VerticalAlignment="Center"/>
+                                    <Button Grid.Column="1" ToolTip="{DynamicResource WoodGuide1}" Background="Transparent" Command="{Binding UsageImageSingleCommand}" Margin="0" FocusVisualStyle="{x:Null}" HorizontalAlignment="Right" Content="&#xe8be;" FontSize="16" Padding="1" FontFamily="{StaticResource SegoeFluent}"/>
+                                    <Button Grid.Column="2" ToolTip="{DynamicResource WoodGuide2}" Background="Transparent" Command="{Binding UsageImageMultiCommand}" Margin="0" FocusVisualStyle="{x:Null}" HorizontalAlignment="Right" Content="&#xec0a;" FontSize="16" Padding="1" FontFamily="{StaticResource SegoeFluent}"/>
+                                </Grid>
+                            </MenuItem.Header>
                         </MenuItem>
                         <MenuItem Header="{DynamicResource Usage}" Command="{Binding UsageCommand}">
+                            <MenuItem.ToolTip>
+                                <TextBlock>
+                        <Run Text="{DynamicResource UsageDetail}"/>
+                                </TextBlock>
+                            </MenuItem.ToolTip>
                             <MenuItem.Icon>
                                 <TextBlock Text="&#xf71c;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
                             </MenuItem.Icon>
@@ -53,7 +65,7 @@
                             </MenuItem.Icon>
                         </MenuItem>
                         <Separator/>
-                        <MenuItem Header="{DynamicResource LaunchGame1440x900}" Command="{Binding LaunchGame1440x900Command}">
+                        <MenuItem Header="{DynamicResource LaunchGame}" Command="{Binding LaunchGameCommand}">
                             <MenuItem.Icon>
                                 <TextBlock Text="&#xe7fc;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
                             </MenuItem.Icon>
