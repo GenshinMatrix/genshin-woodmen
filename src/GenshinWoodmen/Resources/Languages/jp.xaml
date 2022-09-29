@@ -15,6 +15,7 @@
     <s:String x:Key="WoodGuide2">伐採ガイド (お薦めのコンビ穴場)</s:String>
     <s:String x:Key="OpenConfigFile">配置ファイルを開く</s:String>
     <s:String x:Key="OpenWithConfigFile">配置ファイルを開く (方法を選択して開く)</s:String>
+    <s:String x:Key="OpenWithNotepadConfigFile">配置ファイルを開く (メモ帳として開く)</s:String>
     <s:String x:Key="ReloadConfigFile">配置ファイルをリロード</s:String>
     <s:String x:Key="VisitWebsite">プログラム更新く</s:String>
     <s:String x:Key="TimePredictionDetail">便利アイテム「王樹の加護」のカバー範囲に獲得できる木材の数を合わせて計算、実際的に使い時間は予測数値より数分遅れる。種類毎に木材の一日の獲得上限は2000アイテムまで。</s:String>

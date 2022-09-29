@@ -4,6 +4,6 @@
     {
         public static string Name => "genshin-woodmen";
         public static string Url => "https://github.com/emako/genshin-woodmen/releases";
-        public static string Version => "v1.2";
+        public static string Version => "v1.3";
     }
 }

@@ -394,7 +394,8 @@
                                             <ColumnDefinition Width="auto"/>
                                         </Grid.ColumnDefinitions>
                                         <TextBlock Grid.Column="0" Text="{DynamicResource OpenConfigFile}" VerticalAlignment="Center"/>
-                                        <Button Grid.Column="1" ToolTip="{DynamicResource OpenWithConfigFile}" Background="Transparent" Command="{Binding ConfigOpenWithCommand}" Margin="0" FocusVisualStyle="{x:Null}" HorizontalAlignment="Right" Content="&#xe7ac;" FontSize="16" Padding="1" FontFamily="{StaticResource SegoeFluent}"/>
+                                        <Button Grid.Column="1" ToolTip="{DynamicResource OpenWithNotepadConfigFile}" Background="Transparent" Command="{Binding ConfigOpenWithNotepadCommand}" Margin="0" FocusVisualStyle="{x:Null}" HorizontalAlignment="Right" Content="&#xe8e5;" FontSize="16" Padding="1" FontFamily="{StaticResource SegoeFluent}"/>
+                                        <Button Grid.Column="2" ToolTip="{DynamicResource OpenWithConfigFile}" Background="Transparent" Command="{Binding ConfigOpenWithCommand}" Margin="0" FocusVisualStyle="{x:Null}" HorizontalAlignment="Right" Content="&#xe7ac;" FontSize="16" Padding="1" FontFamily="{StaticResource SegoeFluent}"/>
                                     </Grid>
                                 </MenuItem.Header>
                             </MenuItem>

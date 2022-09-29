@@ -88,7 +88,7 @@
                                 </MenuItem>
                                 <MenuItem Header="English" Command="{Binding LanguageEN}" IsCheckable="False" IsChecked="{Binding Language,Converter={StaticResource LanguageToBoolConverter},ConverterParameter=en-us}">
                                     <MenuItem.Icon>
-                                        <TextBlock Text="&#xf7b5;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
+                                        <TextBlock Text="&#xe983;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
                                     </MenuItem.Icon>
                                 </MenuItem>
                             </MenuItem.Items>

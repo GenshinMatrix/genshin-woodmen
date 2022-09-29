@@ -152,6 +152,23 @@ namespace GenshinWoodmen.ViewModels
             }
         });
 
+        public ICommand ConfigOpenWithNotepadCommand => new RelayCommand(async () =>
+        {
+            try
+            {
+                _ = Process.Start(new ProcessStartInfo()
+                {
+                    FileName = "notepad.exe",
+                    Arguments = $"\"{SettingsManager.Path}\"",
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+                });
+            }
+            catch
+            {
+            }
+        });
+
         public ICommand ConfigOpenWithCommand => new RelayCommand(async () =>
         {
             try

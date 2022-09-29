@@ -15,6 +15,7 @@
     <s:String x:Key="WoodGuide2">Wood Guide (Recommended Multi Point)</s:String>
     <s:String x:Key="OpenConfigFile">Open Config File</s:String>
     <s:String x:Key="OpenWithConfigFile">Open Config File (Open with)</s:String>
+    <s:String x:Key="OpenWithNotepadConfigFile">Open Config File (Open with Notepad)</s:String>
     <s:String x:Key="ReloadConfigFile">Reload Config File</s:String>
     <s:String x:Key="VisitWebsite">Software Updates</s:String>
     <s:String x:Key="TimePredictionDetail">The actual time will be slightly greater than this value for several minutes, calculated according to the maximum amount of wood that can be obtained from the one-time coverage of the "The Boon of the Elder Tree" small prop. The maximum daily acquisition of each kind of wood is 2000.</s:String>
