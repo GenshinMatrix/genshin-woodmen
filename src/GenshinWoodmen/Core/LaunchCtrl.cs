@@ -105,11 +105,12 @@ namespace GenshinWoodmen.Core
                 UserSimulator.Input.Mouse.LeftButtonClick(); // OKButton
             });
         }
-        public static async Task<IntPtr> Launch(int? delayMs = null, RelaunchMethod relaunchMethod = RelaunchMethod.Logout, LaunchParameter launchParameter = null!)
+
+        public static async Task<IntPtr> Launch(int? delayMs = null, RelaunchMethod relaunchMethod = RelaunchMethod.None, LaunchParameter launchParameter = null!)
         {
             try
             {
-                if (relaunchMethod == RelaunchMethod.Kill ? await Kill() : relaunchMethod == RelaunchMethod.Close ? await Close() : await Logout())
+                if (relaunchMethod == RelaunchMethod.Kill ? await Kill() : relaunchMethod == RelaunchMethod.Close ? await Close() : relaunchMethod == RelaunchMethod.Logout ? await Logout() : false)
                 {
                     if (!SpinWait.SpinUntil(() => SearchRunning().Result, 15000))
                     {
@@ -179,12 +180,13 @@ namespace GenshinWoodmen.Core
                 return sb.ToString();
             }
         }
+    }
 
-        internal enum RelaunchMethod
-        {
-            Kill,
-            Close,
-            Logout,
-        }
+    internal enum RelaunchMethod
+    {
+        None,
+        Kill,
+        Close,
+        Logout,
     }
 }

@@ -70,7 +70,7 @@ namespace GenshinWoodmen.Core
                     if (!await LaunchCtrl.IsRunning(async p => hwnd = p?.MainWindowHandle ?? IntPtr.Zero))
                     {
                         TraceStatus("Launching");
-                        _ = await LaunchCtrl.Launch();
+                        _ = await LaunchCtrl.Launch(relaunchMethod: RelaunchMethod.Logout);
                         TraceStatus("Launch(1st) Chattering");
                         await Delay(Settings.DelayLaunchFirst.Get());
                         TraceStatus("Launch(1st) Chattered");
