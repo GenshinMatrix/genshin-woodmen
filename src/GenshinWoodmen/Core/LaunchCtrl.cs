@@ -93,12 +93,18 @@ namespace GenshinWoodmen.Core
                 UserSimulator.Input.Mouse.LeftButtonClick(); // ExitButton
                 await JiggingProcessor.Delay(800);
                 (double cx, double cy) = ((rect.Right - rect.Left) / 2d, (rect.Bottom - rect.Top) / 2d);
-                NativeMethods.SetCursorPos(rect.Left + (int)(cx * 1.1d), rect.Top + (int)(cy * 1.4d));
+                double ratio = (rect.Right - rect.Left) / (double)(rect.Bottom - rect.Top);
+                (double xfactor, double yfactor) = (1.1d, new Func<double>(() =>
+                {
+                    if (ratio >= 1.6d) return 1.4d;
+                    else if (ratio >= 1.5d) return 1.35d;
+                    else return 1.3d;
+                }).Invoke());
+                NativeMethods.SetCursorPos(rect.Left + (int)(cx * xfactor), rect.Top + (int)(cy * yfactor));
                 await JiggingProcessor.Delay(100);
                 UserSimulator.Input.Mouse.LeftButtonClick(); // OKButton
             });
         }
-
         public static async Task<IntPtr> Launch(int? delayMs = null, RelaunchMethod relaunchMethod = RelaunchMethod.Logout, LaunchParameter launchParameter = null!)
         {
             try
