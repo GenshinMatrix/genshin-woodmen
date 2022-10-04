@@ -20,7 +20,7 @@ namespace GenshinWoodmen.Views
 
             if (!isChecked)
             {
-                return AutoMuteSelection.AutoMuteNone;
+                return AutoMuteSelection.ConverterIgnore;
             }
             return (AutoMuteSelection)int.Parse(parameter.ToString()!);
         }
@@ -28,7 +28,7 @@ namespace GenshinWoodmen.Views
 
     public enum AutoMuteSelection
     {
-        AutoMuteNone = -1,
+        ConverterIgnore = -1,
         AutoMuteOff = 0,
         AutoMuteGame,
         AutoMuteSystem,

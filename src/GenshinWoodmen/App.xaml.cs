@@ -87,13 +87,13 @@ namespace GenshinWoodmen
 
             try
             {
-                handle = EventWaitHandle.OpenExisting(Pack.Name);
+                handle = EventWaitHandle.OpenExisting(Pack.Alias);
                 handle.Set();
                 Shutdown();
             }
             catch (WaitHandleCannotBeOpenedException)
             {
-                handle = new EventWaitHandle(false, EventResetMode.AutoReset, Pack.Name);
+                handle = new EventWaitHandle(false, EventResetMode.AutoReset, Pack.Alias);
             }
             GC.KeepAlive(handle);
             _ = Task.Run(() =>

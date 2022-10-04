@@ -14,5 +14,6 @@ namespace GenshinWoodmen.Models
         public static SettingsDefinition<string> ShortcutKey { get; } = new(nameof(ShortcutKey), "F11");
         public static SettingsDefinition<string> Language { get; } = new(nameof(Language), string.Empty);
         public static SettingsDefinition<int> AutoMute { get; } = new(nameof(AutoMute), (int)AutoMuteSelection.AutoMuteOff);
+        public static SettingsDefinition<string> WhenCountReachedCommand { get; } = new(nameof(WhenCountReachedCommand), string.Empty);
     }
 }

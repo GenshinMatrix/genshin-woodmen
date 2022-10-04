@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Management;
+using System.Windows.Interop;
+using System.Windows;
 
 namespace GenshinWoodmen.Core
 {
@@ -10,6 +12,9 @@ namespace GenshinWoodmen.Core
         public const int WM_HOTKEY = 0x0312;
 
         public const int SC_RESTORE = 0xF120;
+
+        public const int GWL_EXSTYLE = -20;
+        public const int WS_EX_TOOLWINDOW = 0x00000080;
 
         public const uint ES_AWAYMODE_REQUIRED = 0x00000040;
         public const uint ES_CONTINUOUS = 0x80000000;
@@ -111,6 +116,12 @@ namespace GenshinWoodmen.Core
 
         [DllImport("user32.dll")]
         public static extern IntPtr MonitorFromPoint(POINT pt, uint dwFlags);
+
+        [DllImport("user32.dll")]
+        public static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
 
         public static void Focus(IntPtr hwnd)
         {
@@ -270,6 +281,14 @@ namespace GenshinWoodmen.Core
                 mObj.InvokeMethod("WmiSetBrightness", new object[] { uint.MaxValue, targetBrightness });
                 break;
             }
+        }
+
+        public static void SetToolWindow(IntPtr hwnd)
+        {
+            int style = (int)GetWindowLong(hwnd, GWL_EXSTYLE);
+
+            style |= WS_EX_TOOLWINDOW;
+            SetWindowLong(hwnd, GWL_EXSTYLE, style);
         }
     }
 

@@ -8,17 +8,17 @@ namespace GenshinWoodmen.Views
     {
         protected override void OnAttached()
         {
-            AssociatedObject.MouseLeftButtonDown += MouseDown;
+            AssociatedObject.MouseLeftButtonDown += MouseLeftButtonDown;
             base.OnAttached();
         }
 
         protected override void OnDetaching()
         {
-            AssociatedObject.MouseLeftButtonDown -= MouseDown;
+            AssociatedObject.MouseLeftButtonDown -= MouseLeftButtonDown;
             base.OnDetaching();
         }
 
-        private void MouseDown(object sender, EventArgs ea)
+        private void MouseLeftButtonDown(object sender, EventArgs e)
         {
             Window.GetWindow(sender as UIElement)?.DragMove();
         }

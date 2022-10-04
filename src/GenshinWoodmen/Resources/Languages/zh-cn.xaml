@@ -26,7 +26,19 @@
     <s:String x:Key="ON">开</s:String>
     <s:String x:Key="OFF">关</s:String>
     <s:String x:Key="MinAfterPowerOff">分钟后关机</s:String>
-    <s:String x:Key="CountDetail">达到累计数量后自动停止，但不会自动关机或退出游戏。</s:String>
+    <s:String x:Key="CountDetail">达到次数后自动停止，然后运行指定命令。</s:String>
+    <s:String x:Key="CountSettings">当达到次数后</s:String>
+    <s:String x:Key="CountSettingsDetail">设定达到次数后运行的指定命令。</s:String>
+    <s:String x:Key="CountSettings0">通知我</s:String>
+    <s:String x:Key="CountSettings0Detail">停止并通知我。</s:String>
+    <s:String x:Key="CountSettings1">退出游戏</s:String>
+    <s:String x:Key="CountSettings1Detail">停止并退出游戏。</s:String>
+    <s:String x:Key="CountSettings2">自动关机</s:String>
+    <s:String x:Key="CountSettings2Detail">停止并在3分钟后自动关机。</s:String>
+    <s:String x:Key="CountSettings3">自定义</s:String>
+    <s:String x:Key="CountSettings3Detail">停止并运行以下指定命令。</s:String>
+    <s:String x:Key="CountSettingsCustomizeHint">指定自定义命令如播放音乐…</s:String>
+    <s:String x:Key="CountSettingsTempHint">该设定仅在本次启动临时生效</s:String>
     <s:String x:Key="LoopTimes">循环次数</s:String>
     <s:String x:Key="ClearData">清除数据</s:String>
     <s:String x:Key="Count">次</s:String>
@@ -51,5 +63,7 @@
     <s:String x:Key="LaunchGame">启动游戏</s:String>
     <s:String x:Key="Language">语言</s:String>
     <s:String x:Key="Brightness">亮度</s:String>
+    <s:String x:Key="BrightnessDetail">调整笔记本电脑亮度。</s:String>
     <s:String x:Key="Cancel">取消</s:String>
+    <s:String x:Key="CancelShutdown">取消关机</s:String>
 </ResourceDictionary>

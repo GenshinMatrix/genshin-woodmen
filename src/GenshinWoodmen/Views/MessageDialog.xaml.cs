@@ -1,7 +1,7 @@
 ﻿using ModernWpf.Controls;
 using System.Windows;
 
-namespace GenshinWoodmen
+namespace GenshinWoodmen.Views
 {
     public partial class MessageDialog : ContentDialog
     {

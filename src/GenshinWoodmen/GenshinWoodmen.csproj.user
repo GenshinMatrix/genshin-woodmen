@@ -4,11 +4,17 @@
     <_LastSelectedProfileId>D:\GitHub\genshin-woodmen\src\GenshinWoodmen\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="Views\CountReachSettingsDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\DialogWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Views\CountReachSettingsDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\DialogWindow.xaml">
       <SubType>Designer</SubType>
     </Page>

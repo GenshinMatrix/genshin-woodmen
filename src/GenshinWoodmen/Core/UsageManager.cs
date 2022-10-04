@@ -18,7 +18,7 @@ internal static class UsageManager
             {
                 try
                 {
-                    byte[] image = ResourceUtils.GetBytes("pack://application:,,,/genshin-woodmen;component/Resources/usage" + type switch
+                    byte[] image = ResourceUtils.GetBytes($"pack://application:,,,/{Pack.Name};component/Resources/usage" + type switch
                     {
                         UsageImageType.Single => "_single",
                         UsageImageType.Multi => "_multi",

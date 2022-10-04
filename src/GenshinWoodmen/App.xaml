@@ -23,6 +23,7 @@
             <v:LanguageToBoolConverter x:Key="LanguageToBoolConverter"/>
             <v:AddConverter x:Key="AddConverter"/>
             <v:ReverseConverter x:Key="ReverseConverter"/>
+            <v:EqualsConverter x:Key="EqualsConverter"/>
             <tb:TaskbarIcon x:Key="PART_Taskbar"
                             IconSource="Resources/favcion.ico"
                             ToolTipText="Genshin Woodmen"

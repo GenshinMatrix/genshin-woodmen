@@ -10,7 +10,7 @@ namespace GenshinWoodmen.Core
         public static string GetPath(string baseName)
         {
             string appUserPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string configPath = Path.Combine(Path.Combine(appUserPath, Pack.Name), baseName);
+            string configPath = Path.Combine(Path.Combine(appUserPath, Pack.Alias), baseName);
 
             if (!Directory.Exists(new FileInfo(configPath).DirectoryName))
             {
@@ -21,7 +21,7 @@ namespace GenshinWoodmen.Core
 
         public static string GetTempPath(string baseName)
         {
-            return Path.Combine(TempPath + Pack.Name, baseName);
+            return Path.Combine(TempPath + Pack.Alias, baseName);
         }
     }
 }

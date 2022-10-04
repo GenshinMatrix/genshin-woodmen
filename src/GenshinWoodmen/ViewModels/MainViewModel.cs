@@ -5,6 +5,7 @@ using GenshinWoodmen.Core;
 using GenshinWoodmen.Models;
 using GenshinWoodmen.Views;
 using Microsoft.Toolkit.Uwp.Notifications;
+using ModernWpf.Controls;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -28,6 +29,8 @@ namespace GenshinWoodmen.ViewModels
         public int ForecastX12 => (int)Math.Floor(ForecastX3 / 4d);
         public int ForecastX15 => (int)Math.Floor(ForecastX3 / 5d);
         public int ForecastX18 => (int)Math.Floor(ForecastX3 / 6d);
+        public int ForecastX21 => (int)Math.Floor(ForecastX3 / 7d);
+        public int ForecastX30 => (int)Math.Floor(ForecastX3 / 10d);
 
         public int ForecastX3Count => (int)Math.Floor(2000d / 3d);
         public int ForecastX6Count => (int)Math.Floor(2000d / 6d);
@@ -35,6 +38,8 @@ namespace GenshinWoodmen.ViewModels
         public int ForecastX12Count => (int)Math.Floor(2000d / 12d);
         public int ForecastX15Count => (int)Math.Floor(2000d / 15d);
         public int ForecastX18Count => (int)Math.Floor(2000d / 18d);
+        public int ForecastX21Count => (int)Math.Floor(2000d / 21d);
+        public int ForecastX30Count => (int)Math.Floor(2000d / 30d);
 
         protected int currentCount = 0;
         public int CurrentCount
@@ -80,22 +85,13 @@ namespace GenshinWoodmen.ViewModels
             get => (AutoMuteSelection)Settings.AutoMute.Get();
             set
             {
-                if (value == AutoMuteSelection.AutoMuteNone) return;
+                if (value == AutoMuteSelection.ConverterIgnore) return;
                 AutoMuteSelection prev = AutoMute;
                 Broadcast(prev, value, nameof(AutoMute));
                 Settings.AutoMute.Set((int)value);
                 SettingsManager.Save();
             }
         }
-
-        [Obsolete]
-        public short MonitorBrightness
-        {
-            get => NativeMethods.GetMonitorBrightness();
-            set => NativeMethods.SetMonitorBrightness(value);
-        }
-        [Obsolete] public short MonitorMinimumBrightness => NativeMethods.GetMonitorMinimumBrightness();
-        [Obsolete] public short MonitorMaximumBrightness => NativeMethods.GetMonitorMaximumBrightness();
 
         protected byte brightness = NativeMethods.GetBrightness();
         public byte Brightness
@@ -224,6 +220,33 @@ namespace GenshinWoodmen.ViewModels
         public ICommand MuteSystemCommand => new RelayCommand(() => MuteManager.MuteSystem(true));
         public ICommand UnmuteSystemCommand => new RelayCommand(() => MuteManager.MuteSystem(false));
 
+        protected CountSettingsCase countSettingsCase;
+        public CountSettingsCase CountSettingsCase
+        {
+            get => countSettingsCase;
+            set
+            {
+                if (value == CountSettingsCase.ConverterIgnore) return;
+                SetProperty(ref countSettingsCase, value);
+            }
+        }
+        protected bool CountSettingsDialogShown = false;
+        public ICommand CountSettingsCommand => new RelayCommand(async () =>
+        {
+            if (CountSettingsDialogShown) return;
+            using DialogWindow win = new()
+            {
+                Width = SystemParameters.WorkArea.Width,
+                Height = SystemParameters.WorkArea.Height,
+            };
+            win.Show();
+            CountReachSettingsDialog dialog = new(CountSettingsCase);
+            CountSettingsDialogShown = true;
+            await dialog.ShowAsync(ContentDialogPlacement.Popup);
+            CountSettingsDialogShown = false;
+            CountSettingsCase = dialog.Case;
+        });
+
         public MainViewModel(MainWindow source)
         {
             Source = source;
@@ -252,7 +275,7 @@ namespace GenshinWoodmen.ViewModels
                         {
                             StartCommand?.Execute(Source.FindName("ButtonStart"));
                         });
-                        NoticeService.AddNotice(Mui("Tips"), string.Format(Mui("CountReachStop"), MaxCount), string.Empty, ToastDuration.Short);
+                        OnCountReached();
                     }
                 }
                 if (PowerOffAuto && PowerOffDateTime != null && powerOffAutoMinuteByUser > 0)
@@ -298,6 +321,50 @@ namespace GenshinWoodmen.ViewModels
 
             SettingsManager.Reloaded += RegisterHotKey;
             RegisterHotKey();
+        }
+
+        private async void OnCountReached()
+        {
+            switch (CountSettingsCase)
+            {
+                case CountSettingsCase.Notification:
+                    NoticeService.AddNotice(Mui("Tips"), string.Format(Mui("CountReachStop"), MaxCount), string.Empty, ToastDuration.Short);
+                    break;
+                case CountSettingsCase.CloseGame:
+                    await LaunchCtrl.Close();
+                    break;
+                case CountSettingsCase.Shutdown:
+                    await Source.Dispatcher.BeginInvoke(() =>
+                    {
+                        powerOffAutoMinuteByUser = PowerOffAutoMinute = 3;
+                        PowerOffDateTime = DateTime.Now.AddMinutes(PowerOffAutoMinute);
+                        PowerOffAuto = true;
+                    });
+                    break;
+                case CountSettingsCase.Customize:
+                    await Task.Run(() =>
+                    {
+                        if (string.IsNullOrEmpty(Settings.WhenCountReachedCommand))
+                        {
+                            NoticeService.AddNotice(Mui("Tips"), string.Format(Mui("CountReachStop"), MaxCount), string.Empty, ToastDuration.Short);
+                            return;
+                        }
+                        try
+                        {
+                            _ = Process.Start(new ProcessStartInfo()
+                            {
+                                FileName = "cmd.exe",
+                                Arguments = $"/c {Settings.WhenCountReachedCommand.Get()}",
+                                UseShellExecute = false,
+                                CreateNoWindow = true,
+                            });
+                        }
+                        catch
+                        {
+                        }
+                    });
+                    break;
+            }
         }
 
         private void RegisterHotKey()

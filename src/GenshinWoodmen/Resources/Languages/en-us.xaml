@@ -26,7 +26,19 @@
     <s:String x:Key="ON">ON</s:String>
     <s:String x:Key="OFF">OFF</s:String>
     <s:String x:Key="MinAfterPowerOff">min</s:String>
-    <s:String x:Key="CountDetail">It will automatically stop when the accumulated number is reached, but it will not automatically shut down or exit the game.</s:String>
+    <s:String x:Key="CountDetail">It will automatically stop when count reached, and run the specified command.</s:String>
+    <s:String x:Key="CountSettings">When Count Reached</s:String>
+    <s:String x:Key="CountSettingsDetail">Set the specified command to run when count reached.</s:String>
+    <s:String x:Key="CountSettings0">Notification</s:String>
+    <s:String x:Key="CountSettings0Detail">Stop and notify me.</s:String>
+    <s:String x:Key="CountSettings1">Close game</s:String>
+    <s:String x:Key="CountSettings1Detail">Stop and close game.</s:String>
+    <s:String x:Key="CountSettings2">Shutdown</s:String>
+    <s:String x:Key="CountSettings2Detail">Stop and shutdown this device in 3 minutes.</s:String>
+    <s:String x:Key="CountSettings3">Customize</s:String>
+    <s:String x:Key="CountSettings3Detail">Stop and run the following command.</s:String>
+    <s:String x:Key="CountSettingsCustomizeHint">Set custom command, such as playing music...</s:String>
+    <s:String x:Key="CountSettingsTempHint">Only takes effect temporarily during this startup.</s:String>
     <s:String x:Key="LoopTimes">Loop Times</s:String>
     <s:String x:Key="ClearData">Clear Data</s:String>
     <s:String x:Key="Count">times</s:String>
@@ -51,5 +63,7 @@
     <s:String x:Key="LaunchGame">Launch Game</s:String>
     <s:String x:Key="Language">Language</s:String>
     <s:String x:Key="Brightness">Brightness</s:String>
+    <s:String x:Key="BrightnessDetail">Adjust Note PC Brightness.</s:String>
     <s:String x:Key="Cancel">Cancel</s:String>
+    <s:String x:Key="CancelShutdown">Cancel Shutdown</s:String>
 </ResourceDictionary>
