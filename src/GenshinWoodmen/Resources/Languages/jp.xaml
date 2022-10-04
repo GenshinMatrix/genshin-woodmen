@@ -26,9 +26,9 @@
     <s:String x:Key="ON">オン</s:String>
     <s:String x:Key="OFF">オフ</s:String>
     <s:String x:Key="MinAfterPowerOff">分後に電源オフ</s:String>
-    <s:String x:Key="CountDetail">回数に達すると自動的に停止、その後に指定したコマンドを実行。</s:String>
-    <s:String x:Key="CountSettings">回数数が達したら</s:String>
-    <s:String x:Key="CountSettingsDetail">回数数に達した時に実行するコマンドを指定。</s:String>
+    <s:String x:Key="CountDetail">ループ回数に達すると自動的に停止、その後に指定したコマンドを実行。</s:String>
+    <s:String x:Key="CountSettings">ループ回数に達したら</s:String>
+    <s:String x:Key="CountSettingsDetail">ループ回数に達した時に実行するコマンドを指定。</s:String>
     <s:String x:Key="CountSettings0">知らせる</s:String>
     <s:String x:Key="CountSettings0Detail">ストップして知らせる。</s:String>
     <s:String x:Key="CountSettings1">ゲーム終了</s:String>
