@@ -258,14 +258,22 @@ namespace GenshinWoodmen.ViewModels
 
             Source.Loaded += (_, _) =>
             {
-                Source.BrightnessSlider.IsVisibleChanged += (_, _) =>
+                Source.BrightnessMenuItem.Loaded += (_, _) =>
                 {
-                    Brightness = NativeMethods.GetBrightness();
-                };
-                Source.BrightnessSlider.ValueChanged += (_, _) =>
-                {
-                    if (Source.BrightnessSlider.IsVisible)
-                        NativeMethods.SetBrightness(Brightness);
+                    if (Source.BrightnessMenuItem.GetTemplateChild("BrightnessSlider") is Slider brightnessSlider)
+                    {
+                        brightnessSlider.IsVisibleChanged += (_, _) =>
+                        {
+                            Brightness = NativeMethods.GetBrightness();
+                        };
+                        brightnessSlider.ValueChanged += (_, _) =>
+                        {
+                            if (brightnessSlider.IsVisible)
+                            {
+                                NativeMethods.SetBrightness(Brightness);
+                            }
+                        };
+                    }
                 };
             };
 
