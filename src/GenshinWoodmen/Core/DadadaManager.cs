@@ -54,7 +54,7 @@ namespace GenshinWoodmen.Core
                     {
                     }
                 });
-                AudioPlayer.Play(AudioPath);
+                AudioPlayer.PlayRepeat(AudioPath);
             }
             catch
             {

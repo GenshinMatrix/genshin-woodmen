@@ -7,7 +7,7 @@
             try
             {
                 _ = NativeMethods.MciSendString(@"close temp_music", " ", 0, 0);
-                _ = NativeMethods.MciSendString(@"open " + fileName + " alias temp_music", " ", 0, 0);
+                _ = NativeMethods.MciSendString(@"open """ + fileName + @""" alias temp_music", " ", 0, 0);
                 _ = NativeMethods.MciSendString(@"play temp_music repeat", " ", 0, 0);
             }
             catch
