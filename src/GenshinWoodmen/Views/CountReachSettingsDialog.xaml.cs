@@ -1,12 +1,13 @@
-﻿using GenshinWoodmen.Core;
+﻿using CommunityToolkit.Mvvm.Input;
+using GenshinWoodmen.Core;
 using GenshinWoodmen.Models;
-using ModernWpf.Controls;
 using System.IO;
 using System.Windows;
+using System.Windows.Input;
 
 namespace GenshinWoodmen.Views
 {
-    public partial class CountReachSettingsDialog : ContentDialog
+    public partial class CountReachSettingsDialog : ObservableContentDialog
     {
         public CountSettingsCase Case
         {
@@ -21,11 +22,28 @@ namespace GenshinWoodmen.Views
             set => Settings.WhenCountReachedCommand.Set(value);
         }
 
-        public CountReachSettingsDialog(CountSettingsCase @case)
+        private bool isCountStartedFromNextUpdateTime = UpdateTime.IsCountStartedFormNextUpdateTime;
+        public bool IsCountStartedFromNextUpdateTime
+        {
+            get => isCountStartedFromNextUpdateTime;
+            set
+            {
+                UpdateTime.IsCountStartedFormNextUpdateTime = value;
+                Set(ref isCountStartedFromNextUpdateTime, value);
+            }
+        }
+
+        public string NextUpdateTimeViewString => UpdateTime.NextUpdateTimeViewString;
+        public ICommand UpdateNextUpdateTimeCommand => new RelayCommand(() =>
+        {
+            _ = UpdateTime.UpdateNextTime();
+            RaisePropertyChanged(nameof(NextUpdateTimeViewString));
+        });
+
+        public CountReachSettingsDialog()
         {
             string whenCountReachedCommandPrev = ((WhenCountReachedCommand ?? string.Empty).Clone() as string)!;
 
-            Case = @case;
             DataContext = this;
             InitializeComponent();
             PrimaryButtonClick += (_, _) =>

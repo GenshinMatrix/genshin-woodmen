@@ -35,10 +35,13 @@
     <s:String x:Key="CountSettings1Detail">ストップしてゲームを終了。</s:String>
     <s:String x:Key="CountSettings2">電源オフ</s:String>
     <s:String x:Key="CountSettings2Detail">ストップして３分後にに電源オフ。</s:String>
-    <s:String x:Key="CountSettings3">カスタマイズ</s:String>
-    <s:String x:Key="CountSettings3Detail">ストップして以下の指定コマンドを実行。</s:String>
+    <s:String x:Key="CountSettings3">たったた！</s:String>
+    <s:String x:Key="CountSettings3Detail">ストップして「たったた！」を再生（システムをミュートしないように）。</s:String>
+    <s:String x:Key="CountSettings4">カスタマイズ</s:String>
+    <s:String x:Key="CountSettings4Detail">ストップして以下の指定コマンドを実行。</s:String>
     <s:String x:Key="CountSettingsCustomizeHint">カスタムコマンドを指定、例えば音楽を再生するとか…</s:String>
-    <s:String x:Key="CountSettingsTempHint">この設定今回のプログラム起動のみ有効</s:String>
+    <s:String x:Key="CountSettingsTempHint">※このページの設定今回のプログラム起動のみ有効</s:String>
+    <s:String x:Key="CountStartFromNextUpdateTime">次の木材の更新時間からカウントを始める</s:String>
     <s:String x:Key="LoopTimes">ループ回数</s:String>
     <s:String x:Key="ClearData">回数をクリア</s:String>
     <s:String x:Key="Count">回</s:String>

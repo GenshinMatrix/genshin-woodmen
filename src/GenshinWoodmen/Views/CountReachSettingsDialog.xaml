@@ -1,14 +1,12 @@
-﻿<ui:ContentDialog x:Class="GenshinWoodmen.Views.CountReachSettingsDialog"
-                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                  xmlns:ui="http://schemas.modernwpf.com/2019"
-                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                  xmlns:local="clr-namespace:GenshinWoodmen.Views"
-                  mc:Ignorable="d"
-                  Title="{Binding Title}"
-                  PrimaryButtonText="{DynamicResource ButtonOK}"
-                  DefaultButton="Primary">
+﻿<local:ObservableContentDialog x:Class="GenshinWoodmen.Views.CountReachSettingsDialog"
+                               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                               xmlns:ui="http://schemas.modernwpf.com/2019"
+                               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                               xmlns:local="clr-namespace:GenshinWoodmen.Views"
+                               mc:Ignorable="d" Title="{Binding Title}"
+                               PrimaryButtonText="{DynamicResource ButtonOK}" DefaultButton="Primary">
     <ContentControl.Resources>
         <ResourceDictionary>
             <local:CountSettingsCaseToBoolConverter x:Key="CountSettingsCaseToBoolConverter"/>
@@ -21,8 +19,14 @@
             <RadioButton Content="{DynamicResource CountSettings1}" ToolTip="{DynamicResource CountSettings1Detail}" IsChecked="{Binding Case,Converter={StaticResource CountSettingsCaseToBoolConverter},ConverterParameter=1}"/>
             <RadioButton Content="{DynamicResource CountSettings2}" ToolTip="{DynamicResource CountSettings2Detail}" IsChecked="{Binding Case,Converter={StaticResource CountSettingsCaseToBoolConverter},ConverterParameter=2}"/>
             <RadioButton Content="{DynamicResource CountSettings3}" ToolTip="{DynamicResource CountSettings3Detail}" IsChecked="{Binding Case,Converter={StaticResource CountSettingsCaseToBoolConverter},ConverterParameter=3}"/>
+            <RadioButton Content="{DynamicResource CountSettings4}" ToolTip="{DynamicResource CountSettings4Detail}" IsChecked="{Binding Case,Converter={StaticResource CountSettingsCaseToBoolConverter},ConverterParameter=4}"/>
             <TextBox Margin="0,5,0,0" Text="{Binding WhenCountReachedCommand}" IsEnabled="{Binding Case,Converter={StaticResource EqualsConverter},ConverterParameter={x:Static local:CountSettingsCase.Customize}}" ToolTip="{DynamicResource CountSettingsCustomizeHint}" ui:TextBoxHelper.IsDeleteButtonVisible="True"/>
+            <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                <CheckBox Content="{DynamicResource CountStartFromNextUpdateTime}" IsChecked="{Binding IsCountStartedFromNextUpdateTime}"/>
+                <TextBlock Margin="5,0,0,0" Text="{Binding NextUpdateTimeViewString}" Foreground="#6078D7" VerticalAlignment="Center"/>
+                <Button Background="Transparent" Command="{Binding UpdateNextUpdateTimeCommand}" Margin="0" FocusVisualStyle="{x:Null}" HorizontalAlignment="Right" Content="&#xe72c;" FontSize="12" Padding="1" FontFamily="{StaticResource SegoeFluent}" VerticalAlignment="Center"/>
+            </StackPanel>
             <TextBlock Margin="0,5,0,0" Text="{DynamicResource CountSettingsTempHint}" FontStyle="Italic"/>
         </StackPanel>
     </StackPanel>
-</ui:ContentDialog>
+</local:ObservableContentDialog>

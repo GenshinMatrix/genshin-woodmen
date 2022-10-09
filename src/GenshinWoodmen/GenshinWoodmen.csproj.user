@@ -7,7 +7,10 @@
     <Compile Update="Views\CountReachSettingsDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\DialogWindow.xaml.cs">
+    <Compile Update="Views\DadadaDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UIElement\DialogWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -15,7 +18,10 @@
     <Page Update="Views\CountReachSettingsDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\DialogWindow.xaml">
+    <Page Update="Views\DadadaDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UIElement\DialogWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

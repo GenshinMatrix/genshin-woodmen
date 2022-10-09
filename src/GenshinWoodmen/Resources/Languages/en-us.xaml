@@ -35,10 +35,13 @@
     <s:String x:Key="CountSettings1Detail">Stop and close game.</s:String>
     <s:String x:Key="CountSettings2">Shutdown</s:String>
     <s:String x:Key="CountSettings2Detail">Stop and shutdown this device in 3 minutes.</s:String>
-    <s:String x:Key="CountSettings3">Customize</s:String>
-    <s:String x:Key="CountSettings3Detail">Stop and run the following command.</s:String>
+    <s:String x:Key="CountSettings3">Da-Da Da!</s:String>
+    <s:String x:Key="CountSettings3Detail">Stop and play "Da-Da Da!" (Care for system mute).</s:String>
+    <s:String x:Key="CountSettings4">Customize</s:String>
+    <s:String x:Key="CountSettings4Detail">Stop and run the following command.</s:String>
     <s:String x:Key="CountSettingsCustomizeHint">Set custom command, such as playing music...</s:String>
-    <s:String x:Key="CountSettingsTempHint">Only takes effect temporarily during this startup.</s:String>
+    <s:String x:Key="CountSettingsTempHint">※Only takes effect temporarily during this startup about this page.</s:String>
+    <s:String x:Key="CountStartFromNextUpdateTime">Count start from next wood update time.</s:String>
     <s:String x:Key="LoopTimes">Loop Times</s:String>
     <s:String x:Key="ClearData">Clear Data</s:String>
     <s:String x:Key="Count">times</s:String>

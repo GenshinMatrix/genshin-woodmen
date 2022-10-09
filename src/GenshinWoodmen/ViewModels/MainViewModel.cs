@@ -240,7 +240,10 @@ namespace GenshinWoodmen.ViewModels
                 Height = SystemParameters.WorkArea.Height,
             };
             win.Show();
-            CountReachSettingsDialog dialog = new(CountSettingsCase);
+            CountReachSettingsDialog dialog = new()
+            {
+                Case = CountSettingsCase,
+            };
             CountSettingsDialogShown = true;
             await dialog.ShowAsync(ContentDialogPlacement.Popup);
             CountSettingsDialogShown = false;
@@ -250,6 +253,8 @@ namespace GenshinWoodmen.ViewModels
         public MainViewModel(MainWindow source)
         {
             Source = source;
+
+            _ = UpdateTime.UpdateNextTime();
 
             Source.Loaded += (_, _) =>
             {
@@ -341,6 +346,9 @@ namespace GenshinWoodmen.ViewModels
                         PowerOffAuto = true;
                     });
                     break;
+                case CountSettingsCase.Dadada:
+                    await DadadaManager.Show();
+                    break;
                 case CountSettingsCase.Customize:
                     await Task.Run(() =>
                     {
@@ -382,7 +390,20 @@ namespace GenshinWoodmen.ViewModels
             }
         }
 
-        void IRecipient<CountMessage>.Receive(CountMessage message) => CurrentCount++;
+        void IRecipient<CountMessage>.Receive(CountMessage message)
+        {
+            if (UpdateTime.IsCountStartedFormNextUpdateTime)
+            {
+                if ((DateTime.Now - UpdateTime.NextUpdateTime).TotalSeconds >= 0d)
+                {
+                    CurrentCount++;
+                }
+            }
+            else
+            {
+                CurrentCount++;
+            }
+        }
         void IRecipient<StatusMessage>.Receive(StatusMessage message) => CurrentStatus = message.ToString();
         void IRecipient<CancelShutdownMessage>.Receive(CancelShutdownMessage message)
         {

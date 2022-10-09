@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 using System.Management;
-using System.Windows.Interop;
-using System.Windows;
+using System.Runtime.InteropServices;
 
 namespace GenshinWoodmen.Core
 {
@@ -38,6 +36,9 @@ namespace GenshinWoodmen.Core
         public const int MONITOR_DEFAULTTONULL = 0;
         public const int MONITOR_DEFAULTTOPRIMARY = 1;
         public const int MONITOR_DEFAULTTONEAREST = 2;
+
+        public static uint SND_ASYNC = 0x0001;
+        public static uint SND_FILENAME = 0x00020000;
 
         [DllImport("User32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
@@ -122,6 +123,9 @@ namespace GenshinWoodmen.Core
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         public static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+
+        [DllImport("winmm.dll", EntryPoint = "mciSendString")]
+        public static extern uint MciSendString(string lpstrCommand, string lpstrReturnString, uint uReturnLength, uint hWndCallback);
 
         public static void Focus(IntPtr hwnd)
         {
@@ -285,11 +289,12 @@ namespace GenshinWoodmen.Core
 
         public static void SetToolWindow(IntPtr hwnd)
         {
-            int style = (int)GetWindowLong(hwnd, GWL_EXSTYLE);
+            int style = GetWindowLong(hwnd, GWL_EXSTYLE);
 
             style |= WS_EX_TOOLWINDOW;
             SetWindowLong(hwnd, GWL_EXSTYLE, style);
         }
+
     }
 
     [StructLayout(LayoutKind.Sequential)]

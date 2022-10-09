@@ -33,6 +33,7 @@ namespace GenshinWoodmen.Views
         Notification = 0,
         CloseGame = 1,
         Shutdown = 2,
-        Customize = 3,
+        Dadada = 3,
+        Customize = 4,
     }
 }

@@ -29,6 +29,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Audios\folder.jpg" />
+    <None Remove="Resources\Audios\klee_dadada.en.mp3" />
+    <None Remove="Resources\Audios\klee_dadada.jp.mp3" />
+    <None Remove="Resources\Audios\klee_dadada.ko.mp3" />
+    <None Remove="Resources\Audios\klee_dadada.mp3" />
     <None Remove="Resources\favcion.png" />
     <None Remove="Resources\segoe-fluent-icons.ttf" />
     <None Remove="Resources\usage.jpg" />
@@ -37,6 +42,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\Audios\folder.jpg" />
+    <Resource Include="Resources\Audios\klee_dadada.en.mp3" />
+    <Resource Include="Resources\Audios\klee_dadada.jp.mp3" />
+    <Resource Include="Resources\Audios\klee_dadada.ko.mp3" />
+    <Resource Include="Resources\Audios\klee_dadada.mp3" />
     <Resource Include="Resources\favcion.ico" />
     <Resource Include="Resources\favcion.png" />
     <Resource Include="Resources\segoe-fluent-icons.ttf" />

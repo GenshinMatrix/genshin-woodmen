@@ -1,0 +1,13 @@
+﻿<local:ObservableContentDialog x:Class="GenshinWoodmen.Views.DadadaDialog"
+                               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                               xmlns:local="clr-namespace:GenshinWoodmen.Views"
+                               mc:Ignorable="d" RenderOptions.BitmapScalingMode="Fant"
+                               Title="{DynamicResource CountSettings3}"
+                               PrimaryButtonText="{DynamicResource ButtonStop}"
+                               DefaultButton="Primary"
+                               d:DesignHeight="NaN" d:DesignWidth="NaN">
+    <Image Source="../../Resources/Audios/folder.jpg"/>
+</local:ObservableContentDialog>

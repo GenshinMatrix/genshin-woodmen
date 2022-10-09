@@ -35,10 +35,13 @@
     <s:String x:Key="CountSettings1Detail">停止并退出游戏。</s:String>
     <s:String x:Key="CountSettings2">自动关机</s:String>
     <s:String x:Key="CountSettings2Detail">停止并在3分钟后自动关机。</s:String>
-    <s:String x:Key="CountSettings3">自定义</s:String>
-    <s:String x:Key="CountSettings3Detail">停止并运行以下指定命令。</s:String>
+    <s:String x:Key="CountSettings3">哒哒哒</s:String>
+    <s:String x:Key="CountSettings3Detail">停止并播放哒哒哒（注意不要设置系统静音）。</s:String>
+    <s:String x:Key="CountSettings4">自定义</s:String>
+    <s:String x:Key="CountSettings4Detail">停止并运行以下指定命令。</s:String>
     <s:String x:Key="CountSettingsCustomizeHint">指定自定义命令如播放音乐…</s:String>
-    <s:String x:Key="CountSettingsTempHint">该设定仅在本次启动临时生效</s:String>
+    <s:String x:Key="CountSettingsTempHint">※该页设定仅在本次启动临时生效</s:String>
+    <s:String x:Key="CountStartFromNextUpdateTime">从下一次木材更新时间开始计数</s:String>
     <s:String x:Key="LoopTimes">循环次数</s:String>
     <s:String x:Key="ClearData">清除数据</s:String>
     <s:String x:Key="Count">次</s:String>

@@ -1,10 +1,12 @@
 ﻿using GenshinWoodmen.Core;
+using GenshinWoodmen.Models;
 using GenshinWoodmen.ViewModels;
 using Hardcodet.Wpf.TaskbarNotification;
 using Microsoft.Toolkit.Uwp.Notifications;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
