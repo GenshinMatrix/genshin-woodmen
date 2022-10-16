@@ -11,8 +11,14 @@ namespace GenshinWoodmen.Core
 
         public const int SC_RESTORE = 0xF120;
 
+        public const int GWL_STYLE = -16;
         public const int GWL_EXSTYLE = -20;
         public const int WS_EX_TOOLWINDOW = 0x00000080;
+        public const int WS_MINIMIZEBOX = 0x00020000;
+        public const int WS_MAXIMIZEBOX = 0x00010000;
+
+        public const int HWND_TOPMOST = -1;
+        public const int HWND_NOTOPMOST = -2;
 
         public const uint ES_AWAYMODE_REQUIRED = 0x00000040;
         public const uint ES_CONTINUOUS = 0x80000000;
@@ -53,13 +59,16 @@ namespace GenshinWoodmen.Core
         public static extern bool BringWindowToTop(IntPtr hWnd);
 
         [DllImport("user32.dll")]
+        public static extern IntPtr SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int x, int y, int cx, int cy, uint wFlags);
+
+        [DllImport("user32.dll")]
+        public static extern bool GetWindowRect(IntPtr hWnd, ref RECT lpRect);
+
+        [DllImport("user32.dll")]
         public extern static bool SetCursorPos(int x, int y);
 
         [DllImport("User32.dll")]
         public static extern bool GetCursorPos(ref POINT lpPoint);
-
-        [DllImport("user32.dll")]
-        public static extern int GetWindowRect(IntPtr hWnd, ref RECT lpRect);
 
         [DllImport("kernel32.dll")]
         public static extern int SetThreadExecutionState(uint esFlags);
@@ -295,6 +304,20 @@ namespace GenshinWoodmen.Core
             SetWindowLong(hwnd, GWL_EXSTYLE, style);
         }
 
+        public static void SetMaxableWindow(IntPtr hwnd)
+        {
+            int style = GetWindowLong(hwnd, GWL_STYLE);
+
+            style |= WS_MAXIMIZEBOX;
+            SetWindowLong(hwnd, GWL_STYLE, style);
+        }
+
+        public static void SetTopoMost(IntPtr hwnd, bool topMost = true)
+        {
+            RECT rect = new();
+            _ = GetWindowRect(hwnd, ref rect);
+            _ = SetWindowPos(hwnd, topMost ? HWND_TOPMOST : HWND_NOTOPMOST, rect.Left, rect.Top, rect.Right - rect.Left, rect.Bottom - rect.Top, 0);
+        }
     }
 
     [StructLayout(LayoutKind.Sequential)]

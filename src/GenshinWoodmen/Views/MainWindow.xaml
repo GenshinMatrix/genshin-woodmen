@@ -7,6 +7,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:main="clr-namespace:GenshinWoodmen"
         xmlns:local="clr-namespace:GenshinWoodmen.Views"
+             xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
         Name="Self"
         ShowInTaskbar="False" Topmost="True" ResizeMode="NoResize" Opacity="0" d:Opacity="1"
         Icon="../Resources/favcion.ico" InputMethod.IsInputMethodEnabled="False"
@@ -94,11 +95,18 @@
     <Grid>
         <Border x:Name="Border" Background="#EEFFFFFF" CornerRadius="4">
             <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Image Source="../Resources/favcion.png" Width="30" Height="30" ToolTip="{x:Static main:Pack.Version}">
+                <Grid Width="30" Height="30" ToolTip="{x:Static main:Pack.Version}">
+                    <Grid.Effect>
+                        <DropShadowEffect Color="DimGray" Opacity="0.2" BlurRadius="7" ShadowDepth="2" Direction="275" />
+                    </Grid.Effect>
+                    <svgc:SvgViewbox Margin="0,0,0,0" Opacity="0.9" Width="28" Height="28" IsHitTestVisible="True" Source="../Resources/squircle.svg" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <svgc:SvgViewbox x:Name="SvgViewBoxMainIcon" Margin="0,0,0,0" Opacity="0.9" Width="20" Height="20" IsHitTestVisible="True" Source="../Resources/dendro.svg" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Grid>
+                <!--<Image Source="../Resources/favcion.png" Width="30" Height="30" ToolTip="{x:Static main:Pack.Version}">
                     <Image.Effect>
                         <DropShadowEffect Color="DimGray" Opacity="0.2" BlurRadius="7" ShadowDepth="2" Direction="275" />
                     </Image.Effect>
-                </Image>
+                </Image>-->
                 <StackPanel Orientation="Vertical" Margin="5,0,0,0" MinWidth="45" HorizontalAlignment="Center" VerticalAlignment="Center" ToolTip="{Binding CurrentCount}">
                     <TextBlock Text="{DynamicResource Genshin}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     <TextBlock Text="{DynamicResource Woodmen}" HorizontalAlignment="Center" VerticalAlignment="Center"/>

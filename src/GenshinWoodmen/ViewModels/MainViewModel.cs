@@ -6,6 +6,7 @@ using GenshinWoodmen.Models;
 using GenshinWoodmen.Views;
 using Microsoft.Toolkit.Uwp.Notifications;
 using ModernWpf.Controls;
+using SharpVectors.Converters;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -104,6 +105,7 @@ namespace GenshinWoodmen.ViewModels
         {
             TextBlock startIcon = (Window.GetWindow(button).FindName("TextBlockStartIcon") as TextBlock)!;
             TextBlock start = (Window.GetWindow(button).FindName("TextBlockStart") as TextBlock)!;
+            SvgViewbox mainIcon = (Window.GetWindow(button).FindName("SvgViewBoxMainIcon") as SvgViewbox)!;
 
             Brush brush = null!;
             button!.IsEnabled = false;
@@ -112,6 +114,7 @@ namespace GenshinWoodmen.ViewModels
                 brush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#EEDBE8F6"));
                 start.Text = Mui("ButtonStop");
                 startIcon.Text = FluentSymbol.Stop;
+                mainIcon.SetColor("#7FB345");
                 JiggingProcessor.Start();
             }
             else
@@ -119,6 +122,7 @@ namespace GenshinWoodmen.ViewModels
                 brush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#EEFFFFFF"));
                 start.Text = Mui("ButtonStart");
                 startIcon.Text = FluentSymbol.Start;
+                mainIcon.SetColor("Black");
                 JiggingProcessor.Stop();
             }
 
