@@ -114,7 +114,7 @@ namespace GenshinWoodmen.ViewModels
                 brush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#EEDBE8F6"));
                 start.Text = Mui("ButtonStop");
                 startIcon.Text = FluentSymbol.Stop;
-                mainIcon.SetColor("#7FB345");
+                mainIcon.SetColor("Green");
                 JiggingProcessor.Start();
             }
             else

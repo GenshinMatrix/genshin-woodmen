@@ -9,5 +9,17 @@
     <AppxShowAllApps>False</AppxShowAllApps>
     <AppxBuildConfigurationSelection>x64</AppxBuildConfigurationSelection>
     <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
+    <Source>D:\GitHub\genshin-woodmen\src\GenshinWoodmen\Resources\favcion.png</Source>
+    <SmallTileSource>D:\GitHub\genshin-woodmen\src\GenshinWoodmen\Resources\favcion.png</SmallTileSource>
+    <MediumTileSource>D:\GitHub\genshin-woodmen\src\GenshinWoodmen\Resources\favcion.png</MediumTileSource>
+    <WideTileSource>D:\GitHub\genshin-woodmen\src\GenshinWoodmen\Resources\favcion.png</WideTileSource>
+    <LargeTileSource>D:\GitHub\genshin-woodmen\src\GenshinWoodmen\Resources\favcion.png</LargeTileSource>
+    <AppIconSource>D:\GitHub\genshin-woodmen\src\GenshinWoodmen\Resources\favcion.png</AppIconSource>
+    <SplashScreenSource>D:\GitHub\genshin-woodmen\src\GenshinWoodmen\Resources\favcion.png</SplashScreenSource>
+    <BadgeLogoSource>D:\GitHub\genshin-woodmen\src\GenshinWoodmen\Resources\favcion.png</BadgeLogoSource>
+    <PackageLogoSource>D:\GitHub\genshin-woodmen\src\GenshinWoodmen\Resources\favcion.png</PackageLogoSource>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DebuggerFlavor>AppHostLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>
