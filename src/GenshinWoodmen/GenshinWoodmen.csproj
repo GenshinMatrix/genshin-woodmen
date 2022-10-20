@@ -10,9 +10,9 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Platforms>x64</Platforms>
     <UseWindowsForms>True</UseWindowsForms>
-    <AssemblyVersion>1.5.0</AssemblyVersion>
-    <FileVersion>1.5.0</FileVersion>
-    <Version>$(VersionPrefix)1.5.0</Version>
+    <AssemblyVersion>1.6.0</AssemblyVersion>
+    <FileVersion>1.6.0</FileVersion>
+    <Version>$(VersionPrefix)1.6.0</Version>
     <Authors>ema</Authors>
     <Company>Lemutec</Company>
     <RestoreSources>$(RestoreSources);..\packages\vccli.net\;https://api.nuget.org/v3/index.json</RestoreSources>
