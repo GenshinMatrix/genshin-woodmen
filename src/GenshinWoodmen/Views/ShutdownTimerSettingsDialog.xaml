@@ -1,0 +1,29 @@
+﻿<local:ObservableContentDialog x:Class="GenshinWoodmen.Views.ShutdownTimerSettingsDialog"
+                               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                               xmlns:ui="http://schemas.modernwpf.com/2019"
+                               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                               xmlns:local="clr-namespace:GenshinWoodmen.Views"
+                               mc:Ignorable="d" Title="{Binding Title}"
+                               PrimaryButtonText="{DynamicResource ButtonOK}" DefaultButton="Primary">
+    <ContentControl.Resources>
+        <ResourceDictionary>
+            <local:CountSettingsCaseToBoolConverter x:Key="CountSettingsCaseToBoolConverter"/>
+        </ResourceDictionary>
+    </ContentControl.Resources>
+    <StackPanel Margin="0,0,0,0">
+        <TextBlock Text="{DynamicResource ShutdownTimerSettings}" VerticalAlignment="Center" FontSize="16"/>
+        <StackPanel Margin="5,30,0,5" Orientation="Horizontal">
+            <TextBlock Text="&#xe916;" FontSize="16" FontFamily="{StaticResource SegoeFluent}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            <ui:NumberBox Value="{Binding PowerOffAutoHour,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding PowerOffAuto,Converter={StaticResource ReverseConverter}}" Margin="10,0,0,0" Minimum="0" Maximum="9999" InputMethod.IsInputMethodEnabled="False"/>
+            <TextBlock Margin="12,0,0,0" Text="{DynamicResource Hour}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            <ui:NumberBox Value="{Binding PowerOffAutoMinute,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding PowerOffAuto,Converter={StaticResource ReverseConverter}}" Margin="10,0,0,0" Minimum="0" Maximum="9999" InputMethod.IsInputMethodEnabled="False"/>
+            <TextBlock Text="{DynamicResource MinAfterPowerOff}" Margin="5,0,0,0" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+            <TextBlock Margin="5,0,0,0" Text="{Binding RepresentationalTimeString}" Foreground="#6078D7" VerticalAlignment="Center"/>
+            <Button Background="Transparent" Command="{Binding RepresentationalTimeUpdateCommand}" Margin="0" FocusVisualStyle="{x:Null}" HorizontalAlignment="Right" Content="&#xe72c;" FontSize="12" Padding="1" FontFamily="{StaticResource SegoeFluent}" VerticalAlignment="Center"/>
+        </StackPanel>
+    </StackPanel>
+</local:ObservableContentDialog>

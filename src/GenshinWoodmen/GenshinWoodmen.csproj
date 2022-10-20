@@ -29,6 +29,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Audios\folder.en.jpg" />
     <None Remove="Resources\Audios\folder.jpg" />
     <None Remove="Resources\Audios\klee_dadada.en.mp3" />
     <None Remove="Resources\Audios\klee_dadada.jp.mp3" />
@@ -44,6 +45,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\Audios\folder.en.jpg" />
     <Resource Include="Resources\Audios\folder.jpg" />
     <Resource Include="Resources\Audios\klee_dadada.en.mp3" />
     <Resource Include="Resources\Audios\klee_dadada.jp.mp3" />
@@ -73,11 +75,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\ShutdownTimerSettingsDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <Page Update="Resources\Languages\jp.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resources\Languages\zh-cn.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ShutdownTimerSettingsDialog.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>

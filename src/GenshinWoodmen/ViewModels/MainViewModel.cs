@@ -254,6 +254,24 @@ namespace GenshinWoodmen.ViewModels
             CountSettingsCase = dialog.Case;
         });
 
+        protected bool ShutdownTimerSettingsDialogShown = false;
+        public ICommand ShutdownTimerSettingsCommand => new RelayCommand(async () =>
+        {
+            if (ShutdownTimerSettingsDialogShown) return;
+            using DialogWindow win = new()
+            {
+                Width = SystemParameters.WorkArea.Width,
+                Height = SystemParameters.WorkArea.Height,
+            };
+            win.Show();
+            ShutdownTimerSettingsDialog dialog = new();
+            ShutdownTimerSettingsDialogShown = true;
+            dialog.Setup(PowerOffAutoMinute);
+            await dialog.ShowAsync(ContentDialogPlacement.Popup);
+            if (!PowerOffAuto) PowerOffAutoMinute = dialog.Setdown();
+            ShutdownTimerSettingsDialogShown = false;
+        });
+
         public MainViewModel(MainWindow source)
         {
             Source = source;

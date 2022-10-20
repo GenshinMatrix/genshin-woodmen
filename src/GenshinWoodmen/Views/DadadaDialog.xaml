@@ -9,5 +9,8 @@
                                PrimaryButtonText="{DynamicResource ButtonStop}"
                                DefaultButton="Primary"
                                d:DesignHeight="NaN" d:DesignWidth="NaN">
-    <Image Source="../../Resources/Audios/folder.jpg"/>
+    <Grid>
+        <Image Source="../../Resources/Audios/folder.jpg" Visibility="{Binding DefaultCoverVisibility}"/>
+        <Image Source="../../Resources/Audios/folder.en.jpg" Visibility="{Binding DefaultCoverVisibilityInverted}"/>
+    </Grid>
 </local:ObservableContentDialog>

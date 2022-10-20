@@ -69,4 +69,6 @@
     <s:String x:Key="BrightnessDetail">Adjust Note PC Brightness.</s:String>
     <s:String x:Key="Cancel">Cancel</s:String>
     <s:String x:Key="CancelShutdown">Cancel Shutdown</s:String>
+    <s:String x:Key="ShutdownTimerSettings">Timed Shutdown Settings</s:String>
+    <s:String x:Key="Hour">hour</s:String>
 </ResourceDictionary>

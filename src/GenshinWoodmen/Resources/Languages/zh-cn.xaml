@@ -69,4 +69,6 @@
     <s:String x:Key="BrightnessDetail">调整笔记本电脑亮度。</s:String>
     <s:String x:Key="Cancel">取消</s:String>
     <s:String x:Key="CancelShutdown">取消关机</s:String>
+    <s:String x:Key="ShutdownTimerSettings">定时关机设定</s:String>
+    <s:String x:Key="Hour">时</s:String>
 </ResourceDictionary>

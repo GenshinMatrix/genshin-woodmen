@@ -130,7 +130,7 @@
                             <MenuItem>
                                 <MenuItem.Template>
                                     <ControlTemplate>
-                                        <Grid ToolTip="{DynamicResource TimePredictionDetail}">
+                                        <Grid ToolTip="{DynamicResource TimePredictionDetail}" Margin="0,0,10,0">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition/>
                                                 <ColumnDefinition/>
@@ -272,6 +272,10 @@
                                 <MenuItem.Template>
                                     <ControlTemplate>
                                         <Grid ToolTip="{DynamicResource ShutdownTimerDetail}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" >
                                                 <TextBlock Text="&#xe916;" FontSize="16" FontFamily="{StaticResource SegoeFluent}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                                 <TextBlock Margin="12,0,0,0" Text="{DynamicResource ShutdownTimer}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
@@ -279,6 +283,7 @@
                                                 <ui:NumberBox x:Name="NumberBoxPowerOffAutoMinute" Value="{Binding PowerOffAutoMinute,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding PowerOffAuto,Converter={StaticResource ReverseConverter}}" Margin="10,0,0,0" Minimum="0" Maximum="9999" InputMethod.IsInputMethodEnabled="False"/>
                                                 <TextBlock Text="{DynamicResource MinAfterPowerOff}" Margin="5,0,0,0" VerticalAlignment="Center"/>
                                             </StackPanel>
+                                            <Button Grid.Column="1" ToolTip="{DynamicResource ShutdownTimerDetail}" IsEnabled="{Binding PowerOffAuto,Converter={StaticResource ReverseConverter}}" Background="Transparent" Foreground="{Binding CountSettingsCase,Converter={StaticResource CountSettingsCaseIndicateForegroundConverter}}" Command="{Binding ShutdownTimerSettingsCommand}" Margin="0" FocusVisualStyle="{x:Null}" HorizontalAlignment="Right" Content="&#xe713;" FontSize="16" Padding="1" FontFamily="{StaticResource SegoeFluent}"/>
                                         </Grid>
                                     </ControlTemplate>
                                 </MenuItem.Template>

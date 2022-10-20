@@ -69,4 +69,6 @@
     <s:String x:Key="BrightnessDetail">ノートパソコンの明度を調整。</s:String>
     <s:String x:Key="Cancel">キャンセル</s:String>
     <s:String x:Key="CancelShutdown">電源オフをキャンセル</s:String>
+    <s:String x:Key="ShutdownTimerSettings">自動電源オフ設定</s:String>
+    <s:String x:Key="Hour">時間</s:String>
 </ResourceDictionary>
