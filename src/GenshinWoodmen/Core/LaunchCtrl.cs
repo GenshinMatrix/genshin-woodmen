@@ -91,7 +91,7 @@ namespace GenshinWoodmen.Core
                     await JiggingProcessor.Delay(600);
                     UserSimulator.Input.Keyboard.KeyPress(VirtualKeyCode.ESCAPE);
                 }
-                await JiggingProcessor.Delay(850);
+                await JiggingProcessor.Delay(950);
                 RECT rect = NativeMethods.GetWindowRECT(hwnd);
                 NativeMethods.SetCursorPos(rect.Left + 20, rect.Bottom - 30);
                 await JiggingProcessor.Delay(100);

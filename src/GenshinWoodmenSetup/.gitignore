@@ -3,3 +3,4 @@
 [Oo]bj/
 AppPackages/*
 BundleArtifacts/*
+*.user

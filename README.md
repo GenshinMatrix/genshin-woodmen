@@ -1,30 +1,31 @@
-・[English](README.md) ・[中文](README.zh.md) ・[日本語](README.jp.md)
+・[English](README.en.md) ・[中文](README.md) ・[日本語](README.jp.md)
 
 [![GitHub downloads](https://img.shields.io/github/downloads/emako/genshin-woodmen/total)](https://github.com/emako/genshin-woodmen/releases)
 [![GitHub downloads](https://img.shields.io/github/downloads/emako/genshin-woodmen/latest/total)](https://github.com/emako/genshin-woodmen/releases)
 
-# Genshin Woodmen
+# 原神伐木姬
 
-This is an automatic tool to obtain woods in Genshin Impact using gadget named "The Boon of the Elder Tree", got from Sumeru City Reputation Level 3.
+> GenshinWoodmen
 
-## Screen Shot
+这是一项原神自动伐木的工具，利用须弥的便利道具「王树瑞佑」稳定获取木材，这是须弥3级声望赠送道具。
 
-![](assets/image1.en.png)
+## 程序界面
 
-![](assets/image2.en.png)
+![](assets/image1.zh.png)
 
-## Usage
+![](assets/image2.zh.png)
 
-![](assets/image3.en.png)
+## 使用方法
 
-## Recommended Points
+![](assets/image3.zh.png)
+
+## 推荐伐木点
 
 ![usage](src/GenshinWoodmen/Resources/usage.jpg)
 
 
 
-## FAQs
+## 常见问题
 
-1. When the setup can't be installed. Please ensure that your system has installed the Microsoft Store. The setup depends on the store architecture (MSIX).
-2. Runtime environment is net6.0-windows10.0.18362.0.
-
+1. 若安装包无法安装，请确保你的系统已安装应用商店，安装包依赖商店架构 (MSIX)。
+2. 运行环境是net6.0-windows10.0.18362.0。
