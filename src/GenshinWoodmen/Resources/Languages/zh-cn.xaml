@@ -71,4 +71,7 @@
     <s:String x:Key="CancelShutdown">取消关机</s:String>
     <s:String x:Key="ShutdownTimerSettings">定时关机设定</s:String>
     <s:String x:Key="Hour">时</s:String>
+    <s:String x:Key="SpecialScript">特殊脚本</s:String>
+    <s:String x:Key="SpecialScript1">登出时ESC按2次</s:String>
+    <s:String x:Key="SpecialScript1Detail">当组合点里其中一种木材达到9999后，采用登出时ESC按2次便于取消提示框。</s:String>
 </ResourceDictionary>

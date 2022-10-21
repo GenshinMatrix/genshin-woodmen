@@ -71,4 +71,7 @@
     <s:String x:Key="CancelShutdown">電源オフをキャンセル</s:String>
     <s:String x:Key="ShutdownTimerSettings">自動電源オフ設定</s:String>
     <s:String x:Key="Hour">時間</s:String>
+    <s:String x:Key="SpecialScript">特殊な脚本</s:String>
+    <s:String x:Key="SpecialScript1">ログアウト時にESCを２回</s:String>
+    <s:String x:Key="SpecialScript1Detail">その内の木材が9999に達した時のログアウト時にESCを２回してヒントを消すためである。</s:String>
 </ResourceDictionary>

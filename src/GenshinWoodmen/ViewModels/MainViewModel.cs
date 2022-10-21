@@ -272,6 +272,12 @@ namespace GenshinWoodmen.ViewModels
             ShutdownTimerSettingsDialogShown = false;
         });
 
+        public bool TwiceEsc
+        {
+            get => LaunchCtrl.TwiceEsc;
+            set => LaunchCtrl.TwiceEsc = value;
+        }
+
         public MainViewModel(MainWindow source)
         {
             Source = source;

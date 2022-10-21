@@ -402,6 +402,12 @@
                                     <TextBlock Text="&#xf71c;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
                                 </MenuItem.Icon>
                             </MenuItem>
+                            <MenuItem Header="{DynamicResource SpecialScript}">
+                                <MenuItem.Icon>
+                                    <TextBlock Text="&#xf32a;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
+                                </MenuItem.Icon>
+                                <MenuItem Header="{DynamicResource SpecialScript1}" ToolTip="{DynamicResource SpecialScript1Detail}" IsChecked="{Binding TwiceEsc}" IsCheckable="True" MinWidth="200"/>
+                            </MenuItem>
                             <MenuItem Header="{DynamicResource VisitWebsite}" Command="{Binding GitHubCommand}">
                                 <MenuItem.Icon>
                                     <TextBlock Text="&#xe774;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
