@@ -283,7 +283,7 @@
                                                 <ui:NumberBox x:Name="NumberBoxPowerOffAutoMinute" Value="{Binding PowerOffAutoMinute,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding PowerOffAuto,Converter={StaticResource ReverseConverter}}" Margin="10,0,0,0" Minimum="0" Maximum="9999" InputMethod.IsInputMethodEnabled="False"/>
                                                 <TextBlock Text="{DynamicResource MinAfterPowerOff}" Margin="5,0,0,0" VerticalAlignment="Center"/>
                                             </StackPanel>
-                                            <Button Grid.Column="1" ToolTip="{DynamicResource ShutdownTimerDetail}" IsEnabled="{Binding PowerOffAuto,Converter={StaticResource ReverseConverter}}" Background="Transparent" Foreground="{Binding CountSettingsCase,Converter={StaticResource CountSettingsCaseIndicateForegroundConverter}}" Command="{Binding ShutdownTimerSettingsCommand}" Margin="0" FocusVisualStyle="{x:Null}" HorizontalAlignment="Right" Content="&#xe713;" FontSize="16" Padding="1" FontFamily="{StaticResource SegoeFluent}"/>
+                                            <Button Grid.Column="1" ToolTip="{DynamicResource ShutdownTimerDetail}" IsEnabled="{Binding PowerOffAuto,Converter={StaticResource ReverseConverter}}" Background="Transparent" Command="{Binding ShutdownTimerSettingsCommand}" Margin="0" FocusVisualStyle="{x:Null}" HorizontalAlignment="Right" Content="&#xe713;" FontSize="16" Padding="1" FontFamily="{StaticResource SegoeFluent}"/>
                                         </Grid>
                                     </ControlTemplate>
                                 </MenuItem.Template>
