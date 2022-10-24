@@ -10,11 +10,11 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Platforms>x64</Platforms>
     <UseWindowsForms>True</UseWindowsForms>
-    <AssemblyVersion>1.6.1</AssemblyVersion>
-    <FileVersion>1.6.1</FileVersion>
-    <Version>$(VersionPrefix)1.6.1</Version>
-    <Authors>ema</Authors>
-    <Company>Lemutec</Company>
+    <AssemblyVersion>1.6.2</AssemblyVersion>
+    <FileVersion>1.6.2</FileVersion>
+    <Version>$(VersionPrefix)1.6.2</Version>
+    <Authors>GenshinMatrix</Authors>
+    <Company>GenshinMatrix</Company>
     <RestoreSources>$(RestoreSources);..\packages\vccli.net\;https://api.nuget.org/v3/index.json</RestoreSources>
   </PropertyGroup>
 
