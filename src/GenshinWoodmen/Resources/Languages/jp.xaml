@@ -72,6 +72,8 @@
     <s:String x:Key="ShutdownTimerSettings">自動電源オフ設定</s:String>
     <s:String x:Key="Hour">時間</s:String>
     <s:String x:Key="SpecialScript">特殊な脚本</s:String>
-    <s:String x:Key="SpecialScript1">ログアウト時にESCを２回</s:String>
-    <s:String x:Key="SpecialScript1Detail">その内の木材が9999に達した時のログアウト時にESCを２回してヒントを消すためである。</s:String>
+    <s:String x:Key="SpecialScript1">スクリプト１：ログアウト時にESCを２回</s:String>
+    <s:String x:Key="SpecialScript1Detail">その内の木材が9999に達した時のログアウト時にESCを２回して9999ヒントを消すためである。</s:String>
+    <s:String x:Key="SpecialScript1Option1">バーバラに任せて</s:String>
+    <s:String x:Key="SpecialScript1Option1Detail">バーバラに任せて、位置ズレのない左クリックで9999ヒントを消す。チェックして、「２回ESC」動作を置換</s:String>
 </ResourceDictionary>

@@ -77,6 +77,7 @@ namespace GenshinWoodmen.Core
         }
 
         public static bool TwiceEsc { get; set; } = false;
+        public static bool TwiceEscReplacedLeftClick { get; set; } = false;
         public static async Task<bool> Logout()
         {
             return await IsRunning(async p =>
@@ -85,10 +86,23 @@ namespace GenshinWoodmen.Core
 
                 NativeMethods.Focus(hwnd);
                 NativeMethods.CursorCenterPos(hwnd);
-                UserSimulator.Input.Keyboard.KeyPress(VirtualKeyCode.ESCAPE);
                 if (TwiceEsc)
                 {
-                    await JiggingProcessor.Delay(600);
+                    if (TwiceEscReplacedLeftClick)
+                    {
+                        UserSimulator.Input.Mouse.LeftButtonClick();
+                        await JiggingProcessor.Delay(600);
+                        UserSimulator.Input.Keyboard.KeyPress(VirtualKeyCode.ESCAPE);
+                    }
+                    else
+                    {
+                        UserSimulator.Input.Keyboard.KeyPress(VirtualKeyCode.ESCAPE);
+                        await JiggingProcessor.Delay(600);
+                        UserSimulator.Input.Keyboard.KeyPress(VirtualKeyCode.ESCAPE);
+                    }
+                }
+                else
+                {
                     UserSimulator.Input.Keyboard.KeyPress(VirtualKeyCode.ESCAPE);
                 }
                 await JiggingProcessor.Delay(950);

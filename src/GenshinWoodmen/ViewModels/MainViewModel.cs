@@ -277,6 +277,11 @@ namespace GenshinWoodmen.ViewModels
             get => LaunchCtrl.TwiceEsc;
             set => LaunchCtrl.TwiceEsc = value;
         }
+        public bool TwiceEscReplacedLeftClick
+        {
+            get => LaunchCtrl.TwiceEscReplacedLeftClick;
+            set => LaunchCtrl.TwiceEscReplacedLeftClick = value;
+        }
 
         public MainViewModel(MainWindow source)
         {

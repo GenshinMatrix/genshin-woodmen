@@ -406,7 +406,16 @@
                                 <MenuItem.Icon>
                                     <TextBlock Text="&#xf32a;" FontSize="8" FontFamily="{StaticResource SegoeFluent}"/>
                                 </MenuItem.Icon>
-                                <MenuItem Header="{DynamicResource SpecialScript1}" ToolTip="{DynamicResource SpecialScript1Detail}" IsChecked="{Binding TwiceEsc}" IsCheckable="True" MinWidth="200"/>
+                                <MenuItem
+                                          ToolTip="{DynamicResource SpecialScript1Detail}"
+                                          IsChecked="{Binding TwiceEsc}" IsCheckable="True" MinWidth="200">
+                                    <MenuItem.Header>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{DynamicResource SpecialScript1}" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                            <CheckBox Content="{StaticResource SpecialScript1Option1}" ToolTip="{StaticResource SpecialScript1Option1Detail}" IsChecked="{Binding TwiceEscReplacedLeftClick}"/>
+                                        </StackPanel>
+                                    </MenuItem.Header>
+                                </MenuItem>
                             </MenuItem>
                             <MenuItem Header="{DynamicResource VisitWebsite}" Command="{Binding GitHubCommand}">
                                 <MenuItem.Icon>
