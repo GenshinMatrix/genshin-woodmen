@@ -51,16 +51,7 @@ namespace GenshinWoodmen.Core
         {
             bool lastAutoLogout = false;
 
-            switch ((AutoMuteSelection)Settings.AutoMute.Get())
-            {
-                case AutoMuteSelection.AutoMuteSystem:
-                    MuteManager.MuteSystem(true);
-                    break;
-                case AutoMuteSelection.AutoMuteGame:
-                    await MuteManager.MuteGameAsync(true);
-                    break;
-            }
-
+            await SetMute(true);
             while (!IsCanceled)
             {
                 try
@@ -140,14 +131,18 @@ namespace GenshinWoodmen.Core
                     NoticeService.AddNotice(Mui("Tips"), "Failed", e.Message);
                 }
             }
+            await SetMute(false);
+        }
 
+        public static async Task SetMute(bool isMuted)
+        {
             switch ((AutoMuteSelection)Settings.AutoMute.Get())
             {
                 case AutoMuteSelection.AutoMuteSystem:
-                    MuteManager.MuteSystem(false);
+                    MuteManager.MuteSystem(isMuted);
                     break;
                 case AutoMuteSelection.AutoMuteGame:
-                    await MuteManager.MuteGameAsync(false);
+                    await MuteManager.MuteGameAsync(isMuted);
                     break;
             }
         }

@@ -330,6 +330,14 @@ namespace GenshinWoodmen.ViewModels
                     }
                     if (timeOffset.TotalSeconds <= 0)
                     {
+                        switch ((AutoMuteSelection)Settings.AutoMute.Get())
+                        {
+                            case AutoMuteSelection.AutoMuteSystem:
+                            case AutoMuteSelection.AutoMuteGame:
+                                _ = JiggingProcessor.SetMute(false); // Restored mute -> false
+                                break;
+                        }
+
                         NoticeService.ClearNotice();
                         NativeMethods.ShutdownPowerOff();
                     }
@@ -375,6 +383,15 @@ namespace GenshinWoodmen.ViewModels
                     await LaunchCtrl.Close();
                     break;
                 case CountSettingsCase.Shutdown:
+                    switch ((AutoMuteSelection)Settings.AutoMute.Get())
+                    {
+                        case AutoMuteSelection.AutoMuteSystem:
+                        case AutoMuteSelection.AutoMuteGame:
+                            await Task.Delay(200); // Chatting for mute process
+                                                   // TODO: Try to use NAudio lib to mute for fixing it
+                            await JiggingProcessor.SetMute(true); // Restored mute -> true
+                            break;
+                    }
                     await Source.Dispatcher.BeginInvoke(() =>
                     {
                         powerOffAutoMinuteByUser = PowerOffAutoMinute = 3;
@@ -445,6 +462,13 @@ namespace GenshinWoodmen.ViewModels
         {
             PowerOffAuto = false;
             NoticeService.ClearNotice();
+            switch ((AutoMuteSelection)Settings.AutoMute.Get())
+            {
+                case AutoMuteSelection.AutoMuteSystem:
+                case AutoMuteSelection.AutoMuteGame:
+                    _ = JiggingProcessor.SetMute(false); // Restored mute -> false
+                    break;
+            }
         }
     }
 }
