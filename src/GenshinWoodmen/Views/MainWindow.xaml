@@ -410,9 +410,9 @@
                                           ToolTip="{DynamicResource SpecialScript1Detail}"
                                           IsChecked="{Binding TwiceEsc}" IsCheckable="True" MinWidth="200">
                                     <MenuItem.Header>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{DynamicResource SpecialScript1}" VerticalAlignment="Center" Margin="0,0,10,0"/>
-                                            <CheckBox Content="{StaticResource SpecialScript1Option1}" ToolTip="{StaticResource SpecialScript1Option1Detail}" IsChecked="{Binding TwiceEscReplacedLeftClick}"/>
+                                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,10,0">
+                                            <TextBlock Text="{DynamicResource SpecialScript1}" VerticalAlignment="Center"/>
+                                            <CheckBox Content="{DynamicResource SpecialScript1Option1}" ToolTip="{DynamicResource SpecialScript1Option1Detail}" IsChecked="{Binding TwiceEscReplacedLeftClick}" HorizontalAlignment="Center"/>
                                         </StackPanel>
                                     </MenuItem.Header>
                                 </MenuItem>

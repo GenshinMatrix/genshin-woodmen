@@ -74,6 +74,6 @@
     <s:String x:Key="SpecialScript">特殊脚本</s:String>
     <s:String x:Key="SpecialScript1">脚本1：登出时ESC按2次</s:String>
     <s:String x:Key="SpecialScript1Detail">当组合点里其中一种木材达到9999后，采用登出时ESC按2次便于取消9999提示框。</s:String>
-    <s:String x:Key="SpecialScript1Option1">芭芭拉会加油的</s:String>
+    <s:String x:Key="SpecialScript1Option1">「芭芭拉会加油的」生效</s:String>
     <s:String x:Key="SpecialScript1Option1Detail">芭芭拉会加油的，使用放心的无位移左键平A取消9999提示框。勾选以替换「ESC按两次」动作。</s:String>
 </ResourceDictionary>
