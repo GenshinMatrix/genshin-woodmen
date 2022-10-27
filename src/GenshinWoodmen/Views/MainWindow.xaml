@@ -8,14 +8,14 @@
         xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
         xmlns:main="clr-namespace:GenshinWoodmen"
         xmlns:local="clr-namespace:GenshinWoodmen.Views"
-        Name="Self"
         ShowInTaskbar="False" Topmost="True" ResizeMode="NoResize" Opacity="0" d:Opacity="1"
         Icon="../Resources/favcion.ico" InputMethod.IsInputMethodEnabled="False"
         mc:Ignorable="d" WindowStyle="None" AllowsTransparency="True" Background="Transparent"
         WindowStartupLocation="Manual" Title="Genshin Woodmen" Height="50" Width="240"
         Left="{Binding Left,Converter={StaticResource AddConverter},ConverterParameter=-240}"
         Top="{Binding Top,Converter={StaticResource AddConverter},ConverterParameter=-50}"
-        RenderOptions.BitmapScalingMode="Fant">
+        RenderOptions.BitmapScalingMode="Fant"
+        Name="Self">
     <ContentControl.Resources>
         <ResourceDictionary>
             <SineEase x:Key="FadeInEase" EasingMode="EaseOut"/>

@@ -1,8 +1,7 @@
-﻿using System;
+﻿using NAudio.CoreAudioApi;
+using System;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Interop;
-using vccli.net;
+using MMDevices = NAudio.CoreAudioApi.MMDeviceEnumerator;
 
 namespace GenshinWoodmen.Core
 {
@@ -20,14 +19,32 @@ namespace GenshinWoodmen.Core
         {
             try
             {
-                if (isMuted)
-                    await Api.MuteAsync(pid);
-                else
-                    await Api.UnmuteAsync(pid);
+                await Task.Run(() =>
+                {
+                    MuteProcess(pid, isMuted);
+                });
             }
             catch (Exception e)
             {
                 Logger.Exception(e);
+            }
+        }
+
+        private static void MuteProcess(int pid, bool isMuted)
+        {
+            MMDevices audio = new();
+            foreach (MMDevice device in audio.EnumerateAudioEndPoints(DataFlow.Render, DeviceState.Active))
+            {
+                for (int i = default; i < device.AudioSessionManager.Sessions.Count; i++)
+                {
+                    AudioSessionControl session = device.AudioSessionManager.Sessions[i];
+
+                    if (session.GetProcessID == pid)
+                    {
+                        session.SimpleAudioVolume.Mute = isMuted;
+                        break;
+                    }
+                }
             }
         }
 
@@ -41,21 +58,5 @@ namespace GenshinWoodmen.Core
             {
             }
         }
-
-#if LEGACY
-        [Obsolete]
-        public static void MuteSystem(IntPtr? hwnd = null)
-        {
-            try
-            {
-                hwnd ??= new WindowInteropHelper(Application.Current.MainWindow).Handle;
-                _ = NativeMethods.SendMessage((IntPtr)hwnd, NativeMethods.WM_APPCOMMAND, (int)hwnd, NativeMethods.APPCOMMAND_VOLUME_MUTE);
-            }
-            catch (Exception e)
-            {
-                Logger.Exception(e);
-            }
-        }
-#endif
     }
 }

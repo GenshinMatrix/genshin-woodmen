@@ -15,7 +15,6 @@
     <Version>$(VersionPrefix)1.6.3</Version>
     <Authors>GenshinMatrix</Authors>
     <Company>GenshinMatrix</Company>
-    <RestoreSources>$(RestoreSources);..\packages\vccli.net\;https://api.nuget.org/v3/index.json</RestoreSources>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -67,11 +66,11 @@
     <PackageReference Include="ModernWpfUI" Version="0.9.6" />
     <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+    <PackageReference Include="NAudio.Wasapi" Version="2.1.0" />
     <PackageReference Include="System.IO.Abstractions" Version="17.2.3" />
     <PackageReference Include="System.Management" Version="6.0.0" />
     <PackageReference Include="YamlDotNet" Version="12.0.1" />
     <PackageReference Include="SharpVectors" Version="1.8.0" />
-    <PackageReference Include="vccli.net" Version="0.2.0" />
   </ItemGroup>
 
   <ItemGroup>
