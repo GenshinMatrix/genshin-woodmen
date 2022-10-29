@@ -10,9 +10,9 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Platforms>x64</Platforms>
     <UseWindowsForms>True</UseWindowsForms>
-    <AssemblyVersion>1.6.3</AssemblyVersion>
-    <FileVersion>1.6.3</FileVersion>
-    <Version>$(VersionPrefix)1.6.3</Version>
+    <AssemblyVersion>1.6.4</AssemblyVersion>
+    <FileVersion>1.6.4</FileVersion>
+    <Version>$(VersionPrefix)1.6.4</Version>
     <Authors>GenshinMatrix</Authors>
     <Company>GenshinMatrix</Company>
   </PropertyGroup>

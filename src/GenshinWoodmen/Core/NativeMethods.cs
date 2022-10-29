@@ -192,6 +192,7 @@ namespace GenshinWoodmen.Core
             DoExitWin(EWX_FORCE | EWX_LOGOFF);
         }
 
+        [Obsolete]
         public static void SetDeviceGamma(int gamma)
         {
             if (gamma < 3) gamma = 3;
@@ -209,6 +210,7 @@ namespace GenshinWoodmen.Core
             SetDeviceGammaRamp(GetDC(IntPtr.Zero), ref ramp);
         }
 
+        [Obsolete]
         public static int GetDeviceGamma()
         {
             RAMP ramp = new()
@@ -312,7 +314,7 @@ namespace GenshinWoodmen.Core
             SetWindowLong(hwnd, GWL_STYLE, style);
         }
 
-        public static void SetTopoMost(IntPtr hwnd, bool topMost = true)
+        public static void SetTopMost(IntPtr hwnd, bool topMost = true)
         {
             RECT rect = new();
             _ = GetWindowRect(hwnd, ref rect);

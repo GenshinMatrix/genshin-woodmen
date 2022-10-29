@@ -1,5 +1,5 @@
 !define PRODUCT_NAME                     "GenshinWoodmen"
-!define PRODUCT_VERSION                  "1.6.3.0"
+!define PRODUCT_VERSION                  "1.6.4.0"
 !define PRODUCT_PUBLISHER                "GenshinMatrix"
 !define PRODUCT_WEB_SITE                 "https://github.com/genshin-matrix"
 !define PRODUCT_LEGAL                    "Licensed under MIT"

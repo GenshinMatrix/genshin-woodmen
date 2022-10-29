@@ -76,4 +76,5 @@
     <s:String x:Key="SpecialScript1Detail">その内の木材が9999に達した時のログアウト時にESCを２回して9999ヒントを消すためである。</s:String>
     <s:String x:Key="SpecialScript1Option1">「バーバラに任せて」を有効</s:String>
     <s:String x:Key="SpecialScript1Option1Detail">バーバラに任せて、位置ズレのない左クリックで9999ヒントを消す。チェックして、「２回ESC」動作を置換</s:String>
+    <s:String x:Key="SupportedOSVersionTips">本プログラムはＯＳバージョンが{0}もしくはそれより高いＯＳバージョンのみサポートしています。あなたのＯＳバージョンは{1}です。</s:String>
 </ResourceDictionary>

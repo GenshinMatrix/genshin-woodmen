@@ -76,4 +76,5 @@
     <s:String x:Key="SpecialScript1Detail">When some wood over than 9999, using double ESC for canceling the 9999 tips during logout.</s:String>
     <s:String x:Key="SpecialScript1Option1">Enable "Leave this to Barbara"</s:String>
     <s:String x:Key="SpecialScript1Option1Detail">Leave this to Barbara to cancel the 9999 tips by using the securing left click without movement. Check it to replace "double ESC" action.</s:String>
+    <s:String x:Key="SupportedOSVersionTips">We only support running on an OS version higher than {0}. Your OS version is {1}.</s:String>
 </ResourceDictionary>

@@ -71,5 +71,16 @@ namespace GenshinWoodmen.Core
             }
             return null!;
         }
+
+
+        public static string Mui(string key, string arg0)
+        {
+            return string.Format(Mui(key), arg0);
+        }
+
+        public static string Mui(string key, string arg0, string arg1)
+        {
+            return string.Format(Mui(key), arg0, arg1);
+        }
     }
 }

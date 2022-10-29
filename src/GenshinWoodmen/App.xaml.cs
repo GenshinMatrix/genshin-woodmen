@@ -33,6 +33,7 @@ namespace GenshinWoodmen
             InitializeComponent();
             SetupLanguage();
             SettingsManager.Setup();
+            CheckOSVersion();
         }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -46,6 +47,14 @@ namespace GenshinWoodmen
             UsageManager.CleanUsageImage();
             NoticeService.ClearNotice();
             base.OnExit(e);
+        }
+
+        protected void CheckOSVersion()
+        {
+            if (!Pack.IsSupported)
+            {
+                NoticeService.AddNotice(Mui("Tips"), Mui("SupportedOSVersionTips", Pack.SupportedOSVersion, Pack.CurrentOSVersion), string.Empty, ToastDuration.Short);
+            }
         }
 
         public void EnsureElevated()

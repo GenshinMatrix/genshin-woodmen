@@ -6,7 +6,7 @@ namespace GenshinWoodmen.Core
 {
     internal static class AssemblyUtils
     {
-        public static string GetAssemblyVersion(this Assembly assembly, VersionType type = VersionType.Major | VersionType.Minor | VersionType.Build, string prefix = null, string subfix = null)
+        public static string GetAssemblyVersion(this Assembly assembly, VersionType type = VersionType.Major | VersionType.Minor | VersionType.Build, string prefix = null!, string subfix = null!)
         {
             Version version = assembly.GetName().Version!;
             StringBuilder sb = new();

@@ -10,14 +10,14 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Languages/zh-cn.xaml"/>
+                <ResourceDictionary Source="/Resources/Languages/jp.xaml"/>
+                <ResourceDictionary Source="/Resources/Languages/en-us.xaml"/>
                 <ui:ThemeResources/>
                 <ui:XamlControlsResources/>
                 <ui:ResourceDictionaryEx/>
                 <ui:ColorPaletteResources/>
                 <ui:IntellisenseResources/>
-                <ResourceDictionary Source="/Resources/Languages/zh-cn.xaml"/>
-                <ResourceDictionary Source="/Resources/Languages/jp.xaml"/>
-                <ResourceDictionary Source="/Resources/Languages/en-us.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <FontFamily x:Key="SegoeFluent">/Resources/segoe-fluent-icons.ttf#Segoe Fluent Icons</FontFamily>
             <v:LanguageToBoolConverter x:Key="LanguageToBoolConverter"/>
