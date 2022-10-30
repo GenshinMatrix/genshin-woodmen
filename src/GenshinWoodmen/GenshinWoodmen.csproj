@@ -5,14 +5,14 @@
     <TargetFramework>net6.0-windows10.0.18362.0</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
-    <UseWinUI>true</UseWinUI>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWinUI>false</UseWinUI>
     <ApplicationIcon>Resources\favcion.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Platforms>x64</Platforms>
-    <UseWindowsForms>True</UseWindowsForms>
-    <AssemblyVersion>1.6.4</AssemblyVersion>
-    <FileVersion>1.6.4</FileVersion>
-    <Version>$(VersionPrefix)1.6.4</Version>
+    <AssemblyVersion>1.6.5</AssemblyVersion>
+    <FileVersion>1.6.5</FileVersion>
+    <Version>$(VersionPrefix)1.6.5</Version>
     <Authors>GenshinMatrix</Authors>
     <Company>GenshinMatrix</Company>
   </PropertyGroup>
@@ -69,7 +69,7 @@
     <PackageReference Include="NAudio.Wasapi" Version="2.1.0" />
     <PackageReference Include="System.IO.Abstractions" Version="17.2.3" />
     <PackageReference Include="System.Management" Version="6.0.0" />
-    <PackageReference Include="YamlDotNet" Version="12.0.1" />
+    <PackageReference Include="YamlDotNet" Version="12.0.2" />
     <PackageReference Include="SharpVectors" Version="1.8.0" />
   </ItemGroup>
 

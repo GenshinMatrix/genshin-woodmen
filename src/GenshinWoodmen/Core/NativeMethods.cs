@@ -115,15 +115,6 @@ namespace GenshinWoodmen.Core
         [DllImport("user32.dll")]
         public static extern IntPtr GetDC(IntPtr hWnd);
 
-        [DllImport("dxva2.dll")]
-        public static extern bool GetNumberOfPhysicalMonitorsFromHMONITOR(IntPtr hMonitor, ref uint pdwNumberOfPhysicalMonitors);
- 
-        [DllImport("dxva2.dll")]
-        public static extern bool SetMonitorBrightness(IntPtr hMonitor, short brightness);
- 
-        [DllImport("dxva2.dll")]
-        public static extern bool GetMonitorBrightness(IntPtr hMonitor, ref short pdwMinimumBrightness, ref short pdwCurrentBrightness, ref short pdwMaximumBrightness);
-
         [DllImport("user32.dll")]
         public static extern IntPtr MonitorFromPoint(POINT pt, uint dwFlags);
 
@@ -230,71 +221,45 @@ namespace GenshinWoodmen.Core
             return MonitorFromPoint(p, MONITOR_DEFAULTTOPRIMARY);
         }
 
-        [Obsolete]
-        public static void SetMonitorBrightness(short brightness)
-        {
-            IntPtr hMonitor = GetCurrentMonitor();
-            _ = SetMonitorBrightness(hMonitor, brightness);
-        }
-
-        [Obsolete]
-        public static short GetMonitorBrightness()
-        {
-            IntPtr hMonitor = GetCurrentMonitor();
-            short pdwMinimumBrightness = default;
-            short pdwCurrentBrightness = default;
-            short pdwMaximumBrightness = default;
-            _ = GetMonitorBrightness(hMonitor, ref pdwMinimumBrightness, ref pdwCurrentBrightness, ref pdwMaximumBrightness);
-            return pdwCurrentBrightness;
-        }
-
-        [Obsolete]
-        public static short GetMonitorMinimumBrightness()
-        {
-            IntPtr hMonitor = GetCurrentMonitor();
-            short pdwMinimumBrightness = default;
-            short pdwCurrentBrightness = default;
-            short pdwMaximumBrightness = default;
-            _ = GetMonitorBrightness(hMonitor, ref pdwMinimumBrightness, ref pdwCurrentBrightness, ref pdwMaximumBrightness);
-            return pdwMinimumBrightness;
-        }
-
-        [Obsolete]
-        public static short GetMonitorMaximumBrightness()
-        {
-            IntPtr hMonitor = GetCurrentMonitor();
-            short pdwMinimumBrightness = default;
-            short pdwCurrentBrightness = default;
-            short pdwMaximumBrightness = default;
-            _ = GetMonitorBrightness(hMonitor, ref pdwMinimumBrightness, ref pdwCurrentBrightness, ref pdwMaximumBrightness);
-            return pdwMaximumBrightness;
-        }
-
         public static byte GetBrightness()
         {
-            ManagementScope scope = new(@"root\WMI");
-            ObjectQuery query = new("SELECT * FROM WmiMonitorBrightness");
-            using ManagementObjectSearcher searcher = new(scope, query);
-            using ManagementObjectCollection objectCollection = searcher.Get();
-
-            foreach (ManagementObject mObj in objectCollection)
+            try
             {
-                return byte.Parse(mObj["CurrentBrightness"].ToString()!);
+                ManagementScope scope = new(@"root\WMI");
+                ObjectQuery query = new("SELECT * FROM WmiMonitorBrightness");
+                using ManagementObjectSearcher searcher = new(scope, query);
+                using ManagementObjectCollection objectCollection = searcher.Get();
+
+                foreach (ManagementObject mObj in objectCollection)
+                {
+                    return byte.Parse(mObj["CurrentBrightness"].ToString()!);
+                }
+            }
+            catch (Exception e)
+            {
+                Logger.Error(e);
             }
             return 0x00;
         }
 
         public static void SetBrightness(byte targetBrightness)
         {
-            ManagementScope scope = new(@"root\WMI");
-            SelectQuery query = new("WmiMonitorBrightnessMethods");
-            using ManagementObjectSearcher searcher = new(scope, query);
-            using ManagementObjectCollection objectCollection = searcher.Get();
-
-            foreach (ManagementObject mObj in objectCollection)
+            try
             {
-                mObj.InvokeMethod("WmiSetBrightness", new object[] { uint.MaxValue, targetBrightness });
-                break;
+                ManagementScope scope = new(@"root\WMI");
+                SelectQuery query = new("WmiMonitorBrightnessMethods");
+                using ManagementObjectSearcher searcher = new(scope, query);
+                using ManagementObjectCollection objectCollection = searcher.Get();
+
+                foreach (ManagementObject mObj in objectCollection)
+                {
+                    mObj.InvokeMethod("WmiSetBrightness", new object[] { uint.MaxValue, targetBrightness });
+                    break;
+                }
+            }
+            catch (Exception e)
+            {
+                Logger.Error(e);
             }
         }
 
