@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GenshinWoodmen.Views"
         mc:Ignorable="d" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent" 
         ShowInTaskbar="False" Topmost="False" WindowStartupLocation="CenterScreen"
-        Icon="../../Resources/favcion.ico" InputMethod.IsInputMethodEnabled="False"
+        Icon="../../Resources/favicon.ico" InputMethod.IsInputMethodEnabled="False"
         Title="" Height="NaN" Width="NaN">
     <Border x:Name="RootBorder" CornerRadius="5"/>
 </Window>

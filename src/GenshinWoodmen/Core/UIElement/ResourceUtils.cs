@@ -18,9 +18,26 @@ namespace GenshinWoodmen.Core
         public static byte[] GetBytes(string uriString)
         {
             Uri uri = new(uriString);
+            return GetBytes(uri);
+        }
+
+        public static byte[] GetBytes(Uri uri)
+        {
             StreamResourceInfo info = Application.GetResourceStream(uri);
             using BinaryReader stream = new(info.Stream);
             return stream.ReadBytes((int)info.Stream.Length);
+        }
+
+        public static Stream GetStream(string uriString)
+        {
+            Uri uri = new(uriString);
+            return GetStream(uri);
+        }
+
+        public static Stream GetStream(Uri uri)
+        {
+            StreamResourceInfo info = Application.GetResourceStream(uri);
+            return info.Stream;
         }
 
         public static string GetMD5(byte[] data)

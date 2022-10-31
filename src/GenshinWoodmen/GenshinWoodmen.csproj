@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows10.0.18362.0</TargetFramework>
+    <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
     <UseWinUI>false</UseWinUI>
-    <ApplicationIcon>Resources\favcion.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\favicon.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Platforms>x64</Platforms>
     <AssemblyVersion>1.6.5</AssemblyVersion>
@@ -35,7 +35,7 @@
     <None Remove="Resources\Audios\klee_dadada.ko.mp3" />
     <None Remove="Resources\Audios\klee_dadada.mp3" />
     <None Remove="Resources\dendro.svg" />
-    <None Remove="Resources\favcion.png" />
+    <None Remove="Resources\favicon.png" />
     <None Remove="Resources\segoe-fluent-icons.ttf" />
     <None Remove="Resources\squircle.svg" />
     <None Remove="Resources\usage.jpg" />
@@ -51,8 +51,8 @@
     <Resource Include="Resources\Audios\klee_dadada.ko.mp3" />
     <Resource Include="Resources\Audios\klee_dadada.mp3" />
     <Resource Include="Resources\dendro.svg" />
-    <Resource Include="Resources\favcion.ico" />
-    <Resource Include="Resources\favcion.png" />
+    <Resource Include="Resources\favicon.ico" />
+    <Resource Include="Resources\favicon.png" />
     <Resource Include="Resources\segoe-fluent-icons.ttf" />
     <Resource Include="Resources\squircle.svg" />
     <Resource Include="Resources\usage.jpg" />
@@ -71,6 +71,7 @@
     <PackageReference Include="System.Management" Version="6.0.0" />
     <PackageReference Include="YamlDotNet" Version="12.0.2" />
     <PackageReference Include="SharpVectors" Version="1.8.0" />
+    <PackageReference Include="MicaWPF" Version="4.8.0" />
   </ItemGroup>
 
   <ItemGroup>

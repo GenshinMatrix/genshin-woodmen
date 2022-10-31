@@ -13,6 +13,7 @@
                 <ResourceDictionary Source="/Resources/Languages/zh-cn.xaml"/>
                 <ResourceDictionary Source="/Resources/Languages/jp.xaml"/>
                 <ResourceDictionary Source="/Resources/Languages/en-us.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MicaWPF;component/Styles/MicaWPF.xaml" />
                 <ui:ThemeResources/>
                 <ui:XamlControlsResources/>
                 <ui:ResourceDictionaryEx/>
@@ -25,7 +26,7 @@
             <v:ReverseConverter x:Key="ReverseConverter"/>
             <v:EqualsConverter x:Key="EqualsConverter"/>
             <tb:TaskbarIcon x:Key="PART_Taskbar"
-                            IconSource="Resources/favcion.ico"
+                            IconSource="Resources/favicon.ico"
                             ToolTipText="Genshin Woodmen"
                             DoubleClickCommand="{Binding ShowOrHideCommand}">
                 <tb:TaskbarIcon.DataContext>

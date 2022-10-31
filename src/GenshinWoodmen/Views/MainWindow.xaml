@@ -9,7 +9,7 @@
         xmlns:main="clr-namespace:GenshinWoodmen"
         xmlns:local="clr-namespace:GenshinWoodmen.Views"
         ShowInTaskbar="False" Topmost="True" ResizeMode="NoResize" Opacity="0" d:Opacity="1"
-        Icon="../Resources/favcion.ico" InputMethod.IsInputMethodEnabled="False"
+        Icon="../Resources/favicon.ico" InputMethod.IsInputMethodEnabled="False"
         mc:Ignorable="d" WindowStyle="None" AllowsTransparency="True" Background="Transparent"
         WindowStartupLocation="Manual" Title="Genshin Woodmen" Height="50" Width="240"
         Left="{Binding Left,Converter={StaticResource AddConverter},ConverterParameter=-240}"
@@ -102,7 +102,7 @@
                     <svgc:SvgViewbox Margin="0,0,0,0" Opacity="0.9" Width="28" Height="28" IsHitTestVisible="True" Source="../Resources/squircle.svg" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     <svgc:SvgViewbox x:Name="SvgViewBoxMainIcon" Margin="0,0,0,0" Opacity="0.9" Width="20" Height="20" IsHitTestVisible="True" Source="../Resources/dendro.svg" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
-                <!--<Image Source="../Resources/favcion.png" Width="30" Height="30" ToolTip="{x:Static main:Pack.Version}">
+                <!--<Image Source="../Resources/favicon.png" Width="30" Height="30" ToolTip="{x:Static main:Pack.Version}">
                     <Image.Effect>
                         <DropShadowEffect Color="DimGray" Opacity="0.2" BlurRadius="7" ShadowDepth="2" Direction="275" />
                     </Image.Effect>

@@ -1,0 +1,22 @@
+﻿<mica:MicaWindow x:Class="GenshinWoodmen.Views.ImageViewWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:local="clr-namespace:GenshinWoodmen.Views"
+                 xmlns:mica="clr-namespace:MicaWPF.Controls;assembly=MicaWPF"
+                 WindowStartupLocation="CenterScreen"
+        Icon="../../Resources/favicon.ico"
+        RenderOptions.BitmapScalingMode="Fant"
+        WindowState="Maximized" Cursor="Hand">
+    <Grid>
+        <local:PanAndZoomCanvas>
+            <Image x:Name="imageControl" Stretch="Uniform">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </local:PanAndZoomCanvas>
+    </Grid>
+</mica:MicaWindow>
