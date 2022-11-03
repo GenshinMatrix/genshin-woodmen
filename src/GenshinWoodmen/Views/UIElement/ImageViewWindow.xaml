@@ -4,11 +4,12 @@
                  xmlns:local="clr-namespace:GenshinWoodmen.Views"
                  xmlns:mica="clr-namespace:MicaWPF.Controls;assembly=MicaWPF"
                  WindowStartupLocation="CenterScreen"
-        Icon="../../Resources/favicon.ico"
-        RenderOptions.BitmapScalingMode="Fant"
-        WindowState="Maximized" Cursor="Hand">
+                 TitleBarType="WinUI"
+                 Icon="../../Resources/favicon.ico"
+                 RenderOptions.BitmapScalingMode="Fant"
+                 WindowState="Maximized" Cursor="Hand">
     <Grid>
-        <local:PanAndZoomCanvas>
+        <local:PanAndZoomCanvas x:Name="imageCanvas" MinDeterminant="0.005" MaxDeterminant="4">
             <Image x:Name="imageControl" Stretch="Uniform">
                 <Image.RenderTransform>
                     <TransformGroup>

@@ -10,9 +10,12 @@ namespace GenshinWoodmen.Views
     /// </summary>
     public class PanAndZoomCanvas : Canvas
     {
-        public MatrixTransform? Transform { get; protected set; } = null!;
-        public float Zoomfactor { get; set; } = 1.25f;
+        public MatrixTransform Transform { get; set; } = new();
+        public float? MinDeterminant { get; set; } = null!;
+        public float? MaxDeterminant { get; set; } = null!;
+        public float Zoomfactor { get; set; } = 1.333f;
         protected Point MousePosition = new();
+        protected bool DownFlow = false;
 
         public PanAndZoomCanvas()
         {
@@ -24,21 +27,21 @@ namespace GenshinWoodmen.Views
 
         private void OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.ChangedButton == MouseButton.Left)
+            if (e.ChangedButton == MouseButton.Left && e.ClickCount == 1)
             {
-                Transform ??= new();
                 MousePosition = Transform.Inverse.Transform(e.GetPosition(this));
+                DownFlow = true;
             }
         }
 
         private void OnMouseUp(object sender, MouseButtonEventArgs e)
         {
+            DownFlow = false;
         }
 
         private void OnMouseMove(object sender, MouseEventArgs e)
         {
-            if (Transform == null) return;
-            if (e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed && DownFlow)
             {
                 Point mousePosition = Transform.Inverse.Transform(e.GetPosition(this));
                 Vector delta = Point.Subtract(mousePosition, MousePosition);
@@ -62,22 +65,28 @@ namespace GenshinWoodmen.Views
 
             Point mousePostion = e.GetPosition(this);
 
-            Matrix scaleMatrix = (Transform ??= new()).Matrix;
+            Matrix scaleMatrix = Transform.Matrix;
             scaleMatrix.ScaleAt(scaleFactor, scaleFactor, mousePostion.X, mousePostion.Y);
+            if (scaleMatrix.Determinant <= MinDeterminant || scaleMatrix.Determinant >= MaxDeterminant) return;
             Transform.Matrix = scaleMatrix;
 
+            SetTransform(Transform);
+        }
+
+        public void SetTransform(MatrixTransform transform)
+        {
             foreach (UIElement child in Children)
             {
                 double x = Canvas.GetLeft(child);
                 double y = Canvas.GetTop(child);
 
-                double sx = x * scaleFactor;
-                double sy = y * scaleFactor;
+                double sx = x ;
+                double sy = y;
 
                 Canvas.SetLeft(child, sx);
                 Canvas.SetTop(child, sy);
 
-                child.RenderTransform = Transform;
+                child.RenderTransform = Transform = transform;
             }
         }
     }
