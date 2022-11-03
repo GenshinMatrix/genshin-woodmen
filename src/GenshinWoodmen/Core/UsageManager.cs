@@ -1,5 +1,4 @@
 ﻿using GenshinWoodmen.Views;
-using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -18,10 +17,16 @@ internal static class UsageManager
             UsageImageType.Multi => "_multi",
             UsageImageType.Normal or _ => string.Empty,
         } + ".jpg";
+        string title = type switch
+        {
+            UsageImageType.Single => Mui("WoodGuide1"),
+            UsageImageType.Multi => Mui("WoodGuide2"),
+            UsageImageType.Normal or _ => Mui("WoodGuide"),
+        };
 
         try
         {
-            ImageViewWindow win = new();
+            ImageViewWindow win = new() { Title = title };
             win.Load(uriString);
             win.Show();
             return true;
