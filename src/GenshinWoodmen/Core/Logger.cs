@@ -77,7 +77,7 @@ namespace GenshinWoodmen.Core
               .Append("|" + GetCallerInfo())
               .Append("|" + message);
 
-            Trace.WriteLine(sb.ToString());
+            Debug.WriteLine(sb.ToString());
 #if DEBUG
             TraceListener.WriteLine(sb.ToString());
             TraceListener.Flush();
