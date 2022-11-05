@@ -194,6 +194,9 @@ namespace GenshinWoodmen.ViewModels
             Broadcast(ForecastX9, ForecastX9, nameof(ForecastX9));
             Broadcast(ForecastX12, ForecastX12, nameof(ForecastX12));
             Broadcast(ForecastX15, ForecastX15, nameof(ForecastX15));
+            Broadcast(ForecastX18, ForecastX18, nameof(ForecastX18));
+            Broadcast(ForecastX21, ForecastX21, nameof(ForecastX21));
+            Broadcast(ForecastX30, ForecastX30, nameof(ForecastX30));
             SetupLanguage();
         });
 
