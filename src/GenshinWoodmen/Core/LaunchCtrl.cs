@@ -107,16 +107,21 @@ namespace GenshinWoodmen.Core
                 }
                 await JiggingProcessor.Delay(950);
                 RECT rect = NativeMethods.GetWindowRECT(hwnd);
-                NativeMethods.SetCursorPos(rect.Left + 20, rect.Bottom - 30);
+                double ratio = (rect.Right - rect.Left) / (double)(rect.Bottom - rect.Top);
+                (int xclose, int yclose) = (new Func<int>(() =>
+                {
+                    // Assert as 21:9 even if low resolution (calced discarded `SystemInformation.CaptionHeight`)
+                    if (ratio >= 2.333d) return 85;
+                    else return 20;
+                }).Invoke(), -30);
+                NativeMethods.SetCursorPos(rect.Left + xclose, rect.Bottom + yclose);
                 await JiggingProcessor.Delay(100);
                 UserSimulator.Input.Mouse.LeftButtonClick(); // Exit
                 await JiggingProcessor.Delay(800);
                 (double cx, double cy) = ((rect.Right - rect.Left) / 2d, (rect.Bottom - rect.Top) / 2d);
-                double ratio = (rect.Right - rect.Left) / (double)(rect.Bottom - rect.Top);
                 (double xfactor, double yfactor) = (1.1d, new Func<double>(() =>
                 {
-                    // Inspected from ratio (such as 1.33, 1.5, 1.6, 1.78), calced without `SystemInformation.CaptionHeight` actually.
-                    // TODO: Calc with `SystemInformation.CaptionHeight`.
+                    // Inspected from ratio (such as 1.33, 1.5, 1.6, 1.78), calced discarded `SystemInformation.CaptionHeight` actually.
                     if (ratio >= 1.6d) return 1.4d;
                     else if (ratio >= 1.5d) return 1.35d;
                     else if (ratio >= 1.4d) return 1.33d;
@@ -179,9 +184,9 @@ namespace GenshinWoodmen.Core
 
         internal class LaunchParameter
         {
-            public bool? IsFullScreen { get; set; } = null;
-            public int? ScreenWidth { get; set; } = null;
-            public int? ScreenHeight { get; set; } = null;
+            public bool? IsFullScreen { get; set; } = null!;
+            public int? ScreenWidth { get; set; } = null!;
+            public int? ScreenHeight { get; set; } = null!;
 
             public override string ToString()
             {
