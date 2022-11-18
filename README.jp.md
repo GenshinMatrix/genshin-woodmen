@@ -9,6 +9,8 @@
 
 本プログラムは原神の自動伐採に用いられるツールです。スメールでの評判レベル３で獲得できる便利アイテム「王樹の加護」を利用するのが主な趣旨。
 
+<img src="assets/image_kanyu.jpg" style="zoom:100%;border 0px solid white;border-radius:10px" />
+
 ## スクショ
 
 ![](assets/image1.jp.png)

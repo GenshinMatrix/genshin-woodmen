@@ -9,6 +9,8 @@
 
 这是一项原神自动伐木的工具，利用须弥的便利道具「王树瑞佑」稳定获取木材，这是须弥3级声望赠送道具。
 
+<img src="assets/image_kanyu.jpg" style="zoom:100%;border 0px solid white;border-radius:10px" />
+
 ## 程序界面
 
 ![](assets/image1.zh.png)

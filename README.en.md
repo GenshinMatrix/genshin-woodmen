@@ -7,6 +7,8 @@
 
 This is an automatic tool to obtain woods in Genshin Impact using gadget named "The Boon of the Elder Tree", got from Sumeru City Reputation Level 3.
 
+<img src="assets/image_kanyu.jpg" style="zoom:100%;border 0px solid white;border-radius:10px" />
+
 ## Screen Shot
 
 ![](assets/image1.en.png)
