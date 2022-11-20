@@ -174,7 +174,7 @@ namespace GenshinWoodmen.Core
                     UseShellExecute = true,
                     FileName = Path.Combine(GenshinRegedit.InstallPath, GameFolderName, fileName),
                     Arguments = (launchParameter ?? new()).ToString(),
-                    WorkingDirectory = Environment.CurrentDirectory,
+                    WorkingDirectory = Path.Combine(GenshinRegedit.InstallPath, GameFolderName),
                     Verb = "runas",
                 });
                 return p?.MainWindowHandle ?? IntPtr.Zero;
