@@ -2,58 +2,57 @@
 using System.IO;
 using YamlDotNet.Serialization;
 
-namespace GenshinWoodmen.Core
+namespace GenshinWoodmen.Core;
+
+internal class SettingsSerializer
 {
-    internal class SettingsSerializer
+    public static string SerializeObject<T>(T obj)
     {
-        public static string SerializeObject<T>(T obj)
+        Serializer serializer = new();
+        return serializer.Serialize(obj!);
+    }
+
+    public static T DeserializeObject<T>(string input)
+    {
+        Deserializer deserializer = new();
+        return deserializer.Deserialize<T>(input);
+    }
+
+    public static bool SerializeFile<T>(string fileName, T obj)
+    {
+        bool ret = false;
+
+        try
         {
             Serializer serializer = new();
-            return serializer.Serialize(obj!);
-        }
+            string str = serializer.Serialize(obj!);
+            using StreamWriter sw = File.CreateText(fileName);
 
-        public static T DeserializeObject<T>(string input)
+            sw.Write(str);
+            sw.Flush();
+            ret = true;
+        }
+        catch (Exception e)
+        {
+            _ = e;
+        }
+        return ret;
+    }
+
+    public static T DeserializeFile<T>(string fileName)
+    {
+        T info = default!;
+
+        try
         {
             Deserializer deserializer = new();
-            return deserializer.Deserialize<T>(input);
+            using StreamReader reader = new(fileName);
+            info = deserializer.Deserialize<T>(reader);
         }
-
-        public static bool SerializeFile<T>(string fileName, T obj)
+        catch (Exception e)
         {
-            bool ret = false;
-
-            try
-            {
-                Serializer serializer = new();
-                string str = serializer.Serialize(obj!);
-                using StreamWriter sw = File.CreateText(fileName);
-
-                sw.Write(str);
-                sw.Flush();
-                ret = true;
-            }
-            catch (Exception e)
-            {
-                _ = e;
-            }
-            return ret;
+            _ = e;
         }
-
-        public static T DeserializeFile<T>(string fileName)
-        {
-            T info = default!;
-
-            try
-            {
-                Deserializer deserializer = new();
-                using StreamReader reader = new(fileName);
-                info = deserializer.Deserialize<T>(reader);
-            }
-            catch (Exception e)
-            {
-                _ = e;
-            }
-            return info;
-        }
+        return info;
     }
 }

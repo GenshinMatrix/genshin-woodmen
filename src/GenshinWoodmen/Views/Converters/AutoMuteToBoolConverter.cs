@@ -1,36 +1,35 @@
 ﻿using System;
 using System.Windows.Data;
 
-namespace GenshinWoodmen.Views
+namespace GenshinWoodmen.Views;
+
+internal class AutoMuteToBoolConverter : IValueConverter
 {
-    internal class AutoMuteToBoolConverter : IValueConverter
+    public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
     {
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        if (value is AutoMuteSelection autoMute)
         {
-            if (value is AutoMuteSelection autoMute)
-            {
-                return autoMute == (AutoMuteSelection)int.Parse(parameter.ToString()!);
-            }
-            return value;
+            return autoMute == (AutoMuteSelection)int.Parse(parameter.ToString()!);
         }
-
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-            bool isChecked = (bool)value;
-
-            if (!isChecked)
-            {
-                return AutoMuteSelection.ConverterIgnore;
-            }
-            return (AutoMuteSelection)int.Parse(parameter.ToString()!);
-        }
+        return value;
     }
 
-    public enum AutoMuteSelection
+    public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
     {
-        ConverterIgnore = -1,
-        AutoMuteOff = 0,
-        AutoMuteGame,
-        AutoMuteSystem,
+        bool isChecked = (bool)value;
+
+        if (!isChecked)
+        {
+            return AutoMuteSelection.ConverterIgnore;
+        }
+        return (AutoMuteSelection)int.Parse(parameter.ToString()!);
     }
+}
+
+public enum AutoMuteSelection
+{
+    ConverterIgnore = -1,
+    AutoMuteOff = 0,
+    AutoMuteGame,
+    AutoMuteSystem,
 }

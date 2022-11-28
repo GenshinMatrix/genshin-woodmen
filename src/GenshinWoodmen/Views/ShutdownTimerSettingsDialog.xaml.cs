@@ -1,56 +1,54 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using System;
-using System.DirectoryServices.ActiveDirectory;
 using System.Windows.Input;
 
-namespace GenshinWoodmen.Views
+namespace GenshinWoodmen.Views;
+
+public partial class ShutdownTimerSettingsDialog : ObservableContentDialog
 {
-    public partial class ShutdownTimerSettingsDialog : ObservableContentDialog
+    protected int powerOffAutoHour = 0;
+    public int PowerOffAutoHour
     {
-        protected int powerOffAutoHour = 0;
-        public int PowerOffAutoHour
+        get => powerOffAutoHour;
+        set
         {
-            get => powerOffAutoHour;
-            set
-            {
-                Set(ref powerOffAutoHour, value);
-                RaisePropertyChanged(nameof(RepresentationalTimeString));
-            }
+            Set(ref powerOffAutoHour, value);
+            RaisePropertyChanged(nameof(RepresentationalTimeString));
         }
+    }
 
-        protected int powerOffAutoMinute = 0;
-        public int PowerOffAutoMinute
+    protected int powerOffAutoMinute = 0;
+    public int PowerOffAutoMinute
+    {
+        get => powerOffAutoMinute;
+        set
         {
-            get => powerOffAutoMinute;
-            set
-            {
-                Set(ref powerOffAutoMinute, value);
-                RaisePropertyChanged(nameof(RepresentationalTimeString));
-            }
+            Set(ref powerOffAutoMinute, value);
+            RaisePropertyChanged(nameof(RepresentationalTimeString));
         }
+    }
 
-        public string RepresentationalTimeString => DateTime.Now.AddHours(PowerOffAutoHour).AddMinutes(PowerOffAutoMinute).ToString("yyyy/MM/dd HH:mm:ss");
-        public ICommand RepresentationalTimeUpdateCommand { get; }
+    public string RepresentationalTimeString => DateTime.Now.AddHours(PowerOffAutoHour).AddMinutes(PowerOffAutoMinute).ToString("yyyy/MM/dd HH:mm:ss");
+    public ICommand RepresentationalTimeUpdateCommand { get; }
 
-        public ShutdownTimerSettingsDialog()
+    public ShutdownTimerSettingsDialog()
+    {
+        DataContext = this;
+        RepresentationalTimeUpdateCommand = new RelayCommand(() =>
         {
-            DataContext = this;
-            RepresentationalTimeUpdateCommand = new RelayCommand(() =>
-            {
-                RaisePropertyChanged(nameof(RepresentationalTimeString));
-            });
-            InitializeComponent();
-        }
+            RaisePropertyChanged(nameof(RepresentationalTimeString));
+        });
+        InitializeComponent();
+    }
 
-        public void Setup(int minute)
-        {
-            PowerOffAutoHour = minute / 60;
-            PowerOffAutoMinute = minute % 60;
-        }
+    public void Setup(int minute)
+    {
+        PowerOffAutoHour = minute / 60;
+        PowerOffAutoMinute = minute % 60;
+    }
 
-        public int Setdown()
-        {
-            return PowerOffAutoHour * 60 + PowerOffAutoMinute;
-        }
+    public int Setdown()
+    {
+        return PowerOffAutoHour * 60 + PowerOffAutoMinute;
     }
 }

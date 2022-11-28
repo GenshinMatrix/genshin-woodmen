@@ -1,6 +1,5 @@
-﻿namespace GenshinWoodmen.Models
+﻿namespace GenshinWoodmen.Models;
+
+internal class CountMessage
 {
-    internal class CountMessage
-    {
-    }
 }

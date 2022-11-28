@@ -1,9 +1,8 @@
-﻿namespace GenshinWoodmen.Core
+﻿namespace GenshinWoodmen.Core;
+
+public enum MouseButton
 {
-    public enum MouseButton
-	{
-		LeftButton,
-		MiddleButton,
-		RightButton
-	}
+	LeftButton,
+	MiddleButton,
+	RightButton
 }

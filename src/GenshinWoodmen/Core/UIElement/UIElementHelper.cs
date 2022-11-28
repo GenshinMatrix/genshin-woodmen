@@ -1,14 +1,13 @@
 ﻿using System.Reflection;
 using System.Windows;
 
-namespace GenshinWoodmen.Core
+namespace GenshinWoodmen.Core;
+
+internal static class UIElementHelper
 {
-    internal static class UIElementHelper
+    public static FrameworkElement GetTemplateChild(this FrameworkElement d, string childName)
     {
-        public static FrameworkElement GetTemplateChild(this FrameworkElement d, string childName)
-        {
-            MethodInfo getTemplateChild = typeof(FrameworkElement).GetMethod("GetTemplateChild", BindingFlags.NonPublic | BindingFlags.Instance)!;
-            return (getTemplateChild?.Invoke(d, new object[] { childName }) as FrameworkElement)!;
-        }
+        MethodInfo getTemplateChild = typeof(FrameworkElement).GetMethod("GetTemplateChild", BindingFlags.NonPublic | BindingFlags.Instance)!;
+        return (getTemplateChild?.Invoke(d, new object[] { childName }) as FrameworkElement)!;
     }
 }

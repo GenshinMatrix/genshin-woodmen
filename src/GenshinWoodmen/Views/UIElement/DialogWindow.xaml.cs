@@ -3,30 +3,29 @@ using System;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace GenshinWoodmen.Views
+namespace GenshinWoodmen.Views;
+
+public partial class DialogWindow : Window, IDisposable
 {
-    public partial class DialogWindow : Window, IDisposable
+    public DialogWindow()
     {
-        public DialogWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+    }
 
-        public void Dispose()
-        {
-            Close();
-        }
+    public void Dispose()
+    {
+        Close();
+    }
 
-        public static async Task ShowMessage(string title, string message)
+    public static async Task ShowMessage(string title, string message)
+    {
+        using DialogWindow win = new()
         {
-            using DialogWindow win = new()
-            {
-                Width = SystemParameters.WorkArea.Width,
-                Height = SystemParameters.WorkArea.Height,
-            };
-            win.Show();
-            MessageDialog dialog = new(title, message);
-            await dialog.ShowAsync(ContentDialogPlacement.Popup);
-        }
+            Width = SystemParameters.WorkArea.Width,
+            Height = SystemParameters.WorkArea.Height,
+        };
+        win.Show();
+        MessageDialog dialog = new(title, message);
+        await dialog.ShowAsync(ContentDialogPlacement.Popup);
     }
 }

@@ -1,82 +1,81 @@
 ﻿using System;
 using System.IO;
 
-namespace GenshinWoodmen.Core
+namespace GenshinWoodmen.Core;
+
+internal class SettingsManager
 {
-    internal class SettingsManager
+    public static event Action? Reloaded;
+    public static readonly string Path = SpecialPathProvider.GetPath($"{Pack.Alias}.yaml");
+    public static SettingsCache Cache = Init();
+
+    public static void Setup()
     {
-        public static event Action? Reloaded;
-        public static readonly string Path = SpecialPathProvider.GetPath($"{Pack.Alias}.yaml");
-        public static SettingsCache Cache = Init();
+        _ = Cache;
+        SettingsRelay.Default();
+        Save();
+    }
 
-        public static void Setup()
+    public static SettingsCache Init()
+    {
+        SettingsCache instance = null!;
+
+        if (File.Exists(Path))
         {
-            _ = Cache;
-            SettingsRelay.Default();
-            Save();
+            instance = Load();
         }
 
-        public static SettingsCache Init()
+        if (instance == null)
         {
-            SettingsCache instance = null!;
-
-            if (File.Exists(Path))
-            {
-                instance = Load();
-            }
-
-            if (instance == null)
-            {
-                instance = new();
-            }
-            return instance;
+            instance = new();
         }
+        return instance;
+    }
 
-        public static void Reinit()
+    public static void Reinit()
+    {
+        Cache = Init();
+        Reloaded?.Invoke();
+    }
+
+    public static SettingsCache Load()
+    {
+        return LoadFrom(Path);
+    }
+
+    public static SettingsCache LoadFrom(string filename)
+    {
+        try
         {
-            Cache = Init();
-            Reloaded?.Invoke();
+            return SettingsSerializer.DeserializeFile<SettingsCache>(filename) ?? new();
         }
-
-        public static SettingsCache Load()
+        catch (Exception e)
         {
-            return LoadFrom(Path);
+            _ = e;
+            return new();
         }
+    }
 
-        public static SettingsCache LoadFrom(string filename)
-        {
-            try
-            {
-                return SettingsSerializer.DeserializeFile<SettingsCache>(filename) ?? new();
-            }
-            catch (Exception e)
-            {
-                _ = e;
-                return new();
-            }
-        }
+    public static bool Save()
+    {
+        return SaveAs(Path);
+    }
 
-        public static bool Save()
+    public static bool SaveAs(string filename, bool overwrite = true)
+    {
+        if (!overwrite && File.Exists(filename))
         {
-            return SaveAs(Path);
+            return true;
         }
+        return SettingsSerializer.SerializeFile(Path, Cache);
+    }
 
-        public static bool SaveAs(string filename, bool overwrite = true)
+    public static bool SaveAs(string filename, object obj, bool overwrite = true)
+    {
+        if (!overwrite && File.Exists(filename))
         {
-            if (!overwrite && File.Exists(filename))
-            {
-                return true;
-            }
-            return SettingsSerializer.SerializeFile(Path, Cache);
+            return true;
         }
-
-        public static bool SaveAs(string filename, object obj, bool overwrite = true)
-        {
-            if (!overwrite && File.Exists(filename))
-            {
-                return true;
-            }
-            return SettingsSerializer.SerializeFile(filename, obj);
-        }
+        return SettingsSerializer.SerializeFile(filename, obj);
     }
 }

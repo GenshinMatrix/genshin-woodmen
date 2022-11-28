@@ -1,30 +1,29 @@
 ﻿using System;
 using System.Threading;
 
-namespace GenshinWoodmen.Core
+namespace GenshinWoodmen.Core;
+
+internal class PeriodProcessor
 {
-    internal class PeriodProcessor
+    public Thread PeriodThread;
+    public Action PeriodWork;
+
+    public PeriodProcessor(Action periodWork)
     {
-        public Thread PeriodThread;
-        public Action PeriodWork;
-
-        public PeriodProcessor(Action periodWork)
+        PeriodWork = periodWork;
+        PeriodThread = new(GetPeriod)
         {
-            PeriodWork = periodWork;
-            PeriodThread = new(GetPeriod)
-            {
-                IsBackground = true,
-            };
-            PeriodThread.Start();
-        }
+            IsBackground = true,
+        };
+        PeriodThread.Start();
+    }
 
-        public void GetPeriod()
+    public void GetPeriod()
+    {
+        while (true)
         {
-            while (true)
-            {
-                PeriodWork?.Invoke();
-                Thread.Sleep(1500);
-            }
+            PeriodWork?.Invoke();
+            Thread.Sleep(1500);
         }
     }
 }
