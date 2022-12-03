@@ -51,6 +51,7 @@ internal static class JiggingProcessor
     {
         bool lastAutoLogout = false;
 
+        CompatibleEntry.Ensure();
         await SetMute(true);
         while (!IsCanceled)
         {
@@ -90,6 +91,13 @@ internal static class JiggingProcessor
                 {
                     if (lastAutoLogout)
                     {
+                        if (CompatibleBilibili.IsAvailabled)
+                        {
+                            TraceStatus("Login Compatible for bilibili");
+                            await Delay(Settings.DelayLaunch.Get() / 2);
+                            await CompatibleBilibili.Login();
+                            TraceStatus("Login Logined for bilibili");
+                        }
                         TraceStatus("Login Chattering");
                         await Delay(Settings.DelayLaunch.Get());
                         TraceStatus("Login Chattered");

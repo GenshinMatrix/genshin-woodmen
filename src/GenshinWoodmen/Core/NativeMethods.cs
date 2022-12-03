@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Management;
 using System.Runtime.InteropServices;
+using System.Text;
 
 namespace GenshinWoodmen.Core;
 
@@ -8,6 +9,7 @@ internal static class NativeMethods
 {
     public const int WM_SYSCOMMAND = 0x0112;
     public const int WM_HOTKEY = 0x0312;
+    public const int WM_LBUTTONDOWN = 0x0201;
 
     public const int SC_RESTORE = 0xF120;
 
@@ -123,6 +125,38 @@ internal static class NativeMethods
 
     [DllImport("user32.dll", CharSet = CharSet.Auto)]
     public static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+
+    [DllImport("user32.dll")]
+    public static extern IntPtr FindWindowEx(int hwndParent, int hwndChildAfter, string lpszClass, string lpszWindow);
+
+    [DllImport("user32.dll")]
+    public static extern IntPtr FindWindow(string strclassName, string strWindowName);
+
+    [DllImport("user32.dll")]
+    public static extern int GetLastActivePopup(IntPtr hWnd);
+
+    [DllImport("user32.dll")]
+    public static extern int AnyPopup();
+
+    [DllImport("user32.dll")]
+    public static extern int GetWindowTextLength(IntPtr hWnd);
+
+    [DllImport("user32.dll")]
+    public static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
+
+    [DllImport("user32.dll")]
+    public static extern int EnumThreadWindows(int dwThreadId, EnumWindowsCallBack lpfn, int lParam);
+
+    [DllImport("user32.dll")]
+    public static extern int EnumWindows(EnumWindowsCallBack lpfn, int lParam);
+
+    [DllImport("user32.dll")]
+    public static extern int EnumChildWindows(IntPtr hWndParent, EnumWindowsCallBack lpfn, int lParam);
+
+    public delegate bool EnumWindowsCallBack(IntPtr hwnd, int lParam);
+
+    [DllImport("user32.dll")]
+    public static extern int GetWindowThreadProcessId(IntPtr hwnd, out int PID);
 
     [DllImport("winmm.dll", EntryPoint = "mciSendString")]
     public static extern uint MciSendString(string lpstrCommand, string lpstrReturnString, uint uReturnLength, uint hWndCallback);
@@ -285,6 +319,17 @@ internal static class NativeMethods
         _ = GetWindowRect(hwnd, ref rect);
         _ = SetWindowPos(hwnd, topMost ? HWND_TOPMOST : HWND_NOTOPMOST, rect.Left, rect.Top, rect.Right - rect.Left, rect.Bottom - rect.Top, 0);
     }
+
+    public static string GetWindowTitle(IntPtr hwnd)
+    {
+        int capacity = GetWindowTextLength(hwnd);
+        StringBuilder title = new(capacity + 1);
+        _ = GetWindowText(hwnd, title, title.Capacity);
+        return title.ToString();
+    }
+
+    public static int MAKELPARAM(int l, int h) => MAKELONG(l, h);
+    public static int MAKELONG(int a, int b) => a | (b << 16);
 }
 
 [StructLayout(LayoutKind.Sequential)]

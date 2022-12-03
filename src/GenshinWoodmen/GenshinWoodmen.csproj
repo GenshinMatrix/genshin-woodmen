@@ -10,9 +10,9 @@
     <ApplicationIcon>Resources\favicon.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Platforms>x64</Platforms>
-    <AssemblyVersion>1.6.8</AssemblyVersion>
-    <FileVersion>1.6.8</FileVersion>
-    <Version>$(VersionPrefix)1.6.8</Version>
+    <AssemblyVersion>1.7.0</AssemblyVersion>
+    <FileVersion>1.7.0</FileVersion>
+    <Version>$(VersionPrefix)1.7.0</Version>
     <Authors>GenshinMatrix</Authors>
     <Company>GenshinMatrix</Company>
   </PropertyGroup>
