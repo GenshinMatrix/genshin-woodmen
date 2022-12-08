@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenshinWoodmen", "GenshinWoodmen\GenshinWoodmen.csproj", "{62009BA9-C624-464C-8A47-2556BE498D68}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{816401F9-553A-4F38-9044-6A741F362375}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "GenshinWoodmenSetup", "GenshinWoodmenSetup\GenshinWoodmenSetup.wapproj", "{0B2465A9-2DC4-41C6-9FD5-AF357969B85C}"
 EndProject
