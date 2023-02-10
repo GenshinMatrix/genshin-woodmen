@@ -25,9 +25,7 @@
 
 ## 推薦の伐採穴場
 
-![usage](src/GenshinWoodmen/Resources/usage.jpg)
-
-
+[ここをクリック](src/GenshinWoodmen/Resources/usage.jpg)
 
 ## FAQs
 

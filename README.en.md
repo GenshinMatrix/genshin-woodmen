@@ -21,9 +21,7 @@ This is an automatic tool to obtain woods in Genshin Impact using gadget named "
 
 ## Recommended Points
 
-![usage](src/GenshinWoodmen/Resources/usage.jpg)
-
-
+[Click here](src/GenshinWoodmen/Resources/usage.jpg)
 
 ## FAQs
 

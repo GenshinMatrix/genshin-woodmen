@@ -25,10 +25,7 @@ internal class SettingsManager
             instance = Load();
         }
 
-        if (instance == null)
-        {
-            instance = new();
-        }
+        instance ??= new();
         return instance;
     }
 
