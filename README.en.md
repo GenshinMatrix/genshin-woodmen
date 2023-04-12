@@ -25,6 +25,6 @@ This is an automatic tool to obtain woods in Genshin Impact using gadget named "
 
 ## FAQs
 
-1. When the setup can't be installed. Please ensure that your system has installed the Microsoft Store. The setup depends on the store architecture (MSIX).
+1. When the setup can't be installed. Please ensure that your system has installed the Microsoft Store. The setup depends on the store architecture (MSIX). LTSC and LTSB do not have a Microsoft Store by default.
 2. Runtime environment is net6.0-windows10.0.19041.0.
 
