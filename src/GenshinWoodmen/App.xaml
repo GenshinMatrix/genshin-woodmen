@@ -14,10 +14,10 @@
                 <ResourceDictionary Source="/Resources/Languages/jp.xaml"/>
                 <ResourceDictionary Source="/Resources/Languages/en-us.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/MicaWPF;component/Styles/MicaWPF.xaml" />
-                <ui:ThemeResources/>
+                <ui:ThemeResources RequestedTheme="Light"/>
                 <ui:XamlControlsResources/>
                 <ui:ResourceDictionaryEx/>
-                <ui:ColorPaletteResources/>
+                <ui:ColorPaletteResources TargetTheme="Light"/>
                 <ui:IntellisenseResources/>
             </ResourceDictionary.MergedDictionaries>
             <FontFamily x:Key="SegoeFluent">/Resources/segoe-fluent-icons.ttf#Segoe Fluent Icons</FontFamily>
