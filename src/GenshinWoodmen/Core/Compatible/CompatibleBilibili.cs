@@ -70,7 +70,7 @@ internal sealed class CompatibleBilibili
                 }, 0);
                 if (hwndLogin == IntPtr.Zero) return false;
                 NativeMethods.Focus(hwndLogin);
-                NativeMethods.CursorCenterPos(hwndLogin, offsetY: 110);
+                NativeMethods.CursorCenterPos(hwndLogin, offsetY: 125);
                 UserSimulator.Input.Mouse.LeftButtonClick();
                 return true;
             }
