@@ -14,7 +14,7 @@ namespace GenshinWoodmen;
 
 public partial class App : Application
 {
-    public static new App? Current { get; protected set; } = null!;
+    public new static App? Current { get; protected set; } = null!;
     public TaskbarIcon Taskbar { get; protected set; } = null!;
     public static bool IsElevated { get; } = GetElevated();
 

@@ -10,6 +10,7 @@ public partial class MessageDialog : ContentDialog
         get => (string)GetValue(MessageProperty);
         set => SetValue(MessageProperty, value);
     }
+
     public static readonly DependencyProperty MessageProperty = DependencyProperty.Register("Message", typeof(string), typeof(MessageDialog), new PropertyMetadata(null!));
 
     public MessageDialog(string title, string message)

@@ -2,7 +2,7 @@
 
 public enum MouseButton
 {
-	LeftButton,
-	MiddleButton,
-	RightButton
+    LeftButton,
+    MiddleButton,
+    RightButton
 }

@@ -7,6 +7,7 @@ namespace GenshinWoodmen.Views;
 public partial class ShutdownTimerSettingsDialog : ObservableContentDialog
 {
     protected int powerOffAutoHour = 0;
+
     public int PowerOffAutoHour
     {
         get => powerOffAutoHour;
@@ -18,6 +19,7 @@ public partial class ShutdownTimerSettingsDialog : ObservableContentDialog
     }
 
     protected int powerOffAutoMinute = 0;
+
     public int PowerOffAutoMinute
     {
         get => powerOffAutoMinute;

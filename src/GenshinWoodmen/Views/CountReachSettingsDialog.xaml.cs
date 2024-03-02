@@ -14,6 +14,7 @@ public partial class CountReachSettingsDialog : ObservableContentDialog
         get => (CountSettingsCase)GetValue(CaseProperty);
         set => SetValue(CaseProperty, value);
     }
+
     public static readonly DependencyProperty CaseProperty = DependencyProperty.Register("Case", typeof(CountSettingsCase), typeof(CountReachSettingsDialog), new(CountSettingsCase.Notification));
 
     public string WhenCountReachedCommand
@@ -23,6 +24,7 @@ public partial class CountReachSettingsDialog : ObservableContentDialog
     }
 
     private bool isCountStartedFromNextUpdateTime = UpdateTime.IsCountStartedFormNextUpdateTime;
+
     public bool IsCountStartedFromNextUpdateTime
     {
         get => isCountStartedFromNextUpdateTime;
@@ -34,6 +36,7 @@ public partial class CountReachSettingsDialog : ObservableContentDialog
     }
 
     public string NextUpdateTimeViewString => UpdateTime.NextUpdateTimeViewString;
+
     public ICommand UpdateNextUpdateTimeCommand => new RelayCommand(() =>
     {
         _ = UpdateTime.UpdateNextTime();

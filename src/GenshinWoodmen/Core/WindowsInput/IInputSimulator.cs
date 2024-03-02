@@ -2,7 +2,7 @@
 
 public interface IInputSimulator
 {
-	IKeyboardSimulator Keyboard { get; }
-	IMouseSimulator Mouse { get; }
-	IInputDeviceStateAdaptor InputDeviceState { get; }
+    IKeyboardSimulator Keyboard { get; }
+    IMouseSimulator Mouse { get; }
+    IInputDeviceStateAdaptor InputDeviceState { get; }
 }

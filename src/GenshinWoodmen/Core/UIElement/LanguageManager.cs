@@ -72,7 +72,6 @@ public static class LanguageManager
         return null!;
     }
 
-
     public static string Mui(string key, string arg0)
     {
         return string.Format(Mui(key), arg0);

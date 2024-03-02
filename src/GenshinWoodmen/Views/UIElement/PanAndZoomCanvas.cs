@@ -80,7 +80,7 @@ public class PanAndZoomCanvas : Canvas
             double x = Canvas.GetLeft(child);
             double y = Canvas.GetTop(child);
 
-            double sx = x ;
+            double sx = x;
             double sy = y;
 
             Canvas.SetLeft(child, sx);

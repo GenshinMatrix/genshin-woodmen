@@ -43,6 +43,7 @@ public class MainViewModel : ObservableRecipient, IRecipient<CountMessage>, IRec
     public int ForecastX30Count => (int)Math.Floor(2000d / 30d);
 
     protected int currentCount = 0;
+
     public int CurrentCount
     {
         get => currentCount;
@@ -50,6 +51,7 @@ public class MainViewModel : ObservableRecipient, IRecipient<CountMessage>, IRec
     }
 
     protected int maxCount = 0;
+
     public int MaxCount
     {
         get => maxCount;
@@ -57,6 +59,7 @@ public class MainViewModel : ObservableRecipient, IRecipient<CountMessage>, IRec
     }
 
     protected string currentStatus = null!;
+
     public string CurrentStatus
     {
         get => currentStatus;
@@ -64,6 +67,7 @@ public class MainViewModel : ObservableRecipient, IRecipient<CountMessage>, IRec
     }
 
     protected bool powerOffAuto = false;
+
     public bool PowerOffAuto
     {
         get => powerOffAuto;
@@ -72,6 +76,7 @@ public class MainViewModel : ObservableRecipient, IRecipient<CountMessage>, IRec
 
     protected int powerOffAutoMinuteByUser = 0;
     protected int powerOffAutoMinute = 0;
+
     public int PowerOffAutoMinute
     {
         get => powerOffAutoMinute;
@@ -95,6 +100,7 @@ public class MainViewModel : ObservableRecipient, IRecipient<CountMessage>, IRec
     }
 
     protected byte brightness = NativeMethods.GetBrightness();
+
     public byte Brightness
     {
         get => brightness;
@@ -201,6 +207,7 @@ public class MainViewModel : ObservableRecipient, IRecipient<CountMessage>, IRec
     });
 
     public ICommand ClearCountCommand => new RelayCommand(() => MaxCount = CurrentCount = 0);
+
     public ICommand TopMostCommand => new RelayCommand<Window>(async app =>
     {
         app!.Topmost = !app.Topmost;
@@ -209,11 +216,13 @@ public class MainViewModel : ObservableRecipient, IRecipient<CountMessage>, IRec
             topMostIcon.Text = app.Topmost ? FluentSymbol.Unpin : FluentSymbol.Pin;
         }
     });
+
     public ICommand RestorePosCommand => new RelayCommand<Window>(async app =>
     {
         app!.Left = Left - app.Width;
         app!.Top = Top - app.Height;
     });
+
     public ICommand RestartCommand => NotifyIconViewModel.RestartCommand;
     public ICommand ExitCommand => NotifyIconViewModel.ExitCommand;
     public ICommand UsageCommand => NotifyIconViewModel.UsageCommand;
@@ -222,12 +231,13 @@ public class MainViewModel : ObservableRecipient, IRecipient<CountMessage>, IRec
     public ICommand UsageImageMultiCommand => NotifyIconViewModel.UsageImageMultiCommand;
     public ICommand GitHubCommand => NotifyIconViewModel.GitHubCommand;
 
-    public ICommand MuteGameCommand  => new RelayCommand(async () => await MuteManager.MuteGameAsync(true));
+    public ICommand MuteGameCommand => new RelayCommand(async () => await MuteManager.MuteGameAsync(true));
     public ICommand UnmuteGameCommand => new RelayCommand(async () => await MuteManager.MuteGameAsync(false));
     public ICommand MuteSystemCommand => new RelayCommand(() => MuteManager.MuteSystem(true));
     public ICommand UnmuteSystemCommand => new RelayCommand(() => MuteManager.MuteSystem(false));
 
     protected CountSettingsCase countSettingsCase;
+
     public CountSettingsCase CountSettingsCase
     {
         get => countSettingsCase;
@@ -237,7 +247,9 @@ public class MainViewModel : ObservableRecipient, IRecipient<CountMessage>, IRec
             SetProperty(ref countSettingsCase, value);
         }
     }
+
     protected bool CountSettingsDialogShown = false;
+
     public ICommand CountSettingsCommand => new RelayCommand(async () =>
     {
         if (CountSettingsDialogShown) return;
@@ -258,6 +270,7 @@ public class MainViewModel : ObservableRecipient, IRecipient<CountMessage>, IRec
     });
 
     protected bool ShutdownTimerSettingsDialogShown = false;
+
     public ICommand ShutdownTimerSettingsCommand => new RelayCommand(async () =>
     {
         if (ShutdownTimerSettingsDialogShown) return;
@@ -280,6 +293,7 @@ public class MainViewModel : ObservableRecipient, IRecipient<CountMessage>, IRec
         get => LaunchCtrl.TwiceEsc;
         set => LaunchCtrl.TwiceEsc = value;
     }
+
     public bool TwiceEscReplacedLeftClick
     {
         get => LaunchCtrl.TwiceEscReplacedLeftClick;
@@ -387,9 +401,11 @@ public class MainViewModel : ObservableRecipient, IRecipient<CountMessage>, IRec
             case CountSettingsCase.Notification:
                 NoticeService.AddNotice(Mui("Tips"), string.Format(Mui("CountReachStop"), MaxCount), string.Empty, ToastDuration.Short);
                 break;
+
             case CountSettingsCase.CloseGame:
                 await LaunchCtrl.Close();
                 break;
+
             case CountSettingsCase.Shutdown:
                 switch ((AutoMuteSelection)Settings.AutoMute.Get())
                 {
@@ -407,9 +423,11 @@ public class MainViewModel : ObservableRecipient, IRecipient<CountMessage>, IRec
                     PowerOffAuto = true;
                 });
                 break;
+
             case CountSettingsCase.Dadada:
                 await DadadaManager.Show();
                 break;
+
             case CountSettingsCase.Customize:
                 await Task.Run(() =>
                 {
@@ -465,7 +483,9 @@ public class MainViewModel : ObservableRecipient, IRecipient<CountMessage>, IRec
             CurrentCount++;
         }
     }
+
     void IRecipient<StatusMessage>.Receive(StatusMessage message) => CurrentStatus = message.ToString();
+
     void IRecipient<CancelShutdownMessage>.Receive(CancelShutdownMessage message)
     {
         PowerOffAuto = false;

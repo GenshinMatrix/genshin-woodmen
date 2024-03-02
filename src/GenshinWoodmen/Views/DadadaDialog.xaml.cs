@@ -13,6 +13,7 @@ public partial class DadadaDialog : ObservableContentDialog
         "zh" or "jp" => Visibility.Visible, // for kanji only
         _ => Visibility.Collapsed,
     };
+
     public Visibility DefaultCoverVisibilityInverted => DefaultCoverVisibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
 
     public DadadaDialog()

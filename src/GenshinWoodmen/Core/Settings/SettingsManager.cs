@@ -6,6 +6,7 @@ namespace GenshinWoodmen.Core;
 internal class SettingsManager
 {
     public static event Action? Reloaded;
+
     public static readonly string Path = SpecialPathProvider.GetPath($"{Pack.Alias}.yaml");
     public static SettingsCache Cache = Init();
 

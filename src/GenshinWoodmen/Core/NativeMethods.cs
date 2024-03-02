@@ -329,6 +329,7 @@ internal static class NativeMethods
     }
 
     public static int MAKELPARAM(int l, int h) => MAKELONG(l, h);
+
     public static int MAKELONG(int a, int b) => a | (b << 16);
 }
 
@@ -412,8 +413,10 @@ internal struct MOUSEKEYBDHARDWAREINPUT
 {
     [FieldOffset(0)]
     public MOUSEINPUT Mouse;
+
     [FieldOffset(0)]
     public KEYBDINPUT Keyboard;
+
     [FieldOffset(0)]
     public HARDWAREINPUT Hardware;
 }
@@ -636,6 +639,7 @@ public struct POINT
 {
     public int x;
     public int y;
+
     public POINT(int x, int y)
     {
         this.x = x;

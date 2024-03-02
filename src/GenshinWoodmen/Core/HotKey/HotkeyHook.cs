@@ -10,6 +10,7 @@ namespace GenshinWoodmen.Core;
 public sealed class HotkeyHook : IDisposable
 {
     public event EventHandler<KeyPressedEventArgs>? KeyPressed;
+
     private readonly Window? window = new();
     private int currentId;
 

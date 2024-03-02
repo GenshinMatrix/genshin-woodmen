@@ -60,6 +60,7 @@ public class NotifyIconViewModel : ObservableRecipient
             SettingsManager.Save();
         }
     }
+
     public static ICommand LanguageZH => new RelayCommand<Window>(async app => SetLanguagePrivate("zh-cn"));
     public static ICommand LanguageJP => new RelayCommand<Window>(async app => SetLanguagePrivate("jp"));
     public static ICommand LanguageEN => new RelayCommand<Window>(async app => SetLanguagePrivate("en-us"));

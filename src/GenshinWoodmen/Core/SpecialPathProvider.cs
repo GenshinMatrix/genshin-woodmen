@@ -32,6 +32,7 @@ internal class SpecialPathProvider
     }
 
     #region Legacy
+
     [Description("Legacy")]
     private static string GetPathLegacy(string baseName)
     {
@@ -59,5 +60,6 @@ internal class SpecialPathProvider
             Logger.Warn($"[SpecialPathProvider] Migrate Legacy file `{baseName}` failed.");
         }
     }
-    #endregion
+
+    #endregion Legacy
 }

@@ -149,6 +149,7 @@ internal static class JiggingProcessor
             case AutoMuteSelection.AutoMuteSystem:
                 MuteManager.MuteSystem(isMuted);
                 break;
+
             case AutoMuteSelection.AutoMuteGame:
                 await MuteManager.MuteGameAsync(isMuted);
                 break;

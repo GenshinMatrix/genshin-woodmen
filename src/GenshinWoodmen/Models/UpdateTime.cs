@@ -14,7 +14,7 @@ public static class UpdateTime
         int timeZoneOffset8 = 8 - TimeZoneInfo.Local.BaseUtcOffset.Hours;
         DateTime dateTime8 = DateTime.Now.AddHours(timeZoneOffset8);
         DateTime dateTimeUpdate8 = new(dateTime8.Year, dateTime8.Month, dateTime8.Day, 4, 0, 0, DateTimeKind.Utc);
-        
+
         if (dateTime8.Hour >= 4)
         {
             dateTimeUpdate8 = dateTimeUpdate8.AddDays(1);

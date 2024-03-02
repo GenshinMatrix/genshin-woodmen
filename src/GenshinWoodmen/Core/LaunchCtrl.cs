@@ -78,6 +78,7 @@ internal class LaunchCtrl
 
     public static bool TwiceEsc { get; set; } = false;
     public static bool TwiceEscReplacedLeftClick { get; set; } = false;
+
     public static async Task<bool> Logout()
     {
         return await IsRunning(async p =>
