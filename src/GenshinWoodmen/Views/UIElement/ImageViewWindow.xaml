@@ -3,18 +3,21 @@
                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                  xmlns:local="clr-namespace:GenshinWoodmen.Views"
                  xmlns:mica="clr-namespace:MicaWPF.Controls;assembly=MicaWPF"
-                 WindowStartupLocation="CenterScreen"
-                 TitleBarType="WinUI"
+                 Cursor="Hand"
                  Icon="../../Resources/favicon.ico"
                  RenderOptions.BitmapScalingMode="Fant"
-                 WindowState="Maximized" Cursor="Hand">
+                 TitleBarType="WinUI"
+                 WindowStartupLocation="CenterScreen"
+                 WindowState="Maximized">
     <Grid>
-        <local:PanAndZoomCanvas x:Name="imageCanvas" MinDeterminant="0.005" MaxDeterminant="4">
+        <local:PanAndZoomCanvas x:Name="imageCanvas"
+                                MaxDeterminant="4"
+                                MinDeterminant="0.005">
             <Image x:Name="imageControl" Stretch="Uniform">
                 <Image.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform/>
-                        <TranslateTransform/>
+                        <ScaleTransform />
+                        <TranslateTransform />
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
