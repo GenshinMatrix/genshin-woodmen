@@ -11,7 +11,7 @@ internal static class UsageManager
 
     public static bool ShowUsageImage(UsageImageType type = UsageImageType.Normal)
     {
-        string uriString = $"pack://application:,,,/{Pack.Name};component/Resources/usage" + type switch
+        string uriString = $"pack://application:,,,/{Pack.Name};component/Resources/Guides/Usage" + type switch
         {
             UsageImageType.Single => "_single",
             UsageImageType.Multi => "_multi",

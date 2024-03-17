@@ -1,32 +1,64 @@
 ﻿<local:ObservableContentDialog x:Class="GenshinWoodmen.Views.CountReachSettingsDialog"
                                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                               xmlns:ui="http://schemas.modernwpf.com/2019"
-                               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                                xmlns:local="clr-namespace:GenshinWoodmen.Views"
-                               mc:Ignorable="d" Title="{Binding Title}"
-                               PrimaryButtonText="{DynamicResource ButtonOK}" DefaultButton="Primary">
+                               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                               xmlns:ui="http://schemas.modernwpf.com/2019"
+                               Title="{Binding Title}"
+                               DefaultButton="Primary"
+                               PrimaryButtonText="{DynamicResource ButtonOK}"
+                               mc:Ignorable="d">
     <ContentControl.Resources>
         <ResourceDictionary>
-            <local:CountSettingsCaseToBoolConverter x:Key="CountSettingsCaseToBoolConverter"/>
+            <local:CountSettingsCaseToBoolConverter x:Key="CountSettingsCaseToBoolConverter" />
         </ResourceDictionary>
     </ContentControl.Resources>
     <StackPanel Margin="0,0,0,0">
-        <TextBlock Text="{DynamicResource CountSettings}" VerticalAlignment="Center" FontSize="16"/>
+        <TextBlock VerticalAlignment="Center"
+                   FontSize="16"
+                   Text="{DynamicResource CountSettings}" />
         <StackPanel Margin="5,10,0,0">
-            <RadioButton Content="{DynamicResource CountSettings0}" ToolTip="{DynamicResource CountSettings0Detail}" IsChecked="{Binding Case,Converter={StaticResource CountSettingsCaseToBoolConverter},ConverterParameter=0}"/>
-            <RadioButton Content="{DynamicResource CountSettings1}" ToolTip="{DynamicResource CountSettings1Detail}" IsChecked="{Binding Case,Converter={StaticResource CountSettingsCaseToBoolConverter},ConverterParameter=1}"/>
-            <RadioButton Content="{DynamicResource CountSettings2}" ToolTip="{DynamicResource CountSettings2Detail}" IsChecked="{Binding Case,Converter={StaticResource CountSettingsCaseToBoolConverter},ConverterParameter=2}"/>
-            <RadioButton Content="{DynamicResource CountSettings3}" ToolTip="{DynamicResource CountSettings3Detail}" IsChecked="{Binding Case,Converter={StaticResource CountSettingsCaseToBoolConverter},ConverterParameter=3}"/>
-            <RadioButton Content="{DynamicResource CountSettings4}" ToolTip="{DynamicResource CountSettings4Detail}" IsChecked="{Binding Case,Converter={StaticResource CountSettingsCaseToBoolConverter},ConverterParameter=4}"/>
-            <TextBox Margin="0,5,0,0" Text="{Binding WhenCountReachedCommand}" IsEnabled="{Binding Case,Converter={StaticResource EqualsConverter},ConverterParameter={x:Static local:CountSettingsCase.Customize}}" ToolTip="{DynamicResource CountSettingsCustomizeHint}" ui:TextBoxHelper.IsDeleteButtonVisible="True"/>
-            <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
-                <CheckBox Content="{DynamicResource CountStartFromNextUpdateTime}" IsChecked="{Binding IsCountStartedFromNextUpdateTime}"/>
-                <TextBlock Margin="5,0,0,0" Text="{Binding NextUpdateTimeViewString}" Foreground="#6078D7" VerticalAlignment="Center"/>
-                <Button Background="Transparent" Command="{Binding UpdateNextUpdateTimeCommand}" Margin="0" FocusVisualStyle="{x:Null}" HorizontalAlignment="Right" Content="&#xe72c;" FontSize="12" Padding="1" FontFamily="{StaticResource SegoeFluent}" VerticalAlignment="Center"/>
+            <RadioButton Content="{DynamicResource CountSettings0}"
+                         IsChecked="{Binding Case, Converter={StaticResource CountSettingsCaseToBoolConverter}, ConverterParameter=0}"
+                         ToolTip="{DynamicResource CountSettings0Detail}" />
+            <RadioButton Content="{DynamicResource CountSettings1}"
+                         IsChecked="{Binding Case, Converter={StaticResource CountSettingsCaseToBoolConverter}, ConverterParameter=1}"
+                         ToolTip="{DynamicResource CountSettings1Detail}" />
+            <RadioButton Content="{DynamicResource CountSettings2}"
+                         IsChecked="{Binding Case, Converter={StaticResource CountSettingsCaseToBoolConverter}, ConverterParameter=2}"
+                         ToolTip="{DynamicResource CountSettings2Detail}" />
+            <RadioButton Content="{DynamicResource CountSettings3}"
+                         IsChecked="{Binding Case, Converter={StaticResource CountSettingsCaseToBoolConverter}, ConverterParameter=3}"
+                         ToolTip="{DynamicResource CountSettings3Detail}" />
+            <RadioButton Content="{DynamicResource CountSettings4}"
+                         IsChecked="{Binding Case, Converter={StaticResource CountSettingsCaseToBoolConverter}, ConverterParameter=4}"
+                         ToolTip="{DynamicResource CountSettings4Detail}" />
+            <TextBox Margin="0,5,0,0"
+                     ui:TextBoxHelper.IsDeleteButtonVisible="True"
+                     IsEnabled="{Binding Case, Converter={StaticResource EqualsConverter}, ConverterParameter={x:Static local:CountSettingsCase.Customize}}"
+                     Text="{Binding WhenCountReachedCommand}"
+                     ToolTip="{DynamicResource CountSettingsCustomizeHint}" />
+            <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                <CheckBox Content="{DynamicResource CountStartFromNextUpdateTime}" IsChecked="{Binding IsCountStartedFromNextUpdateTime}" />
+                <TextBlock Margin="5,0,0,0"
+                           VerticalAlignment="Center"
+                           Foreground="#6078D7"
+                           Text="{Binding NextUpdateTimeViewString}" />
+                <Button Margin="0"
+                        Padding="1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Background="Transparent"
+                        Command="{Binding UpdateNextUpdateTimeCommand}"
+                        Content="&#xe72c;"
+                        FocusVisualStyle="{x:Null}"
+                        FontFamily="{StaticResource SegoeFluent}"
+                        FontSize="12" />
             </StackPanel>
-            <TextBlock Margin="0,5,0,0" Text="{DynamicResource CountSettingsTempHint}" FontStyle="Italic"/>
+            <TextBlock Margin="0,5,0,0"
+                       FontStyle="Italic"
+                       Text="{DynamicResource CountSettingsTempHint}" />
         </StackPanel>
     </StackPanel>
 </local:ObservableContentDialog>

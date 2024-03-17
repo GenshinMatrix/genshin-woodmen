@@ -23,7 +23,7 @@
 
 ## 推荐伐木点
 
-[点击这里](src/GenshinWoodmen/Resources/usage.jpg)
+[点击这里](src/GenshinWoodmen/Resources/Guides)
 
 ## 常见问题
 
